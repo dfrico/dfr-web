@@ -1,0 +1,48 @@
+.cursor {
+  height: var(--height);
+  left: var(--left);
+  pointer-events: none;
+  top: var(--top);
+  transform: translate(-50%, -50%) scale(var(--scale));
+  transition-property: width, height;
+  width: var(--width);
+
+  --top: -1em;
+  --left: -1em;
+  --width: 0;
+  --height: 0;
+  --scale: 1;
+  --translateX: 0;
+  --translateY: 0;
+
+  &.is-locked {
+    transition-property: width, height, left, top;
+
+    .cursor__content {
+      opacity: 0.06;
+    }
+  }
+
+  &,
+  &__content {
+    position: absolute;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+  }
+
+  &__content {
+    background-color: #000;
+    border-radius: 0.6em;
+    bottom: 0;
+    left: 0;
+    opacity: 0.3;
+    right: 0;
+    top: 0;
+    transform: translate(var(--translateX), var(--translateY));
+    transition-property: "opacity";
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #FFF;
+    }
+  }
+}

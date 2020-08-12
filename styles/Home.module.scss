@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.headerLink {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.6em 0.8em;
+  position: relative;
+  text-decoration: none;
+  transform: translate(var(--translateX), var(--translateY)) scale(var(--scale));
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  transition-property: opacity;
+  z-index: 1;
+
+  --scale: 1;
+  --translateX: 0;
+  --translateY: 0;
+
+  &:not(:hover) {
+    transition-property: transform, opacity;
+  }
+
+  &:active {
+    opacity: 0.5;
+    transform: translate(var(--translateX), var(--translateY)) scale(1);
+  }
+}
+
+.logo {
+  height: 40px;
+  transform: translateX(-16px);
+}
