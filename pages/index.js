@@ -2,14 +2,10 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-import cursor from "../services/cursor";
+import Cursor from "../components/cursor";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
-  useEffect(() => {
-    cursor();
-  }, []);
-
   return (
     <>
       <Head>
@@ -52,10 +48,7 @@ export default function Home() {
           </header>
           <p>Daniel Fernandez</p>
         </div>
-
-        <div id="cursor" className="cursor">
-          <div className="cursor__content"></div>
-        </div>
+        <Cursor />
       </main>
     </>
   );

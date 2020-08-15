@@ -24,13 +24,13 @@
   }
 
   &,
-  &__content {
+  .cursor__content {
     position: absolute;
     transition-duration: 0.1s;
     transition-timing-function: ease-out;
   }
 
-  &__content {
+  .cursor__content {
     background-color: #000;
     border-radius: 0.6em;
     bottom: 0;
