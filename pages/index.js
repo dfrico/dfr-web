@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import Header from '../components/header';
 import Cursor from "../components/cursor";
-import Placeholder from "../components/placeholder";
+import Preview from "../components/main-preview";
 import Footer from "../components/footer";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
 
       <main>
         <Header />
-        <Placeholder />
+        <Preview />
         <Cursor />
         <Footer />
       </main>
