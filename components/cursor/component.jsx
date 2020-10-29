@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import homeStyles from "../../styles/Home.module.scss";
+import headerStyles from "../header/header.module.scss";
 import styles from "./styles.module.scss";
 
 export default function Cursor() {
@@ -33,7 +33,7 @@ export default function Cursor() {
       });
 
       /* LINKS */
-      document.querySelectorAll(`.${homeStyles.headerLink}`).forEach((a) => {
+      document.querySelectorAll(`.${headerStyles.headerLink}`).forEach((a) => {
         let rect = null;
 
         a.addEventListener(

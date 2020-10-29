@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-import Link from "next/link";
-
+import Header from '../components/header';
 import Cursor from "../components/cursor";
-import styles from "../styles/Home.module.scss";
+import Placeholder from "../components/placeholder";
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -14,41 +14,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <div>
-          <header className={styles.header}>
-            <Link href="/">
-              <a>
-                <svg
-                  className={styles.logo}
-                  baseProfile="full"
-                  version="1.1"
-                  viewBox="0 0 930 540"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="m240 480a180 180 0 0 1 180 -180v0a180 180 0 0 1 180 180v0a180 180 0 0 1 180 -180m-405 180v0-360 360m90 0v0-180a135 180 0 0 1 135 -180m0 360v0-180"
-                    fill="none"
-                    stroke="#fff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="42"
-                  />
-                </svg>
-              </a>
-            </Link>
-
-            <div className={styles.headerLinks}>
-              <Link href="/about">
-                <a className={styles.headerLink}>About </a>
-              </Link>
-              <Link href="/notes">
-                <a className={styles.headerLink}>Notes </a>
-              </Link>
-            </div>
-          </header>
-          <p>Daniel Fernandez</p>
-        </div>
+        <Header />
+        <Placeholder />
         <Cursor />
+        <Footer />
       </main>
     </>
   );
