@@ -1,8 +1,8 @@
-import posts from "./posts.json";
-import Card from "../card";
+import posts from './posts.json';
+import Card from '../card';
 
 // TODO: move to CMS
-import post from '../../posts/hello-world';
+import post from '../../posts';
 
 function Preview() {
   return (
