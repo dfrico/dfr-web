@@ -5,6 +5,4 @@ function importAll(r) {
   }));
 }
 
-export const posts = importAll(require.context('./', true, /\.mdx$/));
-
-export default posts;
+export default importAll(require.context('../pages/blog', true, /\.mdx$/));

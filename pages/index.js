@@ -1,11 +1,11 @@
 import React from 'react';
 import Preview from '../components/preview';
-import { posts } from './blog/getAllPosts';
+import postList from '../utils/getAllPosts';
 
 export default function Home() {
   return (
     <>
-      {posts.map((post) => (
+      {postList.map((post) => (
         <Preview key={post.link} post={post} />
       ))}
     </>
