@@ -1,5 +1,6 @@
 import { Provider, createClient } from 'urql';
 import PropTypes from 'prop-types';
+import Layout from '../components/layout';
 import '../styles/globals.css';
 
 const client = createClient({
@@ -8,9 +9,13 @@ const client = createClient({
 
 function App({ Component, pageProps }) {
   return (
-    <Provider value={client}>
-      <Component {...pageProps} />
-    </Provider>
+    <>
+      <Provider value={client}>
+        <Layout pageTitle="Blog" description="My Personal Blog">
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
+    </>
   );
 }
 

@@ -9,13 +9,13 @@
     "format": "eslint --ext .jsx --ext .js --fix ."
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.19",
+    "@next/mdx": "^10.0.1",
     "graphql": "^15.4.0",
     "next": "9.5.2",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-markdown": "^5.0.2",
-    "remark-gfm": "^1.0.0",
     "sass": "^1.26.10",
     "urql": "^1.10.3"
   },
@@ -28,6 +28,7 @@
     "eslint-import-resolver-babel-module": "^5.1.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-mdx": "^1.8.2",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",

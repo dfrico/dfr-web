@@ -1,0 +1,23 @@
+import Link from 'next/link';
+import BlogPost from '../../../components/post';
+
+export const meta = {
+  title: 'Introduction to MDX',
+  description: 'Trying MDX generator with Nextjs!',
+  date: 'Nov 06, 2020',
+  readTime: '<1',
+};
+
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+# Post about MDX
+
+MDX is a JSX in Markdown loader, parser, and renderer for ambitious projects.
+
+I have no idea if this works or what
+
+[do links work?](https://www.smashingmagazine.com/2020/09/build-blog-nextjs-mdx/)
+
+<Link href={'/'}>
+  <a>also internal links?</a>
+</Link>
