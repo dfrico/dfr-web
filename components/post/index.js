@@ -11,7 +11,7 @@ function BlogPost({ children, meta }) {
 }
 
 BlogPost.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   meta: PropTypes.object,
 };
 
