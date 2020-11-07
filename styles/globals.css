@@ -22,22 +22,25 @@ body {
 }
 a {
   color: #000;
+  text-decoration: underline;
 }
 a:visited,
 a:hover {
   color: #1c1c1c;
 }
 img,
-main,
 pre > code {
   display: block;
   margin: 25px auto;
 }
 main {
-  padding: 20px;
+  position: relative;
   max-width: 800px;
+  min-height: 100vh;
   line-height: 1.6;
   word-wrap: break-word;
+  margin: 0 auto;
+  padding: 20px;
 }
 img {
   max-width: 100%;
@@ -68,8 +71,8 @@ hr {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #030303;
-    color: #fdfdfd;
+    background-color: #1c1c1c;
+    color: #fafafa;
   }
   a {
     color: #f8f8f8;
@@ -79,6 +82,6 @@ hr {
     color: #bdbdbd;
   }
   code {
-    background: #1c1c1c;
+    background: #030303;
   }
 }

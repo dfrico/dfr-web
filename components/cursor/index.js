@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import headerStyles from '../header/header.module.scss';
-import styles from './styles.module.scss';
+import styles from './cursor.module.scss';
 
 export default function Cursor() {
   // Codepen by cezzre

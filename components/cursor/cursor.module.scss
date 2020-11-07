@@ -39,10 +39,10 @@
     right: 0;
     top: 0;
     transform: translate(var(--translateX), var(--translateY));
-    transition-property: "opacity";
+    transition-property: 'opacity';
 
     @media (prefers-color-scheme: dark) {
-      background-color: #FFF;
+      background-color: #fff;
     }
   }
 }

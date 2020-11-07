@@ -6,7 +6,8 @@ export const meta = {
   title: 'How to visualize the size of your app bundle.',
   description: 'Check the size of your Next app using bundle-analyzer.',
   date: 'Nov 07, 2020',
-  readTime: 1,
+  readTime: 3,
+  postImg: BundleImg,
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
@@ -48,7 +49,7 @@ What happens if you have more configurations? `withTypescript`, `withSass`... Ho
 
 The answer is, you have 2 options:
 
-### 1. Just chain the configurations
+## 1. Just chain the configurations
 
 If the configurations are simple enough, you can do something like this to chain them:
 
@@ -67,7 +68,7 @@ module.exports = withCSS(
 
 However, depending on the plugins you might be using, this option can be problematic. Entering the second option (that I know so far, and the one I'm using).
 
-### 2. Using `next-compose-plugins`.
+## 2. Using `next-compose-plugins`.
 
 If you're already worried about dependencies, adding an extra one might be a doubtful approach. However, [this plugin](https://github.com/cyrilwanner/next-compose-plugins) might be worth it to configure different other plugins where each plugin has its own specific configuration.
 

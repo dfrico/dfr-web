@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from '../header';
 import Cursor from '../cursor';
 import Footer from '../footer';
+import styles from './layout.module.scss';
 
 function Layout({ children, pageTitle, description }) {
   return (
@@ -15,10 +16,10 @@ function Layout({ children, pageTitle, description }) {
       </Head>
       <main>
         <Header />
-        <div className="content">{children}</div>
-        <Cursor />
+        <div className={styles.content}>{children}</div>
         <Footer />
       </main>
+      <Cursor />
     </>
   );
 }
