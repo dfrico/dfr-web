@@ -1,18 +1,15 @@
 import Link from 'next/link';
 import BlogPost from '../../../components/post';
+import Image from './ipad.jpg';
 
 export const meta = {
   title: 'Navigation in nextjs',
   description: 'Launch events in Nextjs when navigating through the site',
   date: 'Nov 07, 2020',
-  readTime: '<1',
+  readTime: 0,
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
-// For images
-// Option 1: next-image webpack config (https://stackoverflow.com/questions/50746420/nextjs-import-images-in-mdx/52757837)
-// Option 2: public
-// Option 3: S3 + URL
 
 MDX is a JSX in Markdown loader, parser, and renderer for ambitious projects.
 
@@ -23,3 +20,5 @@ I have no idea if this works or what
 <Link href={'/'}>
   <a>also internal links?</a>
 </Link>
+
+<img src={Image} />
