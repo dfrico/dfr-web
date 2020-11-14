@@ -25,7 +25,7 @@ I love to write from my iPad. It feels more personal, more inmersive. This may s
 
 In the past I had a webpage created with my own custom static site generator in bash. It was minimal, and worked flawlessly, except for one little detail: I needed a real unix machine with `pandoc` and a bunch of image optimization libraries (`jpegoptim`, `pngquant`, and `img2webp`) in order to compile my markdown files into html, and deploy the site to [Vercel](https://vercel.com).
 
-The only way I made this work –sometimes– was to login via ssh to my Raspberry Pi at home, edit my posts in VIM, and do the workflow from the terminal. I could even forward the development port to my machine to have a real-time preview of what my post looked like.
+The only way I made this work (sometimes) was to login via ssh to my Raspberry Pi at home, edit my posts in VIM, and do the workflow from the terminal. I could even forward the development port to my machine to have a real-time preview of what my post looked like.
 
 <figure>
   <img src={Sshing} alt="sshing to the pi" />
@@ -35,10 +35,10 @@ The only way I made this work –sometimes– was to login via ssh to my Raspber
   </figcaption>
 </figure>
 
-However, this was unconfortable and meant 3 things:
+However, this was uncomfortable and meant 3 things:
 
 1. I needed another machine closeby, or that I could ssh to.
-2. I needed constant internet connection to keep editing. I used mosh in the past, but you need internet connection in an extent.
+2. I needed constant internet connection to keep editing. I used mosh in the past, but you need internet connection to some extent.
 3. The build/deploy workflow itself was far from seamless, and editing in ssh with VIM (I love VIM for local editing, though) was not great.
 
 This last point was the least important, but it kept adding friction to the previous ones. I wanted to remove the dependency of another machine.
