@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdx-js/loader": "^1.6.19",
     "@next/mdx": "^10.0.1",
+    "highlight.js": "^10.3.2",
     "next": "9.5.2",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.2",

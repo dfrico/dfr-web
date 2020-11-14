@@ -1,6 +1,14 @@
 .preview {
   width: 100%;
   margin: 4px 0 8px;
+  transition: background 100ms ease-in 0s;
+  box-shadow: rgba(15, 15, 15, 0.2) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.2) 0px 2px 4px;
+  background: rgb(63, 68, 71) none repeat scroll 0% 0%;
+
+  &:hover {
+    background: rgb(71, 76, 80) none repeat scroll 0% 0%;
+  }
 }
 
 .link {
