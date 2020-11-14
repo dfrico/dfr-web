@@ -1,0 +1,64 @@
+import Link from 'next/link';
+import BlogPost from '../../../components/post';
+import IpadEdit from './photo.jpeg';
+Import Sshing from './sshing.jpeg';
+
+export const meta = {
+  title: 'Writing your blog from iOS',
+	  description: 'Update and publish blog posts directly from your phone',
+  date: 'Nov 07, 2020',
+  readTime: 5,
+  postImg: IpadEdit
+};
+
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+I love to write from my iPad. It feels more personal, more inmersive. This may sound stupid but I like it.
+
+<figure>
+  <img src={IpadEdit} alt="writing a post on the iPad" />
+  <figcaption>
+		Shot on my A7II, imported to the iPad, edited with Darkroom,  then imported to Working Copy and added to this article.
+  </figcaption>
+</figure>
+
+In the past I had a webpage created with my own custom static site generator in bash. It was minimal, and worked flawlessly, except for one little detail: I needed a real unix machine with `pandoc` and a bunch of image optimization libraries (`jpegoptim`, `pngquant`, and `img2webp`) in order to  compile my markdown files into html, and deploy the site to Vercel.
+
+The only way I made this work –sometimes– was to login via ssh to my RPi at home, edit my posts in VIM, and do the workflow from the terminal. I could even forward the development port to my machine to have a real-time preview of what my post looked like. 
+
+<figure>
+  <img src={Sshing} alt="sshing to the pi" />
+  <figcaption>
+		Sshing to the RPi using Termius, and forwarding the local dev port 3000 to the iPad.
+  </figcaption>
+</figure>
+
+However, this was unconfortable and meant 3 things:
+
+1. I needed another machine closeby, or that I could ssh to.
+2. I needed constant internet connection to keep editing. I used mosh in the past, but you need internet connection in an extent.
+3. The build/deploy workflow itself was far from seamless, and editing in ssh with VIM (I love VIM for local editing, though) was not great. 
+
+This last point was the least important, but it kept adding friction to the previous ones. I wanted to remove the dependency  of another machine.
+
+Yes, **I could have setted up CI using GitHub Actions** to automatically run the build and publish scripts, and yes **I could just use my MacBook Pro**, but I always loved ~this post-PC bs~ writing on the iPad (as I mentioned), and to be honest my GitHub repository was as simple as it could be, just in case I wanted to move to sourcehut or something similar. The intent on this experiment was to tinker and find comfortable workflows for me.
+
+Now, as I mentioned in a
+<Link href={'/blog/2020-11-05-setup'}>
+  <a>post before</a>
+</Link>
+, I setted up this blog using NextJS, MDX, and GitHub + Vercel hooks. This means that I could write this entry (.mdx file), add any required photos, push it using Working Copy, and Vercel would take my commit and deploy it automatically. 
+
+Potentially, I could even create PRs for my WIP posts to check them online before merging them to the “production” blog, and Vercel would create unique URLs for those PR deployments. Isn’t it nice?
+
+To add an extra layer of enjoyment to the process, Working Copy lets you open the text files using other editors other than the one bundled, editors such as [IA writer](https://ia.net/writer). As I’m using MDX syntax and sometimes React components, I wish it could have MDX syntax. However, the rest of the features (markdown preview, focus mode, stats, style checks, and the aesthetic of it) are what makes it my favourite markdown editor on iOS.
+
+And that is the workflow I am using right now, as I type this.
+1. I cloned the blog repo on my iPad.
+2. I created a new folder for the new blog entry, with the index.mdx file on it.
+3. Opened the file with IA Writer, and wrote this article.
+4. Added the photos from Photos.app using Working Copy, commited everything together and pushed to GitHub.
+
+I hope this article is helpful if you want to have an even more portable blogging machine without setting up complex workflows. I am sure there is a million other ways to make blogging on an iPad less complicated, but I wanted to challenge myself with this one, and the way MDX and Next worked out of the box honestly made this approach straightforward.
+
+See you on the next article!
