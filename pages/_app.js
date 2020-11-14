@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import highlight from 'highlight.js/lib/core';
-import 'highlight.js/styles/vs2015.css';
+// highlight.js
+import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
+import 'highlight.js/styles/vs2015.css';
 
 import Layout from '../components/layout';
 import '../styles/globals.css';
 
 function App({ Component, pageProps }) {
   useEffect(() => {
-    highlight.registerLanguage('javascript', javascript);
-    highlight.initHighlightingOnLoad();
-  }, [pageProps]);
+    hljs.registerLanguage('javascript', javascript);
+    // Chrome needs initial highlighting on window load (here)
+    hljs.initHighlighting();
+  }, []);
 
   return (
     <>
