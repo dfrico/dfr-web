@@ -1,0 +1,41 @@
+import Link from 'next/link';
+import BlogPost from '../../../components/post';
+
+export const meta = {
+  title: 'Introduction to MDX',
+  description: 'Generating a site with MDX and Nextjs!',
+  date: 'Nov 05, 2020',
+  readTime: '<1',
+};
+
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+Hello world! For the first post of my blog I wanted to go a little meta and explain how I created this site.
+
+This website is a React app which uses [Next](https://nextjs.org) (or Next.js or NextJS) and [MDX](https://mdxjs.com) for the posts themselves.
+
+## Context
+
+Next.js is a hybrid static site generator with server rendering (and a lot of other features), and MDX is a JSX-in-markdown loader, parser, and renderer.
+
+## Stack I wanted to use
+
+So far I knew the stack for building the site itself, but I had to decide about the posts (because writing Next pages for posts was not an option).
+
+When I thought about how I would create it and specially where would I put my posts, I considered [Gatsby](https://www.gatsbyjs.com) and [GraphCMS](https://graphcms.com). These are great options, but I always loved keeping my content close.
+
+Then I discovered [this great article](https://www.smashingmagazine.com/2020/09/build-blog-nextjs-mdx) about creating a blog with Next and MDX, just what I wanted to do!
+
+## Let's start building
+
+I already had a Next app boostraped with `create-next-app`, but I still needed to do some config to make the blog/MDX part. There are several key things here:
+
+1. There are some key components here, but the main one is the BlogPost component, which renders its children inside an article, and a post header.
+2. Inside the pages folder, usually reserved for Next pages (routes), I created a blog folder with a folder inside for each post.
+3. The magic for this site is the script `getAllPosts.js`.
+
+(the rest of this post is a WIP)
+
+## Other stuff I'm using
+
+I use [highlight.js](https://github.com/highlightjs/highlight.js) to add syntax highlight to code blocks, several image optimization plugins such as [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images) or [remark-images](https://github.com/remarkjs/remark-images). I'm also using SCSS modules instead of CSS modules.
