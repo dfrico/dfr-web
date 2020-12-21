@@ -1,0 +1,14 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path {
+      stroke: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      path {
+        stroke: white
+      }
+    }
+  </style>
+<path d="M30 480C30 432.261 48.9642 386.477 82.7208 352.721C116.477 318.964 162.261 300 210 300C257.739 300 303.523 318.964 337.279 352.721C371.036 386.477 390 432.261 390 480M390 480C390 432.261 408.964 386.477 442.721 352.721C476.477 318.964 522.261 300 570 300M390 480V300M165 480V120M255 480V300C255 252.261 269.223 206.477 294.541 172.721C319.858 138.964 354.196 120 390 120"
+  stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

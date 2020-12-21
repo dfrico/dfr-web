@@ -14,6 +14,7 @@ export default function About() {
           content="Daniel Fernandez Rico's CV / work experience."
         />
         <link
+          // TODO: change to rubik
           href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap"
           rel="stylesheet"
         />

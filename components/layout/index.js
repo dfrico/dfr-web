@@ -18,6 +18,8 @@ function Layout({ children, pageTitle, description }) {
           href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon/favicon.png" type="image/png" />
       </Head>
       <main>
         <Header />

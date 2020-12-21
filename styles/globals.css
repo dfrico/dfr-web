@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -6,76 +10,10 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  overflow-y: scroll;
-}
-a {
-  color: #000;
-  text-decoration: underline;
-}
-a:visited,
-a:hover {
-  color: #1c1c1c;
-}
-img,
-pre > code {
-  display: block;
-  margin: 25px auto;
-}
-main {
-  position: relative;
-  max-width: 800px;
-  min-height: 100vh;
-  line-height: 1.6;
-  word-wrap: break-word;
-  margin: 0 auto;
-  padding: 20px;
-}
-img {
-  max-width: 100%;
-  margin: 0;
-}
-pre > code {
-  padding: 20px;
-  white-space: pre-wrap;
-}
-code {
-  background: #ddd;
-  padding: 2px;
-  font-size: 1rem;
-}
-blockquote {
-  border-left: 7px solid #ddd;
-  padding: 0 14px;
-  color: #666;
-  margin: 0;
-}
-h1,
-h2,
-h3,
-h4 {
-  line-height: 1.2;
-}
-hr {
-  border: 2px solid #ddd;
-}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #1c1c1c;
     color: #fafafa;
-  }
-  a {
-    color: #f8f8f8;
   }
   a:visited,
   a:hover {
