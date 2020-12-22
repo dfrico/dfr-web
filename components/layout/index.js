@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Header from '../header';
 import Cursor from '../cursor';
-import Footer from '../footer';
+// import Footer from '../footer';
 import styles from './layout.module.scss';
 
 function Layout({ children, pageTitle, description }) {
@@ -23,10 +23,10 @@ function Layout({ children, pageTitle, description }) {
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon/favicon.png" type="image/png" />
       </Head>
-      <main className="max-w-2xl mx-auto mb-16 text-center flex flex-col justify-center">
+      <main className="container mx-auto px-4 text-center flex flex-col justify-center">
         <Header />
         <div className={styles.content}>{children}</div>
-        <Footer />
+        {/* <Footer /> */}
       </main>
       <Cursor />
     </>
