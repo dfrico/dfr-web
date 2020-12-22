@@ -3,7 +3,7 @@ import styles from './header.module.scss';
 
 export default function Header() {
   return (
-    <header className={styles.header}>
+    <header className="sticky-nav flex justify-between items-center max-w-3xl w-full p-8 mx-auto bg-black bg-opacity-60">
       <Link href="/">
         <a>
           <svg

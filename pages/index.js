@@ -11,7 +11,7 @@ export default function Home() {
         height={320}
       />
       <h1 className="font-bold text-5xl tracking-tight mb-4 mt-16 text-yellow">
-        Hey, I’m Daniel Fernández
+        Hey, I&apos;m Daniel Fernández
         {' '}
         <span role="img" aria-label=":wave:">
           👋
@@ -22,33 +22,20 @@ export default function Home() {
         I&apos;m a frontend engineer based in Madrid (Spain), currently working
         at Vizzuality developing tools for a better future.
       </p>
-      <ul className="flex flex-row justify-center mt-32">
-        <li className="mx-7">
-          <a href="https://twitter.com/blayhem">
-            <Image src="/icons/tw.svg" alt="twitter" width={48} height={48} />
-          </a>
-        </li>
-        <li className="mx-7">
-          <a href="https://github.com/blayhem">
-            <Image src="/icons/gh.svg" alt="GitHub" width={48} height={48} />
-          </a>
-        </li>
-        <li className="mx-7">
-          <a href="https://www.twitch.tv/blayhem">
-            <Image
-              src="/icons/twitch.svg"
-              alt="Twitch"
-              width={48}
-              height={48}
-            />
-          </a>
-        </li>
-        <li className="mx-7">
-          <a href="https://www.instagram.com/blayhem/">
-            <Image src="/icons/ig.svg" alt="Instagram" width={48} height={48} />
-          </a>
-        </li>
-      </ul>
+      <footer className="flex justify-center mt-16 mb-8 left-0 right-0 absolute bottom-0">
+        <a className="mx-7" href="https://twitter.com/blayhem">
+          <Image src="/icons/tw.svg" alt="twitter" width={48} height={48} />
+        </a>
+        <a className="mx-7" href="https://github.com/blayhem">
+          <Image src="/icons/gh.svg" alt="GitHub" width={48} height={48} />
+        </a>
+        <a className="mx-7" href="https://www.twitch.tv/blayhem">
+          <Image src="/icons/twitch.svg" alt="Twitch" width={48} height={48} />
+        </a>
+        <a className="mx-7" href="https://www.instagram.com/blayhem/">
+          <Image src="/icons/ig.svg" alt="Instagram" width={48} height={48} />
+        </a>
+      </footer>
     </>
   );
 }
