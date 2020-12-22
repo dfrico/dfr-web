@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./header.module.scss";
+import Link from 'next/link';
+import styles from './header.module.scss';
 
 export default function Header() {
   return (
@@ -29,7 +29,7 @@ export default function Header() {
         <Link href="/about">
           <a className={styles.headerLink}>About </a>
         </Link>
-        <Link href="/notes">
+        <Link href="/blog">
           <a className={styles.headerLink}>Notes </a>
         </Link>
       </div>
