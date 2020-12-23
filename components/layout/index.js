@@ -21,9 +21,9 @@ function Layout({ children, pageTitle, description }) {
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon/favicon.png" type="image/png" />
       </Head>
-      <main className="h-screen max-w-3xl mx-auto px-4 text-center flex flex-col justify-start">
+      <main className="h-screen max-w-3xl mx-auto p-8 text-center flex flex-col justify-start">
         <Header />
-        <div className="h-full relative container">{children}</div>
+        {children}
       </main>
       <Cursor />
     </>

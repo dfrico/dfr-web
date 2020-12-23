@@ -2,13 +2,14 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <>
+    <div className="container relative h-full">
       <Image
-        className="rounded-full shadow-white"
+        className="rounded-full shadow-white w-64 h-64 max-w-sm max-h-96 mx-auto"
         src="/avatar@3x.jpg"
         alt="Avatar"
         width={320}
         height={320}
+        priority
       />
       <h1 className="font-bold text-5xl tracking-tight mb-4 mt-16 text-yellow">
         Hey, I&apos;m Daniel Fernández
@@ -22,7 +23,7 @@ export default function Home() {
         I&apos;m a frontend engineer based in Madrid (Spain), currently working
         at Vizzuality developing tools for a better future.
       </p>
-      <footer className="flex justify-center mt-16 mb-8 left-0 right-0 absolute bottom-0">
+      <footer className="flex justify-center my-16 left-0 right-0 lg:absolute lg:bottom-0">
         <a className="mx-7" href="https://twitter.com/blayhem">
           <Image src="/icons/tw.svg" alt="twitter" width={48} height={48} />
         </a>
@@ -36,6 +37,6 @@ export default function Home() {
           <Image src="/icons/ig.svg" alt="Instagram" width={48} height={48} />
         </a>
       </footer>
-    </>
+    </div>
   );
 }
