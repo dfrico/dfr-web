@@ -31,39 +31,41 @@ export default function Home() {
       </div>
 
       {postList.length ? (
-        <>
+        <section className="my-8">
           <h2>Latest post:</h2>
           <Preview key={postList[0].link} post={postList[0]} />
-        </>
+        </section>
       ) : null}
 
-      <h2>Now working on:</h2>
-      <div className="grid grid-cols-2 gap-2">
-        <a href="https://github.com/blayhem/dfr-web">
-          <img
-            alt="dfr-web"
-            src="https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=dfr-web&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
-          />
-        </a>
-        <a href="https://github.com/blayhem/styles">
-          <img
-            alt="styles"
-            src="https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=styles&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
-          />
-        </a>
-        <a href="https://github.com/vizzuality/gfw">
-          <img
-            alt="gfw"
-            src="https://github-readme-stats.vercel.app/api/pin/?username=vizzuality&repo=gfw&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
-          />
-        </a>
-        <a href="https://github.com/vizzuality/otp-portal">
-          <img
-            alt="otp"
-            src="https://github-readme-stats.vercel.app/api/pin/?username=vizzuality&repo=otp-portal&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
-          />
-        </a>
-      </div>
+      <section className="my-8">
+        <h2>Now working on:</h2>
+        <div className="grid grid-cols-2 gap-2">
+          <a href="https://github.com/blayhem/dfr-web">
+            <img
+              alt="dfr-web"
+              src="https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=dfr-web&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
+            />
+          </a>
+          <a href="https://github.com/blayhem/styles">
+            <img
+              alt="styles"
+              src="https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=styles&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
+            />
+          </a>
+          <a href="https://github.com/vizzuality/gfw">
+            <img
+              alt="gfw"
+              src="https://github-readme-stats.vercel.app/api/pin/?username=vizzuality&repo=gfw&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
+            />
+          </a>
+          <a href="https://github.com/vizzuality/otp-portal">
+            <img
+              alt="otp"
+              src="https://github-readme-stats.vercel.app/api/pin/?username=vizzuality&repo=otp-portal&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
+            />
+          </a>
+        </div>
+      </section>
 
       <footer className="flex justify-evenly lg:w-3/5  mx-auto mt-12">
         <a className="mx-6" href="https://twitter.com/blayhem">
