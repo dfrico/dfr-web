@@ -39,7 +39,7 @@ export default function Home() {
 
       <section className="my-8">
         <h2>Now working on:</h2>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid sm:grid-cols-2 gap-2">
           <a href="https://github.com/blayhem/dfr-web">
             <img
               alt="dfr-web"
