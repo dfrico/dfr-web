@@ -21,7 +21,7 @@ function Layout({ children, pageTitle, description }) {
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon/favicon.png" type="image/png" />
       </Head>
-      <main className="h-screen max-w-3xl mx-auto p-8 text-center flex flex-col justify-start">
+      <main className="h-screen max-w-3xl mx-auto p-8 md:px-8 md:py-0 flex flex-col justify-start">
         <Header />
         {children}
       </main>

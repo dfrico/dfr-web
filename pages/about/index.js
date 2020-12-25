@@ -1,18 +1,18 @@
+import Image from 'next/image';
 import styles from './About.module.scss'; // TODO: migrate to styled components?
-import AvatarImg from './avatar-small.jpg';
 
 export default function About() {
   return (
     <>
-      <header className={styles.avatarHeader}>
-        <img src={AvatarImg} alt="" />
-        <p>Daniel Fernández Rico</p>
-        <div className={styles.desc}>
-          Frontend Engineer
-          <br />
-          Madrid, Remote
-        </div>
-      </header>
+      <div className="mt-4">
+        <Image
+          className="rounded-full mx-auto"
+          src="/sofa.jpeg"
+          alt="Avatar"
+          width={180}
+          height={180}
+        />
+      </div>
 
       <section className={styles.section}>
         <p>
