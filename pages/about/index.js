@@ -1,20 +1,19 @@
 import Image from 'next/image';
-import styles from './About.module.scss'; // TODO: migrate to styled components?
 
 export default function About() {
   return (
     <>
-      <div className="mt-4">
+      <div className="mt-4 mx-auto">
         <Image
-          className="rounded-full mx-auto"
-          src="/sofa.jpeg"
+          className="rounded-full"
+          src="/img/sofa.jpeg"
           alt="Avatar"
           width={180}
           height={180}
         />
       </div>
 
-      <section className={styles.section}>
+      <section className="mt-6">
         <p>
           Hi! My name is Daniel and I’m a 26 years old, Madrid-based, Frontend
           Engineer at Vizzuality.
@@ -27,11 +26,12 @@ export default function About() {
         <p>
           I am a person of too many hobbies. My interests outside of coding
           include minimalism, coffee, mechanical keyboards, synths and
-          electronic music, and digital & analog photography.
+          electronic music, and digital &amp; analog photography.
         </p>
       </section>
-      <section className={`${styles.timeline} ${styles.section}`}>
+      <section className="flex justify-center mx-auto mt-6">
         <svg
+          className="mr-5 w-4 transform rotate-180"
           viewBox="0 0 8 558"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,14 +42,14 @@ export default function About() {
             fill="#FAFAFA"
           />
         </svg>
-        <div className={styles.exp}>
-          <div className={styles.job}>
+        <div className="exp">
+          <div className="job">
             <p>
               2018-currently @
               {' '}
               <a href="https://www.vizzuality.com">Vizzuality</a>
             </p>
-            <ul>
+            <ul className="pl-20">
               <li>
                 Leading the development of
                 {' '}
@@ -95,7 +95,7 @@ export default function About() {
               {' '}
               <a href="https://nddn.design">Everis / NTT data design</a>
             </p>
-            <ul>
+            <ul className="pl-20">
               <li>
                 Redesigned the digital experience of Burger King with a talented
                 team, from user interviews, UX (user flows, personas, and
@@ -112,7 +112,7 @@ export default function About() {
               {' '}
               <a href="https://www.graphext.com/">Graphext</a>
             </p>
-            <ul>
+            <ul className="pl-20">
               <li>
                 Designed and implemented a Chrome extension that integrated web
                 scrapping with the main product API.
@@ -126,7 +126,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className={styles.section}>
+      <section className="mt-6">
         <p>Other</p>
         <ul>
           <li>
@@ -168,7 +168,7 @@ export default function About() {
           </li>
         </ul>
       </section>
-      <section className={styles.section}>
+      <section className="mt-6">
         <p>More about me</p>
         <p>
           contact me

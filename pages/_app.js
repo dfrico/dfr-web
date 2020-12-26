@@ -7,7 +7,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import 'highlight.js/styles/vs2015.css';
 
 import Layout from '../components/layout';
-import '../styles/globals.css';
+import '../styles/base.css';
 
 function App({ Component, pageProps }) {
   useEffect(() => {

@@ -5,10 +5,10 @@ import Preview from '../components/preview';
 export default function Home() {
   return (
     <div className="container relative h-full">
-      <div className="grid sm:grid-cols-2 bg-gray-300">
+      <div className="grid sm:grid-cols-2">
         <Image
           className="rounded-full shadow-white object-cover mx-auto" // w-64 h-64 max-w-sm max-h-96
-          src="/avatar@3x.jpg"
+          src="/img/avatar@3x.jpg"
           alt="Avatar"
           width={320}
           height={320}
@@ -23,7 +23,7 @@ export default function Home() {
             </span>
           </h1>
           <h2 className="text-2xl mb-8">Frontend Engineer</h2>
-          <p className="">
+          <p>
             I&apos;m a frontend engineer based in Madrid (Spain), currently
             working at Vizzuality developing tools for a better future.
           </p>
