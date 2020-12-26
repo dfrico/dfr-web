@@ -32,54 +32,31 @@ export default function Home() {
 
       {postList.length ? (
         <section className="my-8">
-          <h2>Latest post:</h2>
+          <h2 className="text-2xl mb-8">Latest post:</h2>
           <Preview key={postList[0].link} post={postList[0]} />
         </section>
       ) : null}
 
-      <section className="my-8">
-        <h2>Now working on:</h2>
-        <div className="grid sm:grid-cols-2 gap-2">
-          <a href="https://github.com/blayhem/dfr-web">
-            <img
-              alt="dfr-web"
-              src="https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=dfr-web&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
+      <footer className="block relative mt-12 mb-6 left-0 right-0 sm:absolute sm:bottom-0">
+        <div className="flex justify-evenly lg:w-3/5 mx-auto">
+          <a className="mx-6" href="https://twitter.com/blayhem">
+            <Image src="/icons/tw.svg" alt="twitter" width={48} height={48} />
+          </a>
+          <a className="mx-6" href="https://github.com/blayhem">
+            <Image src="/icons/gh.svg" alt="GitHub" width={48} height={48} />
+          </a>
+          <a className="mx-6" href="https://www.twitch.tv/blayhem">
+            <Image
+              src="/icons/twitch.svg"
+              alt="Twitch"
+              width={48}
+              height={48}
             />
           </a>
-          <a href="https://github.com/blayhem/styles">
-            <img
-              alt="styles"
-              src="https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=styles&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
-            />
-          </a>
-          <a href="https://github.com/vizzuality/gfw">
-            <img
-              alt="gfw"
-              src="https://github-readme-stats.vercel.app/api/pin/?username=vizzuality&repo=gfw&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
-            />
-          </a>
-          <a href="https://github.com/vizzuality/otp-portal">
-            <img
-              alt="otp"
-              src="https://github-readme-stats.vercel.app/api/pin/?username=vizzuality&repo=otp-portal&bg_color=3f4447&text_color=fafafa&title_color=FFC700"
-            />
+          <a className="mx-6" href="https://www.instagram.com/blayhem/">
+            <Image src="/icons/ig.svg" alt="Instagram" width={48} height={48} />
           </a>
         </div>
-      </section>
-
-      <footer className="flex justify-evenly lg:w-3/5  mx-auto mt-12">
-        <a className="mx-6" href="https://twitter.com/blayhem">
-          <Image src="/icons/tw.svg" alt="twitter" width={48} height={48} />
-        </a>
-        <a className="mx-6" href="https://github.com/blayhem">
-          <Image src="/icons/gh.svg" alt="GitHub" width={48} height={48} />
-        </a>
-        <a className="mx-6" href="https://www.twitch.tv/blayhem">
-          <Image src="/icons/twitch.svg" alt="Twitch" width={48} height={48} />
-        </a>
-        <a className="mx-6" href="https://www.instagram.com/blayhem/">
-          <Image src="/icons/ig.svg" alt="Instagram" width={48} height={48} />
-        </a>
       </footer>
     </div>
   );

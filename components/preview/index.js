@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import PostHeader from '../postHeader';
-import styles from './preview.module.scss';
 
 const PostPreview = ({ post }) => {
   const {
@@ -10,19 +9,21 @@ const PostPreview = ({ post }) => {
   } = post;
 
   return (
-    <article className={styles.preview}>
+    <article className="preview rounded h-48 bg-gray-800 my-2">
       <Link href={`/blog${link}`}>
-        <a className={styles.link}>
-          <div className={styles.container}>
-            <div className={styles.textWrapper}>
-              <PostHeader meta={meta} />
-            </div>
-            {meta.postImg ? (
-              <div className={styles.imgWrapper}>
-                <img src={meta.postImg} alt={meta.title} />
-              </div>
-            ) : null}
+        <a className="link flex h-full">
+          <div className="textWrapper w-2/3 p-4 flex-grow">
+            <PostHeader meta={meta} />
           </div>
+          {meta.postImg ? (
+            <div className="imgWrapper hidden sm:block h-full w-1/3 flex-grow-0">
+              <img
+                className="object-cover h-full"
+                src={meta.postImg}
+                alt={meta.title}
+              />
+            </div>
+          ) : null}
         </a>
       </Link>
     </article>
