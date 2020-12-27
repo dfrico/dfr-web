@@ -16,7 +16,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
           <link rel="icon" href="/favicon/favicon.png" type="image/png" />
         </Head>
-        <body className="bg-black text-gray-50 font-rubik">
+        <body className="bg-black text-gray-50 font-rubik m-0">
           <Main />
           <NextScript />
         </body>

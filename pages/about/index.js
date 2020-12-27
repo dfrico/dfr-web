@@ -5,7 +5,7 @@ export default function About() {
     <>
       <div className="mt-4 mx-auto">
         <Image
-          className="rounded-full"
+          className="rounded-full shadow-white"
           src="/img/sofa.jpeg"
           alt="Avatar"
           width={180}
@@ -31,7 +31,7 @@ export default function About() {
       </section>
       <section className="flex justify-center mx-auto mt-6">
         <svg
-          className="mr-5 w-4 transform rotate-180"
+          className="hidden sm:block mr-5 w-4 transform rotate-180"
           viewBox="0 0 8 558"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -43,13 +43,13 @@ export default function About() {
           />
         </svg>
         <div className="exp">
-          <div className="job">
+          <div className="my-4">
             <p>
               2018-currently @
               {' '}
               <a href="https://www.vizzuality.com">Vizzuality</a>
             </p>
-            <ul className="pl-20">
+            <ul className="pl-2 sm:pl-8">
               <li>
                 Leading the development of
                 {' '}
@@ -89,13 +89,13 @@ export default function About() {
               </li>
             </ul>
           </div>
-          <div className="job">
+          <div className="my-4">
             <p>
               Summer 2018 @
               {' '}
               <a href="https://nddn.design">Everis / NTT data design</a>
             </p>
-            <ul className="pl-20">
+            <ul className="pl-2 sm:pl-8">
               <li>
                 Redesigned the digital experience of Burger King with a talented
                 team, from user interviews, UX (user flows, personas, and
@@ -106,13 +106,13 @@ export default function About() {
               <li>I worked with Sketch but have experience with Figma.</li>
             </ul>
           </div>
-          <div className="job">
+          <div className="my-4">
             <p>
               2016-2017 @ 
               {' '}
               <a href="https://www.graphext.com/">Graphext</a>
             </p>
-            <ul className="pl-20">
+            <ul className="pl-2 sm:pl-8">
               <li>
                 Designed and implemented a Chrome extension that integrated web
                 scrapping with the main product API.
@@ -168,7 +168,7 @@ export default function About() {
           </li>
         </ul>
       </section>
-      <section className="mt-6">
+      <section className="block text-center mt-6 mb-16">
         <p>More about me</p>
         <p>
           contact me

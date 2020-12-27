@@ -63,17 +63,21 @@ export default function Cursor() {
         a.addEventListener(
           'mousemove',
           (event) => {
-            const { target } = event;
-            const halfHeight = rect.height / 2;
-            const topOffset = (event.y - rect.top - halfHeight) / halfHeight;
-            const halfWidth = rect.width / 2;
-            const leftOffset = (event.x - rect.left - halfWidth) / halfWidth;
+            try {
+              const { target } = event;
+              const halfHeight = rect.height / 2;
+              const topOffset = (event.y - rect.top - halfHeight) / halfHeight;
+              const halfWidth = rect.width / 2;
+              const leftOffset = (event.x - rect.left - halfWidth) / halfWidth;
 
-            cursor.style.setProperty('--translateX', `${leftOffset * 3}px`);
-            cursor.style.setProperty('--translateY', `${topOffset * 3}px`);
+              cursor.style.setProperty('--translateX', `${leftOffset * 3}px`);
+              cursor.style.setProperty('--translateY', `${topOffset * 3}px`);
 
-            target.style.setProperty('--translateX', `${leftOffset * 6}px`);
-            target.style.setProperty('--translateY', `${topOffset * 4}px`);
+              target.style.setProperty('--translateX', `${leftOffset * 6}px`);
+              target.style.setProperty('--translateY', `${topOffset * 4}px`);
+            } catch (error) {
+              // do nothing
+            }
           },
           { passive: true }
         );

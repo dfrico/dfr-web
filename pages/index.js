@@ -31,10 +31,10 @@ export default function Home() {
       </div>
 
       {postList.length ? (
-        <section className="my-8">
+        <div className="my-8">
           <h2 className="text-2xl mb-8">Latest post:</h2>
           <Preview key={postList[0].link} post={postList[0]} />
-        </section>
+        </div>
       ) : null}
 
       <footer className="block relative mt-12 mb-6 left-0 right-0 sm:absolute sm:bottom-0">

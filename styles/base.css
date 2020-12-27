@@ -5,5 +5,31 @@
 @layer base {
   a {
     @apply text-yellow;
+    @apply relative;
+  }
+
+  li::before {
+    @apply mr-1;
+    content: '— ';
+  }
+
+  /* Hover underline */
+  section a::before {
+    @apply absolute;
+    @apply bg-yellow;
+    @apply invisible;
+    @apply w-full;
+    @apply h-px;
+    @apply transform;
+    @apply scale-x-0;
+    @apply bottom-0;
+    @apply left-0;
+    content: '';
+    transition: all 0.2s ease-in-out 0s;
+  }
+
+  section a:hover::before {
+    @apply visible;
+    @apply scale-x-100;
   }
 }
