@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="container relative h-full flex-grow">
       <div className="grid sm:grid-cols-2 items-center">
-        <div className="relative w-84 h-84 mx-auto flex items-center">
+        <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-84 md:h-84 mx-auto flex items-center">
           <Image
             className="rounded-full shadow-white object-cover"
             src="/img/avatar@3x.jpg"
