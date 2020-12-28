@@ -4,7 +4,7 @@ import Preview from '../components/preview';
 
 export default function Home() {
   return (
-    <div className="container relative h-full">
+    <div className="container relative h-full flex-grow">
       <div className="grid sm:grid-cols-2 items-center">
         <div className="relative w-84 h-84 mx-auto flex items-center">
           <Image
