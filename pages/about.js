@@ -13,17 +13,17 @@ export default function About() {
         />
       </div>
 
-      <section className="mt-6">
-        <p>
+      <section className="text-center mt-6">
+        <p className="mb-2">
           Hi! My name is Daniel and I’m a 26 years old, Madrid-based, Frontend
           Engineer at Vizzuality.
         </p>
-        <p>
-          Before working here, I got a CS bachelor degree from UC3M university,
-          worked as a developer and designer, participated in several hackathons
-          and advocated for technology in different ways.
+        <p className="mb-2">
+          Before working here, I got a Computer Science BS from UC3M, worked as
+          a developer and designer, participated in several hackathons and
+          advocated for technology in different ways.
         </p>
-        <p>
+        <p className="mb-2">
           I am a person of too many hobbies. My interests outside of coding
           include minimalism, coffee, mechanical keyboards, synths and
           electronic music, and digital &amp; analog photography.
@@ -127,7 +127,7 @@ export default function About() {
         </div>
       </section>
       <section className="mt-6">
-        <p>Other</p>
+        <p className="text-center mb-4">Other</p>
         <ul>
           <li>
             On 2019, I won a
@@ -169,7 +169,7 @@ export default function About() {
         </ul>
       </section>
       <section className="block text-center mt-6 mb-16">
-        <p>More about me</p>
+        <p className="mb-4">More about me</p>
         <p>
           contact me
           {' '}
