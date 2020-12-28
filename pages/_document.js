@@ -6,13 +6,10 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <title>dfr-web</title>
-          <meta name="title" content="dfr-web" />
           <meta
             name="description"
             content="Daniel Fernández - Frontend developer based in Madrid, Spain. Check my site to learn more about me!"
           />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta
             property="og:image"
             content="https://example.com/images/image.jpg"

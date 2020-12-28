@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
 // highlight.js
 import hljs from 'highlight.js/lib/core';
@@ -18,6 +19,11 @@ function App({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <title>dfr-web</title>
+        <meta name="title" content="dfr-web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <Layout>
         <Component {...pageProps} />
       </Layout>
