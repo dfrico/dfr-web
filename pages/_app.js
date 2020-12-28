@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
 // highlight.js
 import hljs from 'highlight.js/lib/core';
@@ -7,7 +8,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import 'highlight.js/styles/vs2015.css';
 
 import Layout from '../components/layout';
-import '../styles/globals.css';
+import '../styles/base.css';
 
 function App({ Component, pageProps }) {
   useEffect(() => {
@@ -18,7 +19,12 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <Layout pageTitle="Blog" description="My Personal Blog">
+      <Head>
+        <title>dfr-web</title>
+        <meta name="title" content="dfr-web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Layout>
         <Component {...pageProps} />
       </Layout>
     </>
