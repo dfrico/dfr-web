@@ -9,7 +9,7 @@ const PostPreview = ({ post }) => {
   } = post;
 
   return (
-    <article className="rounded h-48 bg-gray-800 hover:bg-gray-700 my-2">
+    <div className="rounded h-48 bg-gray-800 hover:bg-gray-700 my-2">
       <Link href={`/blog${link}`}>
         <a className="flex h-full">
           <div className="w-2/3 p-4 flex flex-col justify-between flex-grow">
@@ -26,7 +26,7 @@ const PostPreview = ({ post }) => {
           ) : null}
         </a>
       </Link>
-    </article>
+    </div>
   );
 };
 

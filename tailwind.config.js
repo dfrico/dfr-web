@@ -17,6 +17,9 @@ module.exports = {
       cursor: {
         default: 'pointer',
       },
+      lineHeight: {
+        compact: '3.5rem',
+      },
       spacing: {
         72: '18rem',
         84: '21rem',

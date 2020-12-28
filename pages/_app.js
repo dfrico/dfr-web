@@ -18,7 +18,7 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <Layout pageTitle="Blog" description="My Personal Blog">
+      <Layout>
         <Component {...pageProps} />
       </Layout>
     </>

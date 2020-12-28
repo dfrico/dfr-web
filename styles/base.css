@@ -13,6 +13,10 @@
     content: '— ';
   }
 
+  article > * {
+    @apply my-8;
+  }
+
   /* Hover underline */
   section a::before {
     @apply absolute;
@@ -31,5 +35,13 @@
   section a:hover::before {
     @apply visible;
     @apply scale-x-100;
+  }
+
+  .twoLines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 }
