@@ -5,37 +5,100 @@ export const meta = {
   title: 'Introduction to MDX',
   description: 'Generating a site with MDX and Nextjs!',
   date: 'Nov 05, 2020',
-  readTime: '<1',
+  readTime: '7',
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
 Hello world! For the first post of my blog I wanted to go a little meta and explain how I created this site.
 
-This website is a React app which uses [Next](https://nextjs.org) (or Next.js or NextJS) and [MDX](https://mdxjs.com) for the posts themselves.
+This website is a React application which uses [Next](https://nextjs.org) (or Next.js or NextJS) and [MDX](https://mdxjs.com) for the posts themselves. I'm also using [TailwindCSS](https://tailwindcss.com) for the styles, but I won't cover that in this post.
 
 ## Context
 
-Next.js is a hybrid static site generator with server rendering (and a lot of other features), and MDX is a JSX-in-markdown loader, parser, and renderer.
+Next is a hybrid static site generator with server rendering (and a lot of other features), and MDX is a JSX-in-markdown loader, parser, and renderer.
 
-## Stack I wanted to use
+There are several reasons why I'm using Next, mainly because its blazing performance. It uses server side rendering and crazy optimization to bundle your web application and serve a light website to you. I may write more about Next in the future, let's see.
 
-So far I knew the stack for building the site itself, but I had to decide about the posts (because writing Next pages for posts was not an option).
+So far I knew the stack for building the site itself (React with Next), but I had to decide about the posts (because writing Next pages for posts was not an option).
 
 When I thought about how I would create it and specially where would I put my posts, I considered [Gatsby](https://www.gatsbyjs.com) and [GraphCMS](https://graphcms.com). These are great options, but I always loved keeping my content close.
 
-Then I discovered [this great article](https://www.smashingmagazine.com/2020/09/build-blog-nextjs-mdx) about creating a blog with Next and MDX, just what I wanted to do!
+Then I discovered [this great article](https://www.smashingmagazine.com/2020/09/build-blog-nextjs-mdx) about creating a blog with Next and MDX, just what I wanted to do! Writing the posts as markdown is easy, allows me to <Link href="/blog/2020-11-14-posting-ios"><a>write them from my phone or iPad</a></Link>, and it's a workflow I enjoy, which I believe is crucial to keep any kind of consistency on writing.
 
 ## Let's start building
 
-I already had a Next app boostraped with `create-next-app`, but I still needed to do some config to make the blog/MDX part. There are several key things here:
+I already had a Next app boostraped with `create-next-app`, but I still needed to do some config to make the blog/MDX part.
 
-1. There are some key components here, but the main one is the BlogPost component, which renders its children inside an article, and a post header.
+For the configuration of the repository, you can check out [MDX's suggested Next setup](https://mdxjs.com/getting-started/next), with the `mdx-js` loader to parse the .mdx files. You can also check <Link href="/blog/2020-11-07-bundle-analyzer"><a>this post</a></Link>, as I cover my Next configuration a bit more deeply.
+
+Apart from the base configuration, there are several key things here:
+
+1. There are some components that are required here, but the main one is the BlogPost component, which renders its children inside an article, and a post header.
 2. Inside the pages folder, usually reserved for Next pages (routes), I created a blog folder with a folder inside for each post.
 3. The magic for this site is the script `getAllPosts.js`.
 
-(the rest of this post is a WIP)
+I'll explain each one:
+
+## 1. Blogpost component (and others).
+
+In every MDX post, you need some code at the begining of the file to make it work, transpile, and render. Apart from exporting a `meta` object I'm using to render some stuff like the read time or description, I'm exporting the following function component:
+
+```js
+export default ({ children }) => <BlogPost>{children}</BlogPost>;
+```
+
+MDX provides me with a `children` object that contains the elements of the article (`<p>`s, images, etc.), which I then wrap around a Blogpost component that has a article header (title, date, read time) and an `<article>` tag that wraps the children. If this sounds confusing, I'll summarize: what you see in every article is a `<Layout>` component (inside [Next's `_app`](https://nextjs.org/docs/advanced-features/custom-app)), then the `<Post>` component (with the `PostHeader` and the article itself), and then everything else from the MDX file. If it helps, you can check [the code here](https://github.com/blayhem/dfr-web/blob/main/components/post/index.js)!
+
+## 2. Blog page and its folders.
+
+The way [Next does routing](https://nextjs.org/docs/routing/introduction) is based on files and folders in the `pages` directory. This means that, in order to create a `/hello` page, I just need to create a `hello.js` file or `/hello/` folder inside `/pages`, in the root of the project.
+
+So, the first thing I did for the blog was creating this `blog` folder, where the `index.js` for the blog lives (the post list you see on <Link href="/blog"><a>`/blog`</a></Link>). Then, I have a folder for every post, with images related to that post, and an `index.mdx` file for the content (the post itself).
+
+## 3. The real magic: `getAllPosts`.
+
+This file that lives in the `utils` folder of my repo, has a (relatively) simple code:
+
+```js
+// this function processes everything inside a given folder
+function importAll(r) {
+  return (
+    r
+      // then takes the list of files/folders
+      .keys()
+      // reverses it (to show new articles first, as they're ordered alphabetically)
+      .reverse()
+      // and for each folder (post) returns an object with:
+      .map((fileName) => ({
+        // 1. a link: the post route/path (without the /index.mdx bit!)
+        link: fileName.substr(1).replace(/\/index\.mdx$/, ''),
+        // 2. the module itself, this is the code that is imported/exported
+        module: r(fileName),
+      }))
+  );
+}
+
+// we call this function with the /pages/blog folder, to import every .mdx inside.
+export default importAll(require.context('../pages/blog', true, /\.mdx$/));
+```
+
+The list of objects (`{link, module}`) that this function returns is what I'm using to render the post list you see in `/blog`. That page component is just rendering each "post" object into a `Preview` component to render the cards.
+
+```js
+postList.map((post) => <Preview key={post.link} post={post} />);
+```
 
 ## Other stuff I'm using
 
-I use [highlight.js](https://github.com/highlightjs/highlight.js) to add syntax highlight to code blocks, several image optimization plugins such as [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images) or [remark-images](https://github.com/remarkjs/remark-images). I'm also using SCSS modules instead of CSS modules.
+I use [highlight.js](https://github.com/highlightjs/highlight.js) to add syntax highlight to code blocks, several image optimization plugins such as [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images) or [remark-images](https://github.com/remarkjs/remark-images).
+
+## Repository
+
+The code for this website is open source and you can [find it here](https://github.com/blayhem/dfr-web).
+
+[![dfr-web](https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=dfr-web&bg_color=020204&title_color=FFC700&text_color=f9fafb)](https://github.com/blayhem/dfr-web)
+
+I hope this article can help you set up your blog using Next and MDX! Apart from checking the code, you can contact me [on twitter](https://twitter.com/blayhem) if you have any doubts.
+
+See you on the next article, and many thanks for reading!

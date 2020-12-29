@@ -6,6 +6,7 @@
   a {
     @apply text-yellow;
     @apply relative;
+    @apply cursor-pointer;
   }
 
   li::before {
@@ -13,12 +14,23 @@
     content: '— ';
   }
 
+  /* Blogposts format */
+
   article > * {
     @apply my-8;
+    @apply leading-8;
+    @apply tracking-tight;
+    @apply font-light;
+  }
+
+  h2 {
+    @apply text-2xl;
+    @apply mb-8;
   }
 
   /* Hover underline */
-  section a::before {
+  section a::before,
+  article a::before {
     @apply absolute;
     @apply bg-yellow;
     @apply invisible;
@@ -32,10 +44,13 @@
     transition: all 0.2s ease-in-out 0s;
   }
 
-  section a:hover::before {
+  section a:hover::before,
+  article a:hover::before {
     @apply visible;
     @apply scale-x-100;
   }
+
+  /* Clip content to 2 lines */
 
   .twoLines {
     overflow: hidden;

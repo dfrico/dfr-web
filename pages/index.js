@@ -23,7 +23,7 @@ export default function Home() {
               👋
             </span>
           </h1>
-          <h2 className="text-2xl mb-8">Frontend Engineer</h2>
+          <h2>Frontend Engineer</h2>
           <p>
             I&apos;m a frontend engineer based in Madrid (Spain), currently
             working at Vizzuality developing tools for a better future.
@@ -33,7 +33,7 @@ export default function Home() {
 
       {postList.length ? (
         <div className="my-8">
-          <h2 className="text-2xl mb-8">Latest post:</h2>
+          <h2>Latest post:</h2>
           <Preview key={postList[0].link} post={postList[0]} />
         </div>
       ) : null}
