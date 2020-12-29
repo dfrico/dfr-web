@@ -18,21 +18,21 @@ This website is a React application which uses [Next](https://nextjs.org) (or Ne
 
 Next is a hybrid static site generator with server rendering (and a lot of other features), and MDX is a JSX-in-markdown loader, parser, and renderer.
 
-There are several reasons why I'm using Next, mainly because its blazing performance. It uses server side rendering and crazy optimization to bundle your web application and serve a light website to you. I may write more about Next in the future, let's see.
+There are several reasons why I'm using Next, mainly because of its blazing performance. It uses server side rendering and crazy optimization to bundle your web application and serve a light website to you. I may write more about Next in the future, let's see.
 
 So far I knew the stack for building the site itself (React with Next), but I had to decide about the posts (because writing Next pages for posts was not an option).
 
 When I thought about how I would create it and specially where would I put my posts, I considered [Gatsby](https://www.gatsbyjs.com) and [GraphCMS](https://graphcms.com). These are great options, but I always loved keeping my content close.
 
-Then I discovered [this great article](https://www.smashingmagazine.com/2020/09/build-blog-nextjs-mdx) about creating a blog with Next and MDX, just what I wanted to do! Writing the posts as markdown is easy, allows me to <Link href="/blog/2020-11-14-posting-ios"><a>write them from my phone or iPad</a></Link>, and it's a workflow I enjoy, which I believe is crucial to keep any kind of consistency on writing.
+Then I discovered [this great article](https://www.smashingmagazine.com/2020/09/build-blog-nextjs-mdx) about creating a blog with Next and MDX, just what I wanted to do! Writing the posts as markdown is easy, it allows me to <Link href="/blog/2020-11-14-posting-ios"><a>write them from my phone or iPad</a></Link>, and it's a workflow I enjoy, which I believe is crucial to keep any kind of consistency on writing.
 
 ## Let's start building
 
-I already had a Next app boostraped with `create-next-app`, but I still needed to do some config to make the blog/MDX part.
+I already had a Next app bootstraped with `create-next-app`, but I still needed to do some config to make the blog/MDX part.
 
 For the configuration of the repository, you can check out [MDX's suggested Next setup](https://mdxjs.com/getting-started/next), with the `mdx-js` loader to parse the .mdx files. You can also check <Link href="/blog/2020-11-07-bundle-analyzer"><a>this post</a></Link>, as I cover my Next configuration a bit more deeply.
 
-Apart from the base configuration, there are several key things here:
+Apart from the base configuration, there are several key matters here:
 
 1. There are some components that are required here, but the main one is the BlogPost component, which renders its children inside an article, and a post header.
 2. Inside the pages folder, usually reserved for Next pages (routes), I created a blog folder with a folder inside for each post.
@@ -48,7 +48,7 @@ In every MDX post, you need some code at the begining of the file to make it wor
 export default ({ children }) => <BlogPost>{children}</BlogPost>;
 ```
 
-MDX provides me with a `children` object that contains the elements of the article (`<p>`s, images, etc.), which I then wrap around a Blogpost component that has a article header (title, date, read time) and an `<article>` tag that wraps the children. If this sounds confusing, I'll summarize: what you see in every article is a `<Layout>` component (inside [Next's `_app`](https://nextjs.org/docs/advanced-features/custom-app)), then the `<Post>` component (with the `PostHeader` and the article itself), and then everything else from the MDX file. If it helps, you can check [the code here](https://github.com/blayhem/dfr-web/blob/main/components/post/index.js)!
+MDX provides me with a `children` object that contains the elements of the article (`<p>`s, images, etc.), which I then wrap around a Blogpost component that has an article header (title, date, read time) and an `<article>` tag that wraps the children. If this sounds confusing, I'll summarize: what you see in every article is a `<Layout>` component (inside [Next's `_app`](https://nextjs.org/docs/advanced-features/custom-app)), then the `<Post>` component (with the `PostHeader` and the article itself), and then everything else from the MDX file. If it helps, you can check [the code here](https://github.com/blayhem/dfr-web/blob/main/components/post/index.js)!
 
 ## 2. Blog page and its folders.
 
