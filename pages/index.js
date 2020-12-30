@@ -11,7 +11,8 @@ export default function Home() {
             className="rounded-full shadow-white object-cover"
             src="/img/avatar@3x.jpg"
             alt="Avatar"
-            layout="fill"
+            width={336}
+            height={336}
             priority
           />
         </div>
