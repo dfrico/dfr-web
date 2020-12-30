@@ -35,10 +35,11 @@
     @apply bg-yellow;
     @apply invisible;
     @apply w-full;
-    @apply h-px;
+    @apply h-1;
     @apply transform;
     @apply scale-x-0;
-    @apply bottom-0;
+    @apply bottom-0.5;
+    @apply opacity-60;
     @apply left-0;
     content: '';
     transition: all 0.2s ease-in-out 0s;

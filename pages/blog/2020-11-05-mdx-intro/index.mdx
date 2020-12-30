@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import BlogPost from '../../../components/post';
+import BlogPost from 'components/post';
 
 export const meta = {
   title: 'Introduction to MDX',
@@ -58,7 +58,9 @@ So, the first thing I did for the blog was creating this `blog` folder, where th
 
 ## 3. The real magic: `getAllPosts`.
 
-This file that lives in the `utils` folder of my repo, has a (relatively) simple code:
+This file that lives in the `utils` folder of my repo, uses the [context module API](https://webpack.js.org/guides/dependency-management/#context-module-api).
+
+It has a (relatively) simple code:
 
 ```js
 // this function processes everything inside a given folder
