@@ -1,25 +1,19 @@
-const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
-const images = require('remark-images');
+// https://github.com/cyrilwanner/next-optimized-images#optimization-packages
+// used with [webp-loader](https://www.npmjs.com/package/webp-loader)
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [images],
-  },
 });
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-module.exports = withPlugins([
-  [
-    withMDX,
-    {
+module.exports = optimizedImages(
+  withBundleAnalyzer(
+    withMDX({
       pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-    },
-  ],
-  [optimizedImages],
-  [withBundleAnalyzer, {}],
-]);
+    })
+  )
+);
