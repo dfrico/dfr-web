@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import BlogPost from 'components/post';
+import MDXimage from './nextMDX.jpg';
 
 export const meta = {
   title: 'Introduction to MDX',
   description: 'Generating a site with MDX and Nextjs!',
   date: 'Nov 05, 2020',
   readTime: '7',
+  postImg: MDXimage,
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

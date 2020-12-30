@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import BlogPost from '../../../components/post';
+import Image from 'next/image';
+import BlogPost from 'components/post';
 import IpadEdit from './photo.jpeg';
 import Sshing from './sshing.jpeg';
 
@@ -16,7 +17,13 @@ export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 I love to write from my iPad. It feels more personal, more inmersive. This may sound stupid but I like it.
 
 <figure>
-  <img src={IpadEdit} alt="writing a post on the iPad" />
+  <Image
+    src={IpadEdit}
+    alt="writing a post on the iPad"
+    width={700}
+    height={400}
+    quality={99}
+  />
   <figcaption>
     Shot on my A7II, imported to the iPad, edited with Darkroom, then imported
     to Working Copy and added to this article.
