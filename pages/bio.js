@@ -225,7 +225,7 @@ export default function CV() {
             scrapping with the main product API.
           </li>
           <li className="my-2">
-            Me and 2 classmates were
+            Two classmates and I were
             {' '}
             <a
               href="https://www.facebook.com/hackupc/photos/a.326823167691748/326851221022276/?type=3"

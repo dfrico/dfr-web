@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta
             name="description"
-            content="Daniel Fernández - Frontend developer based in Madrid, Spain. Check my site to learn more about me!"
+            content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
           <meta
             property="og:image"
@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <meta property="og:title" content="dfr-web" />
           <meta
             property="og:description"
-            content="Daniel Fernández - Frontend developer based in Madrid, Spain. Check my site to learn more about me!"
+            content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
           <meta property="og:image" content="/img/logo.png" />
 
@@ -29,7 +29,7 @@ class MyDocument extends Document {
           <meta property="twitter:title" content="dfr-web" />
           <meta
             property="twitter:description"
-            content="Daniel Fernández - Frontend developer based in Madrid, Spain. Check my site to learn more about me!"
+            content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
           <meta property="twitter:image" content="/img/logo.png" />
 
