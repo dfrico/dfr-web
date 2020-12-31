@@ -11,7 +11,7 @@
 
   li::before {
     @apply mr-1;
-    content: '— ';
+    content: '→ ';
   }
 
   /* Blogposts format */

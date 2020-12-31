@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import Header from '../header';
-import Cursor from '../cursor';
+import Header from 'components/header';
+import Cursor from 'components/cursor';
 
 function Layout({ children }) {
   return (

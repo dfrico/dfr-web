@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import hljs from 'highlight.js/lib/core';
-import PostHeader from '../postHeader';
+import PostHeader from 'components/postHeader';
 
 function updateCodeSyntaxHighlighting() {
   document.querySelectorAll('pre code').forEach((block) => {

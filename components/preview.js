@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import PostHeader from '../postHeader';
+import PostHeader from 'components/postHeader';
 
 const PostPreview = ({ post }) => {
   const {

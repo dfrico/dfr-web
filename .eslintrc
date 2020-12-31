@@ -27,5 +27,13 @@
     "react/require-default-props": "off",
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"],
+        "paths": ["."]
+      }
+    }
   }
 }

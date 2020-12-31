@@ -40,23 +40,39 @@ export default function Home() {
       ) : null}
 
       <footer className="block relative mt-12 mb-6 left-0 right-0 sm:absolute sm:bottom-0">
-        <div className="flex justify-evenly lg:w-3/5 mx-auto">
-          <a className="mx-6" href="https://twitter.com/blayhem">
-            <Image src="/icons/tw.svg" alt="twitter" width={48} height={48} />
+        <div className="flex justify-evenly w-72 lg:w-2/5 mx-auto">
+          <a
+            href="https://twitter.com/blayhem"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src="/icons/tw.svg" alt="twitter" width={24} height={24} />
           </a>
-          <a className="mx-6" href="https://github.com/blayhem">
-            <Image src="/icons/gh.svg" alt="GitHub" width={48} height={48} />
+          <a
+            href="https://github.com/blayhem"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src="/icons/gh.svg" alt="GitHub" width={24} height={24} />
           </a>
-          <a className="mx-6" href="https://www.twitch.tv/blayhem">
+          <a
+            href="https://www.twitch.tv/blayhem"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src="/icons/twitch.svg"
               alt="Twitch"
-              width={48}
-              height={48}
+              width={24}
+              height={24}
             />
           </a>
-          <a className="mx-6" href="https://www.instagram.com/blayhem/">
-            <Image src="/icons/ig.svg" alt="Instagram" width={48} height={48} />
+          <a
+            href="https://www.instagram.com/blayhem/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src="/icons/ig.svg" alt="Instagram" width={24} height={24} />
           </a>
         </div>
       </footer>
