@@ -6,8 +6,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <title>Daniel Fernandez</title>
-          <meta name="title" content="Daniel Fernandez" />
           <meta
             name="description"
             content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
