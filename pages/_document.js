@@ -6,27 +6,26 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
+          <title>Daniel Fernandez</title>
+          <meta name="title" content="Daniel Fernandez" />
           <meta
             name="description"
             content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
-          <meta
-            property="og:image"
-            content="https://example.com/images/image.jpg"
-          />
+          <meta property="og:image" content="/img/logo.png" />
 
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://dfr.now.sh/" />
-          <meta property="og:title" content="dfr-web" />
+          <meta property="og:url" content="https://danielfernandez.dev/" />
+          <meta property="og:title" content="Daniel Fernandez" />
           <meta
             property="og:description"
             content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
           <meta property="og:image" content="/img/logo.png" />
 
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://dfr.now.sh" />
-          <meta property="twitter:title" content="dfr-web" />
+          <meta property="twitter:card" content="/img/logo.png" />
+          <meta property="twitter:url" content="https://danielfernandez.dev" />
+          <meta property="twitter:title" content="Daniel Fernandez" />
           <meta
             property="twitter:description"
             content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
