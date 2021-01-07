@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Timeline from 'components/timeline';
 import postList from '../utils/getAllPosts';
 import Preview from '../components/preview';
 
@@ -32,6 +33,8 @@ export default function Home() {
         </div>
       </div>
 
+      <Timeline />
+
       {postList.length ? (
         <div className="my-8">
           <h2>Latest post:</h2>
@@ -39,7 +42,8 @@ export default function Home() {
         </div>
       ) : null}
 
-      <footer className="block relative mt-12 mb-6 left-0 right-0 sm:absolute sm:bottom-0">
+      <footer className="block relative mt-12 mb-6">
+        {/* left-0 right-0 sm:absolute sm:bottom-0 */}
         <div className="flex justify-evenly w-72 lg:w-2/5 mx-auto">
           <a
             href="https://twitter.com/blayhem"
