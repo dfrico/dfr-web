@@ -42,7 +42,6 @@ export default function About() {
         to learn more about me.
       </section>
       <section className="block text-center mt-6 mb-16">
-        <p className="mb-4">More about me</p>
         <p>
           contact me
           {' '}
