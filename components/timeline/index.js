@@ -22,16 +22,20 @@ export default function Timeline() {
           .reverse()
           .slice(0, isOpen ? Object.keys(experience).length : 2)
           .map(([year, exp]) => (
-            <>
+            <div key={year}>
               <h3 className="text-lg md:text-xl font-bold tracking-tight text-gray-100">
                 {year}
               </h3>
               <ul className="pl-2 sm:pl-8">
-                {exp.map((item) => (
-                  <li className="my-2">{item}</li>
+                {exp.map((item, i) => (
+                  // year + index is unique enough
+                  // eslint-disable-next-line react/no-array-index-key
+                  <li className="my-2" key={`${year}-${i}`}>
+                    {item}
+                  </li>
                 ))}
               </ul>
-            </>
+            </div>
           ))}
 
         <div className="flex items-center my-4">
