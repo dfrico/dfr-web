@@ -37,7 +37,10 @@ function BlogPost({ children, meta }) {
         <meta name="twitter:site" content="@blayhem" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.postImg} />
+        <meta
+          name="twitter:image"
+          content={`http://danielfernandez.dev${meta.postImg}`}
+        />
       </Head>
       <PostHeader meta={meta} isBlogPost />
       <article>{children}</article>
