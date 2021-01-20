@@ -33,10 +33,11 @@ function BlogPost({ children, meta }) {
         <meta property="og:description" content={meta.description} />
         <meta property="og:image" content={meta.postImg} />
 
-        <meta property="twitter:card" content={meta.postImg} />
-        <meta property="twitter:title" content={meta.title} />
-        <meta property="twitter:description" content={meta.description} />
-        <meta property="twitter:image" content={meta.postImg} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@blayhem" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.postImg} />
       </Head>
       <PostHeader meta={meta} isBlogPost />
       <article>{children}</article>

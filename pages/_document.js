@@ -21,14 +21,15 @@ class MyDocument extends Document {
           />
           <meta property="og:image" content="/img/logo.png" />
 
-          <meta property="twitter:card" content="/img/logo.png" />
-          <meta property="twitter:url" content="https://danielfernandez.dev" />
-          <meta property="twitter:title" content="Daniel Fernandez" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@blayhem" />
+          <meta name="twitter:url" content="https://danielfernandez.dev" />
+          <meta name="twitter:title" content="Daniel Fernandez" />
           <meta
-            property="twitter:description"
+            name="twitter:description"
             content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
-          <meta property="twitter:image" content="/img/logo.png" />
+          <meta name="twitter:image" content="/img/logo.png" />
 
           {/* Google fonts */}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
