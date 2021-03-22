@@ -28,7 +28,8 @@ export default function Home() {
           <h2>Frontend Engineer</h2>
           <p>
             I&apos;m a frontend engineer based in Madrid (Spain), currently
-            working at Vizzuality developing tools for a better future.
+            working at Localistico developing the connection between businesses
+            and the digital world.
           </p>
         </div>
       </div>

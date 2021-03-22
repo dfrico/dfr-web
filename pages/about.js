@@ -17,7 +17,7 @@ export default function About() {
       <section className="text-center mt-6">
         <p className="mb-2">
           Hi! My name is Daniel and I’m a 26 years old, Madrid-based, Frontend
-          Engineer at Vizzuality.
+          Engineer at Localistico.
         </p>
         <p className="mb-2">
           Before working here, I got a Computer Science BS from UC3M, worked as

@@ -1,6 +1,21 @@
 import React from 'react';
 
 export default {
+  2021: [
+    <>
+      Just joined
+      {' '}
+      <a
+        href="https://localistico.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Localistico
+      </a>
+      {' '}
+      in March! Stay tuned :)
+    </>,
+  ],
   2020: [
     <>
       Led the development of
