@@ -28,6 +28,11 @@
     @apply mb-8;
   }
 
+  b,
+  strong {
+    @apply font-bold;
+  }
+
   article th,
   article td {
     @apply px-2 py-1;
