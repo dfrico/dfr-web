@@ -5,9 +5,9 @@ import hljs from 'highlight.js/lib/core';
 import PostHeader from 'components/postHeader';
 
 function updateCodeSyntaxHighlighting() {
-  document.querySelectorAll('pre code').forEach((block) => {
+  document.querySelectorAll('pre code').forEach((el) => {
     // Chrome and Safari need re-highlighting on every post load
-    hljs.highlightBlock(block);
+    hljs.highlightElement(el);
   });
 }
 
@@ -19,11 +19,7 @@ function BlogPost({ children, meta }) {
   return (
     <>
       <Head>
-        <title>
-          {meta.title}
-          {' '}
-          - Daniel Fernandez
-        </title>
+        <title>{meta.title} - Daniel Fernandez</title>
         <meta name="title" content={meta.title} />
         <meta name="description" content={meta.description} />
         <meta property="og:image" content={meta.postImg} />

@@ -15,7 +15,7 @@ function App({ Component, pageProps }) {
   useEffect(() => {
     hljs.registerLanguage('javascript', javascript);
     // Chrome needs initial highlighting on window load (here)
-    hljs.initHighlighting();
+    hljs.highlightAll();
   }, []);
 
   return (
