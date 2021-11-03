@@ -47,7 +47,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "prettier --write",
-      "lint --fix"
+      "next lint --fix ."
     ]
   },
   "prettier": {
