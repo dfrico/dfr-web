@@ -1,10 +1,13 @@
 import Image from 'next/image';
 
 function importAll(r) {
-  return r.keys().map((fileName) => ({
-    name: fileName.split('_')[1].replace(/\.jpg$/, ''),
-    module: r(fileName),
-  }));
+  return r
+    .keys()
+    .filter((fileName) => fileName.includes('pages'))
+    .map((fileName) => ({
+      name: fileName.split('_')[1].replace(/\.jpg$/, ''),
+      module: r(fileName),
+    }));
 }
 
 const Images = importAll(require.context('./img', true, /\.jpg$/));

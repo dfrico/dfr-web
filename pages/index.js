@@ -19,8 +19,7 @@ export default function Home() {
         </div>
         <div className="text-center">
           <h1 className="font-bold text-5xl tracking-tight mb-4 mt-16 text-yellow">
-            Hey, I&apos;m Daniel Fernández
-            {' '}
+            Hey, I&apos;m Daniel Fernández{' '}
             <span role="img" aria-label=":wave:">
               👋
             </span>
@@ -36,15 +35,14 @@ export default function Home() {
 
       <Timeline />
 
-      {postList.length ? (
+      {postList.length && (
         <div className="my-8">
           <h2>Latest post:</h2>
           <Preview key={postList[0].link} post={postList[0]} />
         </div>
-      ) : null}
+      )}
 
       <footer className="block relative mt-12 mb-6">
-        {/* left-0 right-0 sm:absolute sm:bottom-0 */}
         <div className="flex justify-evenly w-72 lg:w-2/5 mx-auto">
           <a
             href="https://twitter.com/blayhem"
