@@ -1,7 +1,9 @@
+const ignoreKeys = ['WIP', '/blog'];
+
 function importAll(r) {
   return r
     .keys()
-    .filter((path) => !path.includes('WIP'))
+    .filter((path) => !ignoreKeys.some((key) => path.includes(key)))
     .reverse()
     .map((fileName) => ({
       link: fileName.substr(1).replace(/\/index\.mdx$/, ''),
