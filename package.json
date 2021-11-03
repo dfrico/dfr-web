@@ -42,11 +42,6 @@
     "prettier": "^2.3.1",
     "yarn-upgrade-all": "^0.5.4"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx}": [
       "prettier --write",
