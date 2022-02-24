@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Timeline from 'components/timeline';
+import Link from 'next/link';
 import postList from '../utils/getAllPosts';
 import Preview from '../components/preview';
 
@@ -9,7 +9,7 @@ export default function Home() {
       <div className="grid sm:grid-cols-2 items-center">
         <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-84 md:h-84 mx-auto flex items-center">
           <Image
-            className="rounded-full shadow-white object-cover"
+            className="rounded-full object-cover"
             src="/img/avatar@3x.jpg"
             alt="Avatar"
             width={336}
@@ -24,16 +24,21 @@ export default function Home() {
               👋
             </span>
           </h1>
-          <h2>Frontend Engineer</h2>
-          <p>
+          <h2 className="mb-4">Frontend Engineer</h2>
+          <p className="mb-2">
             I&apos;m a frontend engineer based in Madrid (Spain), currently
             working at Localistico developing the connection between businesses
             and the digital world.
           </p>
+          <p className="mb-2">
+            Check out more{' '}
+            <Link href="/about">
+              <a>about me</a>
+            </Link>
+            .
+          </p>
         </div>
       </div>
-
-      <Timeline />
 
       {postList.length && (
         <div className="my-8">

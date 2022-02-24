@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Timeline from 'components/timeline';
 
 export default function About() {
   const now = new Date();
@@ -9,7 +10,7 @@ export default function About() {
     <>
       <div className="mt-4 mx-auto">
         <Image
-          className="rounded-full shadow-white"
+          className="rounded-full"
           src="/img/sofa.jpeg"
           alt="Avatar"
           width={180}
@@ -19,21 +20,25 @@ export default function About() {
 
       <section className="text-center mt-6">
         <p className="mb-2">
-          Hi! My name is Daniel and I’m a {age} years old, Madrid-based,
-          Frontend Engineer at Localistico.
+          Hello there! My name is Daniel and I’m a {age} year old Frontend
+          Engineer working remotely from sunny Spain. I currently work at{' '}
+          <Link href="https://localistico.com">
+            <a>Localistico</a>
+          </Link>{' '}
+          helping businesses grow.
         </p>
         <p className="mb-2">
-          Before working here, I got a Computer Science BS from UC3M, worked as
-          a developer and designer, participated in several hackathons and
-          advocated for technology in different ways.
+          I have a Computer Science BS (UC3M), and I&apos;ve been working as a
+          developer and designer since 2016, participating in hackathons and
+          advocating for technology in different ways.
         </p>
         <p className="mb-2">
           I am a person of too many hobbies. My interests outside of coding
-          include minimalism, coffee, mechanical keyboards, synths and
-          electronic music, and digital &amp; analog photography.
+          include good coffee, mechanical keyboards, synths and electronic
+          music, and digital &amp; analog photography.
         </p>
       </section>
-      <section className="text-center mt-6">
+      {/* <section className="text-center mt-6">
         Check out my{' '}
         <Link href="/bio">
           <a>
@@ -41,7 +46,8 @@ export default function About() {
           </a>
         </Link>{' '}
         to learn more about me.
-      </section>
+      </section> */}
+      <Timeline />
       <section className="block text-center mt-6 mb-16">
         <p>
           contact me{' '}
@@ -49,6 +55,18 @@ export default function About() {
             👉
           </span>{' '}
           <a href="mailto:daniel.fdez@pm.me">daniel.fdez@pm.me</a>
+          <br />
+          previous work (& other){' '}
+          <span role="img" aria-label="at">
+            👉
+          </span>{' '}
+          <a
+            href="https://www.linkedin.com/in/daniel-fernandez-rico/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com
+          </a>
           <br />
           code and pet projects{' '}
           <span role="img" aria-label="at">
