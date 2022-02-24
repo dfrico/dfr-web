@@ -26,7 +26,7 @@ In this particular case, I wanted a deep comparison hook. Funnily enough, I base
 
 The code is the following:
 
-```
+```javascript
 // existing hooks we want to use here
 import { useRef, useEffect } from 'react';
 // deep comparison utility by lodash
@@ -61,7 +61,7 @@ Luckily, [React testing library](https://testing-library.com) has a great set of
 
 We can use it to implement a test that mocks a callback function that will be called everytime the dependencies array changes:
 
-```
+```javascript
 import { renderHook } from '@testing-library/react-hooks';
 
 it('should trigger callback only on dependencies change', () => {

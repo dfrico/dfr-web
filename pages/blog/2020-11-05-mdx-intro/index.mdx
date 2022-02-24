@@ -46,7 +46,7 @@ I'll explain each one:
 
 In every MDX post, you need some code at the begining of the file to make it work, transpile, and render. Apart from exporting a `meta` object I'm using to render some stuff like the read time or description, I'm exporting the following function component:
 
-```js
+```javascript
 export default ({ children }) => <BlogPost>{children}</BlogPost>;
 ```
 
@@ -64,7 +64,7 @@ This file that lives in the `utils` folder of my repo, uses the [context module 
 
 It has a (relatively) simple code:
 
-```js
+```javascript
 // this function processes everything inside a given folder
 function importAll(r) {
   return (
@@ -89,7 +89,7 @@ export default importAll(require.context('../pages/blog', true, /\.mdx$/));
 
 The list of objects (`{link, module}`) that this function returns is what I'm using to render the post list you see in `/blog`. That page component is just rendering each "post" object into a `Preview` component to render the cards.
 
-```js
+```javascript
 postList.map((post) => <Preview key={post.link} post={post} />);
 ```
 

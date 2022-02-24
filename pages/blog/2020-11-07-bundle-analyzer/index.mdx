@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import BlogPost from '../../../components/post';
 import BundleImg from './bundle.jpg';
 
@@ -16,7 +17,7 @@ If you use Next for developing web applications, you probably are using a [custo
 
 For example, a simplified version of my next config (<Link href="/blog/2020-11-05-mdx-intro"><a>using MDX</a></Link>), would look like:
 
-```js
+```javascript
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
@@ -29,7 +30,13 @@ module.exports = withMDX({
 Now, you can use [Next Bundle Analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer), or use [cross-env](https://flaviocopes.com/nextjs-analyze-app-bundle/) with Next Bundle Analyzer to check the size of your dependencies, and it will produce a beautiful [treemap](https://en.wikipedia.org/wiki/Treemapping) of them.
 
 <figure>
-  <img src={BundleImg} alt="application bundle treemap" />
+  <Image
+    src={BundleImg}
+    alt="application bundle treemap"
+    width={700}
+    height={400}
+    quality={99}
+  />
   <figcaption>
     The production bundle dependencies treemap of this site, at the moment of
     writing this article.
@@ -38,7 +45,7 @@ Now, you can use [Next Bundle Analyzer](https://github.com/vercel/next.js/tree/c
 
 However, a lot of those tutorials tell you to just write something like:
 
-```js
+```javascript
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -53,7 +60,7 @@ The answer is, you have 2 options:
 
 If the configurations are simple enough, you can do something like this to chain them:
 
-```js
+```javascript
 module.exports = withCSS(
   withTypescript(
     withSass({
@@ -74,7 +81,7 @@ If you're already worried about dependencies, adding an extra one might be a dou
 
 So, the way I configured my Next config to use MDX and Next Bundle Analyzer at the same time is:
 
-```js
+```javascript
 // MDX config
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
@@ -98,7 +105,7 @@ module.exports = withPlugins([
 
 A simplified version of this would be:
 
-```js
+```javascript
 // [plugin: function, configuration?: object, phases?: array]
 withPlugins([...plugins], nextConfiguration);
 ```
