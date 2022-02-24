@@ -2,6 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function About() {
+  const now = new Date();
+  const birthDate = new Date('1994-03-13');
+  const age = Math.floor((now - birthDate) / (1000 * 60 * 60 * 24 * 365));
   return (
     <>
       <div className="mt-4 mx-auto">
@@ -16,8 +19,8 @@ export default function About() {
 
       <section className="text-center mt-6">
         <p className="mb-2">
-          Hi! My name is Daniel and I’m a 26 years old, Madrid-based, Frontend
-          Engineer at Localistico.
+          Hi! My name is Daniel and I’m a {age} years old, Madrid-based,
+          Frontend Engineer at Localistico.
         </p>
         <p className="mb-2">
           Before working here, I got a Computer Science BS from UC3M, worked as
@@ -31,32 +34,26 @@ export default function About() {
         </p>
       </section>
       <section className="text-center mt-6">
-        Check out my
-        {' '}
+        Check out my{' '}
         <Link href="/bio">
           <a>
             <code>/bio</code>
           </a>
-        </Link>
-        {' '}
+        </Link>{' '}
         to learn more about me.
       </section>
       <section className="block text-center mt-6 mb-16">
         <p>
-          contact me
-          {' '}
+          contact me{' '}
           <span role="img" aria-label="at">
             👉
-          </span>
-          {' '}
+          </span>{' '}
           <a href="mailto:daniel.fdez@pm.me">daniel.fdez@pm.me</a>
           <br />
-          code and pet projects
-          {' '}
+          code and pet projects{' '}
           <span role="img" aria-label="at">
             👉
-          </span>
-          {' '}
+          </span>{' '}
           <a
             href="https://github.com/blayhem"
             target="_blank"
@@ -65,12 +62,10 @@ export default function About() {
             github.com/blayhem
           </a>
           <br />
-          occasional code streamings
-          {' '}
+          occasional code streamings{' '}
           <span role="img" aria-label="at">
             👉
-          </span>
-          {' '}
+          </span>{' '}
           <a
             href="https://www.twitch.tv/blayhem"
             target="_blank"
@@ -78,13 +73,10 @@ export default function About() {
           >
             twitch.tv/blayhem
           </a>
-          <br />
-          a bit of everything
-          {' '}
+          <br />a bit of everything{' '}
           <span role="img" aria-label="at">
             👉
-          </span>
-          {' '}
+          </span>{' '}
           <a
             href="https://twitter.com/blayhem"
             target="_blank"

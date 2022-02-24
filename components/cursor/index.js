@@ -7,9 +7,9 @@ export default function Cursor() {
   // https://codepen.io/cezzre/pen/poJxLEM
 
   const DEFAULT_CURSOR_SIZE = 0;
-  let isCursorLocked = false;
 
   useEffect(() => {
+    let isCursorLocked = false;
     /* CURSOR */
     const cursor = document.querySelector('#cursor');
     if (cursor) {
