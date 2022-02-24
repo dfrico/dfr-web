@@ -27,17 +27,13 @@ const descriptions = {
 
 export default function Uses() {
   return (
-    <>
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
-        {Images.map((img) => (
-          <div key={img.name}>
+    <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+      {Images.map((img) => (
+        <div key={img.name}>
+          <div className="relative h-0 w-full" style={{ paddingTop: '62.5%' }}>
+            <Image src={img.module} alt={img.name} layout="fill" />
             <div
-              className="relative h-0 w-full"
-              style={{ paddingTop: '62.5%' }}
-            >
-              <Image src={img.module} alt={img.name} layout="fill" />
-              <div
-                className={`
+              className={`
                 invisible
                 md:visible
                 absolute top-0
@@ -48,16 +44,15 @@ export default function Uses() {
                 flex justify-center items-center
                 p-8
                 opacity-0 hover:opacity-70`}
-              >
-                {descriptions[img.name]}
-              </div>
-            </div>
-            <p className="visible md:invisible font-semibold leading-tight my-2 md:my-0 md:h-0">
+            >
               {descriptions[img.name]}
-            </p>
+            </div>
           </div>
-        ))}
-      </div>
-    </>
+          <p className="visible md:invisible font-semibold leading-tight my-2 md:my-0 md:h-0">
+            {descriptions[img.name]}
+          </p>
+        </div>
+      ))}
+    </div>
   );
 }

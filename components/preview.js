@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PostHeader from 'components/postHeader';
 
-const PostPreview = ({ post }) => {
+function PostPreview({ post }) {
   const [mounted, setMounted] = useState(false);
   const {
     link,
@@ -34,7 +34,7 @@ const PostPreview = ({ post }) => {
       </Link>
     </div>
   );
-};
+}
 
 PostPreview.propTypes = {
   post: PropTypes.object,
