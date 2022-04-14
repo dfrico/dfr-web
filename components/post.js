@@ -35,7 +35,7 @@ function BlogPost({ children, meta }) {
         <meta name="twitter:description" content={meta.description} />
         <meta
           name="twitter:image"
-          content={`http://dfr.codes${meta.postImg}`}
+          content={`http://dfr.codes${meta.postImg?.src}`}
         />
       </Head>
       <PostHeader meta={meta} isBlogPost />
