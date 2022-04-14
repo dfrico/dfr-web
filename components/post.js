@@ -29,8 +29,9 @@ function BlogPost({ children, meta }) {
         <meta property="og:description" content={meta.description} />
         <meta property="og:image" content={meta.postImg} />
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@blayhem" />
+        <meta name="twitter:creator" content="@blayhem" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta
