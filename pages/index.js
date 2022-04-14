@@ -5,10 +5,11 @@ import postList from '../utils/getAllPosts';
 import Preview from '../components/preview';
 
 export default function Home() {
+  const URL = 'https://dfr.codes';
   return (
     <>
       <Head>
-        <meta property="og:url" content="https://dfr.codes/" />
+        <meta property="og:url" content={URL} />
         <meta property="og:image" content="/img/logo.png" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Daniel Fernandez" />
@@ -20,13 +21,13 @@ export default function Home() {
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@blayhem" />
-        <meta name="twitter:url" content="https://dfr.codes" />
+        <meta name="twitter:url" content={URL} />
         <meta name="twitter:title" content="Daniel Fernandez" />
         <meta
           name="twitter:description"
           content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
         />
-        <meta name="twitter:image" content="/img/logo.png" />
+        <meta name="twitter:image" content={`${URL}/img/logo.png`} />
 
         {/* Google fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
