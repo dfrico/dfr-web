@@ -1,0 +1,84 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import BlogPost from 'components/post';
+import FinalPreview from './terminal-preview.jpg';
+import DevAsLifePreview from './devaslife.jpeg';
+import OBS from './obs.jpeg';
+
+export const meta = {
+  title: 'Capture a beautiful video background for your terminal.',
+  description: "How to overlay a transparent terminal on top of the camera feed.",
+  date: 'Jan 23, 2021',
+  readTime: 2,
+  postImg: FinalPreview,
+};
+
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+If you follow programming YouTubers, chances are that you might have seen a video from [Takuya Matsuyama](https://www.craftz.dog) ([devaslife](https://www.youtube.com/devaslife) on YouTube).
+
+On a lot of his videos ([like this one](https://www.youtube.com/watch?v=KKxhf50FIPI)) he records himself coding in the terminal, with a twist: the background of the terminal is not a plain color or his desktop, but the video feed from his camera.
+
+<figure>
+  <Image
+    src={DevAsLifePreview}
+    alt="Screenshot from devaslife video: My Fish shell workflow for coding. You can see him typing on the keyboard, and the table itself is the background of the terminal"
+    width={700}
+    height={400}
+    quality={99}
+  />
+  <figcaption>
+    <center>
+      Screenshot from devaslife video: [My Fish shell workflow for coding](https://www.youtube.com/watch?v=KKxhf50FIPI).
+    </center>
+  </figcaption>
+</figure>
+
+If you try to replicate this using [OBS](https://obsproject.com/), it's pretty easy to create a scene with two sources: the camera feed and the display capture with the terminal. However, the 'display capture' source completely blocks the camera feed.
+
+<figure>
+  <Image
+    src={OBS}
+    alt="opaque terminal on top of the webcam feed"
+    width={700}
+    height={400}
+    quality={99}
+  />
+  <figcaption>
+    <center>
+      The display source blocks the camera, even if you set a transparent background for the terminal.
+    </center>
+  </figcaption>
+</figure>
+
+I'm pretty sure there's a way to eliminate the terminal background by **applying a chroma key filter to the terminal's background color**, but that can mess with your terminal color settings/theme and I'm not sure if you can add a blur effect to the transparency. I might try this in the future but, for now, this is the easiest way I could find.
+
+What you are going to do in order to achieve a similar effect is:
+
+1. Right click your camera source and click on "Windowed proyector (source)". You have now a nice background window to put your terminal on top of it.
+2. (Optional) Turn off your camera preview in OBS (👁 icon), you don't need this and it might have an impact on what to render before streaming/recording.
+3. Adjust your display capture source to capture an area of the screen where the projector window AND the terminal can fit nicely on top of each other.
+4. Tweak your terminal settings (I'm using [iTerm](https://iterm2.com/)).
+I created a new profile for this called 'Streaming', with bigger font size, 83% transparency (settings/profiles/window), and 40% blur radius. Doing this makes your terminal almost transparent and uses your camera feed as a background.
+5. Adjust your colorscheme to fit your new background nicely, create a nice contrast. I'm using [Adventure](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Adventure.itermcolors) here to make it quicker, but it's probably better to customize the colors yourself.
+
+This is the result ([video preview](https://twitter.com/blayhem/status/1514268137067368451)):
+
+<figure>
+  <Image
+    src={FinalPreview}
+    alt="translucent terminal on top of the webcam feed"
+    width={700}
+    height={400}
+    quality={99}
+  />
+  <figcaption>
+    <center>
+      The terminal transparent background doesn't block the camera view, and the blur causes a nice effect to the captured background.
+    </center>
+  </figcaption>
+</figure>
+
+You can now record or stream your terminal for tutorials and whatnot, bonus points if you use a nice camera to capture the background.
+
+Hope you enjoyed this article, let me know your thoughts [on Twitter](https://twitter.com/blayhem), and see you on the next one <span role="img" aria-label=":v:">✌🏻</span>

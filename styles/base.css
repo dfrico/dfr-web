@@ -9,6 +9,11 @@
     @apply cursor-pointer;
   }
 
+  b,
+  strong {
+    @apply font-semibold;
+  }
+
   li::before {
     @apply mr-1;
     content: '→ ';
