@@ -10,26 +10,6 @@ class MyDocument extends Document {
             name="description"
             content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
-          <meta property="og:image" content="/img/logo.png" />
-
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://danielfernandez.dev/" />
-          <meta property="og:title" content="Daniel Fernandez" />
-          <meta
-            property="og:description"
-            content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
-          />
-          <meta property="og:image" content="/img/logo.png" />
-
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@blayhem" />
-          <meta name="twitter:url" content="https://danielfernandez.dev" />
-          <meta name="twitter:title" content="Daniel Fernandez" />
-          <meta
-            name="twitter:description"
-            content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
-          />
-          <meta name="twitter:image" content="/img/logo.png" />
 
           {/* Google fonts */}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
