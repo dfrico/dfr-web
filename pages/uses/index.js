@@ -31,7 +31,12 @@ export default function Uses() {
       {Images.map((img) => (
         <div key={img.name}>
           <div className="relative h-0 w-full" style={{ paddingTop: '62.5%' }}>
-            <Image src={img.module} alt={img.name} layout="fill" />
+            <Image
+              src={img.module}
+              alt={img.name}
+              layout="fill"
+              objectFit="cover"
+            />
             <div
               className={`
                 invisible

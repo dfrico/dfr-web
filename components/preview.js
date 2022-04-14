@@ -26,7 +26,12 @@ function PostPreview({ post }) {
           {meta.postImg && (
             <div className="overflow-hidden rounded-r hidden sm:block h-full w-1/3 flex-grow-0">
               <div className="object-cover h-full relative">
-                <Image src={meta.postImg.src} alt={meta.title} layout="fill" />
+                <Image
+                  src={meta.postImg.src}
+                  alt={meta.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
             </div>
           )}
