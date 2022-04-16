@@ -42,8 +42,8 @@ export default function Home() {
               className="rounded-full object-cover"
               src="/img/avatar@3x.jpg"
               alt="Avatar"
-              width={336}
-              height={336}
+              width={512}
+              height={512}
               priority
             />
           </div>

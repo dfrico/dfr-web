@@ -4,8 +4,8 @@ import styles from './header.module.scss';
 export default function Header() {
   return (
     <nav className="flex justify-between items-center w-full my-4">
-      <Link href="/">
-        <a>
+      <Link href="/" aria-label="dfr web index">
+        <a aria-label="dfr web index">
           <svg
             className={styles.logo}
             baseProfile="full"
