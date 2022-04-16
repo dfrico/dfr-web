@@ -9,7 +9,7 @@ import 'highlight.js/styles/vs2015.css';
 
 import Layout from '../components/layout';
 import '../styles/base.css';
-import '../styles/rubik.css';
+import '../styles/fonts.css';
 
 function App({ Component, pageProps }) {
   useEffect(() => {

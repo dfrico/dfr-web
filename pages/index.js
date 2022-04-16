@@ -48,7 +48,7 @@ export default function Home() {
             />
           </div>
           <div className="text-center">
-            <h1 className="font-bold text-5xl tracking-tight mb-4 mt-16 text-yellow">
+            <h1 className="font-bold font-rubik text-5xl tracking-tight mb-4 mt-16 text-yellow">
               Hey, I&apos;m Daniel Fernández{' '}
               <span role="img" aria-label=":wave:">
                 👋

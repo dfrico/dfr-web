@@ -7,8 +7,8 @@ function HeadPost({ meta, isBlogPost }) {
         <h1
           className={`${
             isBlogPost
-              ? 'font-extrabold text-6xl leading-compact'
-              : 'font-bold text-2xl mt-0 overflow-hidden overflow-ellipsis twoLines'
+              ? 'font-extrabold font-rubik text-6xl leading-compact'
+              : 'font-bold font-rubik text-2xl mt-0 overflow-hidden overflow-ellipsis twoLines'
           } text-yellow mb-2`}
         >
           {meta.title}

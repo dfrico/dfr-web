@@ -23,7 +23,7 @@ export default function Timeline() {
           .slice(0, isOpen ? Object.keys(experience).length : 2)
           .map(([year, exp]) => (
             <div key={year}>
-              <h3 className="text-lg md:text-xl font-bold tracking-tight text-gray-100">
+              <h3 className="text-lg md:text-xl font-bold font-rubik tracking-tight text-gray-100">
                 {year}
               </h3>
               <ul className="pl-2 sm:pl-8">
