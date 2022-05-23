@@ -5,6 +5,7 @@ import Head from 'next/head';
 // highlight.js
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
 import 'highlight.js/styles/vs2015.css';
 
 import Layout from '../components/layout';
@@ -14,6 +15,7 @@ import '../styles/fonts.css';
 function App({ Component, pageProps }) {
   useEffect(() => {
     hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('typescript', typescript);
     // Chrome needs initial highlighting on window load (here)
     hljs.highlightAll();
   }, []);
