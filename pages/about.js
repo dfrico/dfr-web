@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import Timeline from 'components/timeline';
+import currentlyAt from 'components/currently';
 
 export default function About() {
   const now = new Date();
@@ -20,33 +20,29 @@ export default function About() {
 
       <section className="text-center mt-6">
         <p className="mb-2">
-          Hello there! My name is Daniel and I’m a {age} year old Frontend
-          Engineer working remotely from sunny Spain. I currently work at{' '}
-          <Link href="https://localistico.com">
-            <a>Localistico</a>
-          </Link>{' '}
-          helping businesses grow.
+          Hello there! My name is Daniel and I&apos;m a {age} year old Frontend
+          Engineer based in Spain. I currently work {currentlyAt}
         </p>
         <p className="mb-2">
-          I have a Computer Science BS (UC3M), and I&apos;ve been working as a
-          developer and designer since 2016, participating in hackathons and
-          advocating for technology in different ways.
-        </p>
-        <p className="mb-2">
-          I am a person of too many hobbies. My interests outside of coding
-          include good coffee, mechanical keyboards, synths and electronic
-          music, and digital &amp; analog photography.
+          When I&apos;m not coding, you can find me hiking, surfing,{' '}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://soundcloud.com/blayhem"
+          >
+            playing/making music
+          </a>
+          ,{' '}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://photos.dfr.codes/"
+          >
+            taking pictures
+          </a>
+          , or just enjoying some games.
         </p>
       </section>
-      {/* <section className="text-center mt-6">
-        Check out my{' '}
-        <Link href="/bio">
-          <a>
-            <code>/bio</code>
-          </a>
-        </Link>{' '}
-        to learn more about me.
-      </section> */}
       <Timeline />
       <section className="block text-center mt-6 mb-16">
         <p>

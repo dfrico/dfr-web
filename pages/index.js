@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import Preview from 'components/preview';
+import currentlyAt from 'components/currently';
 import postList from '../utils/getAllPosts';
-import Preview from '../components/preview';
 
 export default function Home() {
   const URL = 'https://dfr.codes';
@@ -36,7 +37,7 @@ export default function Home() {
         <link rel="icon" href="/favicon/favicon.png" type="image/png" />
       </Head>
       <div className="container relative h-full flex-grow">
-        <div className="grid sm:grid-cols-2 items-center">
+        <section className="grid sm:grid-cols-2 items-center">
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-84 md:h-84 mx-auto flex items-center">
             <Image
               className="rounded-full object-cover"
@@ -47,7 +48,7 @@ export default function Home() {
               priority
             />
           </div>
-          <div className="text-center">
+          <aside className="text-center">
             <h1 className="font-bold font-rubik text-5xl tracking-tight mb-4 mt-16 text-yellow">
               Hey, I&apos;m Daniel Fernández{' '}
               <span role="img" aria-label=":wave:">
@@ -56,9 +57,8 @@ export default function Home() {
             </h1>
             <h2 className="mb-4">Frontend Engineer</h2>
             <p className="mb-2">
-              I&apos;m a frontend engineer based in Madrid (Spain), currently
-              working at Localistico developing the connection between
-              businesses and the digital world.
+              I&apos;m a frontend engineer based Spain, currently working{' '}
+              {currentlyAt}
             </p>
             <p className="mb-2">
               Check out more{' '}
@@ -67,8 +67,8 @@ export default function Home() {
               </Link>
               .
             </p>
-          </div>
-        </div>
+          </aside>
+        </section>
 
         {postList.length && (
           <div className="my-8">
