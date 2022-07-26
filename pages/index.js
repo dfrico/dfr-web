@@ -16,7 +16,7 @@ export default function Home() {
         <meta property="og:title" content="Daniel Fernandez" />
         <meta
           property="og:description"
-          content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
+          content="Frontend developer based in Spain. Check out my site to learn more about me!"
         />
         <meta property="og:image" content="/img/logo.png" />
 
@@ -57,7 +57,7 @@ export default function Home() {
             </h1>
             <h2 className="mb-4">Frontend Engineer</h2>
             <p className="mb-2">
-              I&apos;m a frontend engineer based Spain, currently working{' '}
+              I&apos;m a frontend engineer based in Spain, currently working{' '}
               {currentlyAt}
             </p>
             <p className="mb-2">
