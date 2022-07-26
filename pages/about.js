@@ -24,7 +24,7 @@ export default function About() {
           Engineer based in Spain. I currently work {currentlyAt}
         </p>
         <p className="mb-2">
-          When I&apos;m not coding, you can find me hiking, surfing,{' '}
+          Apart from coding I like hiking, good coffee,{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +32,7 @@ export default function About() {
           >
             playing/making music
           </a>
-          ,{' '}
+          , or{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -40,7 +40,7 @@ export default function About() {
           >
             taking pictures
           </a>
-          , or just enjoying some games.
+          .
         </p>
       </section>
       <Timeline />
