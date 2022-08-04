@@ -6,7 +6,6 @@
 .headerLinks {
   display: flex;
   justify-content: space-between;
-  width: 150px;
 }
 
 .headerLink {
@@ -15,12 +14,14 @@
   padding: 0.6em 0.8em;
   position: relative;
   text-decoration: none;
-  transform: translate(var(--translateX), var(--translateY)) scale(var(--scale));
+  // transform: translate(var(--translateX), var(--translateY)) 
+  transform: scale(var(--scale));
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
   transition-property: opacity;
   z-index: 1;
   color: #f8f8f8;
+  @apply ml-3;
 
   --scale: 1;
   --translateX: 0;
@@ -36,7 +37,8 @@
 
   &:active {
     opacity: 0.5;
-    transform: translate(var(--translateX), var(--translateY)) scale(1);
+    // transform: translate(var(--translateX), var(--translateY)) 
+    transform: scale(1);
   }
 }
 

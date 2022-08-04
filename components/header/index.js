@@ -27,10 +27,13 @@ export default function Header() {
 
       <div className={styles.headerLinks}>
         <Link href="/about">
-          <a className={styles.headerLink}>About </a>
+          <a className={styles.headerLink}>About</a>
         </Link>
         <Link href="/blog">
-          <a className={styles.headerLink}>Notes </a>
+          <a className={styles.headerLink}>Blog</a>
+        </Link>
+        <Link href="/uses">
+          <a className={styles.headerLink}>Uses</a>
         </Link>
       </div>
     </nav>
