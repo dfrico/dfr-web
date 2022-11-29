@@ -120,8 +120,9 @@ export default function Uses() {
           Nomatic wallet, keys etc.
         </li>
         <li>
-          <span className="text-yellow">Apple Watch Series 4 with LTE</span>{' '}
-          that I will keep on using until it has no official support.
+          <span className="text-yellow">Apple Watch Series 7</span> (41mm alu
+          LTE). The always-on and slightly bigger display are great improvements
+          from my previous S4.
         </li>
         <li>
           <span className="text-yellow">Airpods Pro.</span> When I&apos;m
