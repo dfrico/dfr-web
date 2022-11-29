@@ -32,9 +32,9 @@ export default function Header() {
         <Link href="/blog">
           <a className={styles.headerLink}>Blog</a>
         </Link>
-        <Link href="/uses">
+        {/* <Link href="/uses">
           <a className={styles.headerLink}>Uses</a>
-        </Link>
+        </Link> */}
       </div>
     </nav>
   );
