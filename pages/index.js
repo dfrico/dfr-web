@@ -87,6 +87,19 @@ export default function Home() {
               <Image src="/icons/tw.svg" alt="twitter" width={24} height={24} />
             </a>
             <a
+              href="https://mastodon.social/@dfr"
+              target="_blank"
+              // eslint-disable-next-line react/no-invalid-html-attribute
+              rel="me noopener noreferrer"
+            >
+              <Image
+                src="/icons/mast.svg"
+                alt="mastodon"
+                width={24}
+                height={24}
+              />
+            </a>
+            <a
               href="https://github.com/blayhem"
               target="_blank"
               rel="noopener noreferrer"
