@@ -10,6 +10,10 @@ class MyDocument extends Document {
             name="description"
             content="Frontend developer based in Madrid, Spain. Check out my site to learn more about me!"
           />
+          {/* eslint-disable-next-line react/no-invalid-html-attribute */}
+          <a rel="me" href="https://mastodon.social/@dfr">
+            Mastodon
+          </a>
 
           {/* Google fonts */}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
