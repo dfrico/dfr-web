@@ -1,0 +1,94 @@
+import BlogPost from '@/components/post';
+import Testing from './testing-2.jpg';
+
+export const meta = {
+  title: 'How to write and test a custom React hook.',
+  description: "What's a custom hook? How can we use them, and test them?",
+  date: 'Jan 23, 2021',
+  readTime: 2,
+  postImg: Testing,
+};
+
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+You might be familiar with [React hooks](https://reactjs.org/docs/hooks-intro.html), but maybe you don't know that you can [implement your own hooks](https://reactjs.org/docs/hooks-custom.html) to build reusable logic on top of hooks.
+
+## What is a (custom) React hook?
+
+React hooks are still somewhat new, from February 2019. In web development years that's like a decade, though, and probably another 278 libraries have been launched since then. They allow you to write functional components (instead of classes) and still use state and [other lifecycle methods](https://reactjs.org/docs/hooks-effect.html).
+
+As I mentioned before, you can write a custom hook in your application if you want a modular piece of logic that uses hooks as well.
+
+## How can we use them?
+
+In this particular case, I wanted a deep comparison hook. Funnily enough, I based my code on [this fragment](https://github.com/sandiiarov/use-deep-compare/blob/master/src/useDeepCompareMemoize.ts) I found, by user sandiiarov in GitHub. I cleaned the code a bit, and it ended up being identical to [this other piece of code](https://gist.github.com/kentcdodds/fb8540a05c43faf636dd68647747b074#gistcomment-2830503) I found by Kent C. Dodds.
+
+The code is the following:
+
+```javascript
+// existing hooks we want to use here
+import { useRef, useEffect } from 'react';
+// deep comparison utility by lodash
+import isEqual from 'lodash.isequal';
+
+// we're using memoization on an array of dependencies
+// (like useEffect does), to perform a deep comparison
+// and update them if their values changed.
+export function useDeepCompareMemoize(dependencies) {
+  const ref = useRef();
+
+  if (!isEqual(dependencies, ref.current)) {
+    ref.current = dependencies;
+  }
+
+  return ref.current;
+}
+
+// we export the hook as a reinterpretation of useEffect
+// but evaluating the dependencies using our custom hook.
+export default function useDeepCompareEffect(callback, dependencies) {
+  useEffect(callback, useDeepCompareMemoize(dependencies));
+}
+
+```
+
+## How can we test a custom hook?
+
+The tricky part about testing a custom hook, like in other cases, is that we need to emulate the behavior of a react hook, without rendering the application (as we run the tests from the CLI).
+
+Luckily, [React testing library](https://testing-library.com) has a great set of [testing utilities for React hooks](https://github.com/testing-library/react-hooks-testing-library). One of their use cases is precisely if _"You're writing a library with one or more custom hooks that are not directly tied to a component"_, which fits our utility function.
+
+We can use it to implement a test that mocks a callback function that will be called everytime the dependencies array changes:
+
+```javascript
+import { renderHook } from '@testing-library/react-hooks';
+
+it('should trigger callback only on dependencies change', () => {
+  // we're creating a fake callback function to check wether or not
+  // it's been called.
+  const callback = jest.fn();
+  // we create a fake array of dependencies.
+  let dependencies = [{ a: 1 }];
+  // we'll use RTL's renderHook to return a result and a rerender method
+  const { result, rerender } = renderHook(() =>
+    useDeepCompareEffect(callback, dependencies)
+  );
+
+  expect(result).toBeTruthy();
+  // dependencies didn't change
+  rerender({ callback, dependencies });
+
+  dependencies = [{ a: 2 }];
+  // dependencies did change, triggering useEffect
+  rerender({ callback, dependencies });
+
+  // we check here that we called our custom fake callback twice so far
+  expect(callback).toHaveBeenCalledTimes(2);
+});
+```
+
+Here is [the code for the utility](https://github.com/Vizzuality/usa-resilience-opportunity-map/blob/testing/utils/deepCompare.js), and this is [the tests file](https://github.com/Vizzuality/usa-resilience-opportunity-map/blob/testing/utils/deepCompare.test.js).
+
+Do you know of a better way to implement and try custom React hooks? Do you have any further questions about this short article? Feel free to reach me [on Twitter](https://twitter.com/blayhem)!
+
+Hope you enjoyed this article, see you on the next one <span role="img" aria-label=":v:">✌🏻</span>
