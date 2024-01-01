@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
 import PostHeader from '@/components/postHeader';
@@ -32,8 +31,10 @@ function PostPreview({ post }: Props) {
               <Image
                 src={meta.postImg}
                 alt={meta.title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{
+                  objectFit: 'cover',
+                }}
               />
             </div>
           </div>
@@ -42,9 +43,5 @@ function PostPreview({ post }: Props) {
     </div>
   );
 }
-
-PostPreview.propTypes = {
-  post: PropTypes.object,
-};
 
 export default PostPreview;

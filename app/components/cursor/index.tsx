@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+'use client';
+
+import { useEffect } from 'react';
 import headerStyles from '../header/header.module.scss';
 import styles from './cursor.module.scss';
 
@@ -49,18 +51,18 @@ export default function Cursor() {
             cursor.classList.add('is-locked');
             cursor.style.setProperty(
               '--top',
-              `${rect.top + rect.height / 2}px`
+              `${rect.top + rect.height / 2}px`,
             );
             cursor.style.setProperty(
               '--left',
-              `${rect.left + rect.width / 2}px`
+              `${rect.left + rect.width / 2}px`,
             );
             cursor.style.setProperty('--width', `${rect.width}px`);
             cursor.style.setProperty('--height', `${rect.height}px`);
 
             target?.style.setProperty('--scale', '1.05');
           },
-          { passive: true }
+          { passive: true },
         );
 
         a.addEventListener(
@@ -70,9 +72,11 @@ export default function Cursor() {
               if (!rect) throw new Error('No target');
               const target = event.target as HTMLElement;
               const halfHeight = rect.height / 2;
-              const topOffset = ((event as MouseEvent).y - rect.top - halfHeight) / halfHeight;
+              const topOffset =
+                ((event as MouseEvent).y - rect.top - halfHeight) / halfHeight;
               const halfWidth = rect.width / 2;
-              const leftOffset = ((event as MouseEvent).x - rect.left - halfWidth) / halfWidth;
+              const leftOffset =
+                ((event as MouseEvent).x - rect.left - halfWidth) / halfWidth;
 
               cursor.style.setProperty('--translateX', `${leftOffset * 3}px`);
               cursor.style.setProperty('--translateY', `${topOffset * 3}px`);
@@ -83,7 +87,7 @@ export default function Cursor() {
               // do nothing
             }
           },
-          { passive: true }
+          { passive: true },
         );
 
         a.addEventListener(
@@ -107,7 +111,7 @@ export default function Cursor() {
               }
             }, 100);
           },
-          { passive: true }
+          { passive: true },
         );
       });
     }

@@ -96,14 +96,14 @@ export default function Home() {
               />
             </a>
             <a
-              href="https://github.com/blayhem"
+              href="https://github.com/dfrico"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Image src="/icons/gh.svg" alt="GitHub" width={24} height={24} />
             </a>
             <a
-              href="https://www.instagram.com/blayhem/"
+              href="https://www.instagram.com/daniel.frico/"
               target="_blank"
               rel="noopener noreferrer"
             >

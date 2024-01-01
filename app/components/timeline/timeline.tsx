@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * Avoid using next/link to open links in a new tab.
  */

@@ -1,5 +1,4 @@
 // import { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import hljs from 'highlight.js/lib/core';
 import PostHeader from '@/components/postHeader';
@@ -57,10 +56,5 @@ function BlogPost({ children, meta }: Props) {
     </>
   );
 }
-
-BlogPost.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  meta: PropTypes.object,
-};
 
 export default BlogPost;

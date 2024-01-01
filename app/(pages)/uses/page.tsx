@@ -15,7 +15,9 @@ export default function Uses() {
         alt="Setup"
         width={maxWidth}
         height={maxWidth / ratio}
-        objectFit="contain"
+        style={{
+          objectFit: 'contain',
+        }}
       />
       <h2 className="mt-8">Working from home</h2>
       <ul className="mb-8">
@@ -75,7 +77,7 @@ export default function Uses() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/blayhem/my-dot-files"
+            href="https://github.com/dfrico/my-dot-files"
           >
             dotfiles are here
           </a>
