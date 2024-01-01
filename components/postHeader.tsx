@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
+import { Meta } from './post';
 
-function HeadPost({ meta, isBlogPost }) {
+type Props = {
+  meta: Meta;
+  isBlogPost?: boolean;
+};
+
+function HeadPost({ meta, isBlogPost }: Props) {
   return (
     <>
       <div className={isBlogPost ? 'mt-4' : ''}>

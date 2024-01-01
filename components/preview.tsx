@@ -3,8 +3,18 @@ import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
 import PostHeader from 'components/postHeader';
+import { Meta } from './post';
 
-function PostPreview({ post }) {
+type Post = {
+  link: string;
+  module: { meta: Meta };
+};
+
+type Props = {
+  post: Post;
+};
+
+function PostPreview({ post }: Props) {
   const [mounted, setMounted] = useState(false);
   const {
     link,
@@ -27,7 +37,7 @@ function PostPreview({ post }) {
             <div className="overflow-hidden rounded-r hidden sm:block h-full w-1/3 flex-grow-0">
               <div className="object-cover h-full relative">
                 <Image
-                  src={meta.postImg.src}
+                  src={meta.postImg}
                   alt={meta.title}
                   layout="fill"
                   objectFit="cover"
