@@ -1,13 +1,14 @@
+const path = require('path');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ['mdx', 'ts', 'tsx'],
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'app/styles')],
+  },
+};
 
-module.exports = withBundleAnalyzer(
-  withMDX({
-    pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  })
-);
+module.exports = withMDX(nextConfig);
