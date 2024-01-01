@@ -1,17 +1,30 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import hljs from 'highlight.js/lib/core';
 import PostHeader from 'components/postHeader';
 
+export type Meta = {
+  title: string;
+  description: string;
+  date: string;
+  readTime: number; // minutes
+  postImg: string;
+};
+
+type Props = {
+  children: React.ReactNode;
+  meta: Meta;
+};
+
 function updateCodeSyntaxHighlighting() {
   document.querySelectorAll('pre code').forEach((el) => {
     // Chrome and Safari need re-highlighting on every post load
-    hljs.highlightElement(el);
+    hljs.highlightElement(el as HTMLElement);
   });
 }
 
-function BlogPost({ children, meta }) {
+function BlogPost({ children, meta }: Props) {
   useEffect(() => {
     updateCodeSyntaxHighlighting();
   }, [children]);
@@ -36,7 +49,7 @@ function BlogPost({ children, meta }) {
         <meta name="twitter:description" content={meta.description} />
         <meta
           name="twitter:image"
-          content={`http://dfr.codes${meta.postImg?.src}`}
+          content={`http://dfr.codes${meta.postImg}`}
         />
       </Head>
       <PostHeader meta={meta} isBlogPost />
