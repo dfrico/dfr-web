@@ -1,4 +1,3 @@
-import React from 'react';
 import Preview from '@/components/preview';
 import postList from '@/utils/getAllPosts';
 

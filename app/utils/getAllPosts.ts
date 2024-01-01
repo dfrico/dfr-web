@@ -6,7 +6,7 @@ function importAll(r: __WebpackModuleApi.RequireContext) {
     .filter((path) => !ignoreKeys.some((key) => path.includes(key)))
     .reverse()
     .map((fileName) => ({
-      link: fileName.substr(1).replace(/\/index\.mdx$/, ''),
+      link: fileName.substr(1).replace(/\/page\.mdx$/, ''),
       module: r(fileName),
     }));
 }

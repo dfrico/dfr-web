@@ -50,7 +50,7 @@ In every MDX post, you need some code at the begining of the file to make it wor
 export default ({ children }) => <BlogPost>{children}</BlogPost>;
 ```
 
-MDX provides me with a `children` object that contains the elements of the article (`<p>`s, images, etc.), which I then wrap around a Blogpost component that has an article header (title, date, read time) and an `<article>` tag that wraps the children. If this sounds confusing, I'll summarize: what you see in every article is a `<Layout>` component (inside [Next's `_app`](https://nextjs.org/docs/advanced-features/custom-app)), then the `<Post>` component (with the `PostHeader` and the article itself), and then everything else from the MDX file. If it helps, you can check [the code here](https://github.com/blayhem/dfr-web/blob/main/components/post/index.js)!
+MDX provides me with a `children` object that contains the elements of the article (`<p>`s, images, etc.), which I then wrap around a Blogpost component that has an article header (title, date, read time) and an `<article>` tag that wraps the children. If this sounds confusing, I'll summarize: what you see in every article is a `<Layout>` component (inside [Next's `_app`](https://nextjs.org/docs/advanced-features/custom-app)), then the `<Post>` component (with the `PostHeader` and the article itself), and then everything else from the MDX file. If it helps, you can check [the code here](https://github.com/dfrico/dfr-web/blob/main/components/post/index.js)!
 
 ## 2. Blog page and its folders.
 
@@ -76,7 +76,7 @@ function importAll(r) {
       // and for each folder (post) returns an object with:
       .map((fileName) => ({
         // 1. a link: the post route/path (without the /index.mdx bit!)
-        link: fileName.substr(1).replace(/\/index\.mdx$/, ''),
+        link: fileName.substr(1).replace(/\/page\.mdx$/, ''),
         // 2. the module itself, this is the code that is imported/exported
         module: r(fileName),
       }))
@@ -99,9 +99,9 @@ I use [highlight.js](https://github.com/highlightjs/highlight.js) to add syntax 
 
 ## Repository
 
-The code for this website is open source and you can [find it here](https://github.com/blayhem/dfr-web).
+The code for this website is open source and you can [find it here](https://github.com/dfrico/dfr-web).
 
-[![dfr-web](https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=dfr-web&bg_color=020204&title_color=FFC700&text_color=f9fafb)](https://github.com/blayhem/dfr-web)
+[![dfr-web](https://github-readme-stats.vercel.app/api/pin/?username=blayhem&repo=dfr-web&bg_color=020204&title_color=FFC700&text_color=f9fafb)](https://github.com/dfrico/dfr-web)
 
 I hope this article can help you set up your blog using Next and MDX! Apart from checking the code, you can contact me [on twitter](https://twitter.com/blayhem) if you have any doubts.
 

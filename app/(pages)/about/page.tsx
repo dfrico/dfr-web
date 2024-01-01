@@ -71,11 +71,11 @@ export default function About() {
             👉
           </span>{' '}
           <a
-            href="https://github.com/blayhem"
+            href="https://github.com/dfrico"
             target="_blank"
             rel="noopener noreferrer"
           >
-            github.com/blayhem
+            github.com/dfrico
           </a>
           <br />
           occasional code streamings{' '}

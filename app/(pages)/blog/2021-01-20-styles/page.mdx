@@ -13,7 +13,7 @@ export const meta = {
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
-I did a [Twitch stream](https://www.twitch.tv/blayhem) not so long ago, showcasing the main different ways (that I know of) to style a modern Next/React application. The result of that stream is a repository I created on my GitHub account, [styles](https://github.com/blayhem/styles). If you want to check its code, the components I'm talking about are there, as an example of the different styling methods.
+I did a [Twitch stream](https://www.twitch.tv/blayhem) not so long ago, showcasing the main different ways (that I know of) to style a modern Next/React application. The result of that stream is a repository I created on my GitHub account, [styles](https://github.com/dfrico/styles). If you want to check its code, the components I'm talking about are there, as an example of the different styling methods.
 
 On the stream, I created a Next template app using [`create-next-app`](https://nextjs.org/docs/api-reference/create-next-app), and then I took the different ui components in `pages/index.js` and moved them over the `components` folder. There, I used different ways to apply styles to each individual component.
 
@@ -21,7 +21,7 @@ I don't think there is a method that is better than the others, but here are my 
 
 ## CSS Modules
 
-[`components/card`](https://github.com/blayhem/styles/tree/main/components/card) uses [CSS modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css), supported by Next out of the box. It's just a CSS file with a `.module.css` extension.
+[`components/card`](https://github.com/dfrico/styles/tree/main/components/card) uses [CSS modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css), supported by Next out of the box. It's just a CSS file with a `.module.css` extension.
 
 | Pros                                                                                                                                                     | Cons                                                                                                |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -31,7 +31,7 @@ I don't think there is a method that is better than the others, but here are my 
 
 ## SCSS Modules
 
-[`components/footer`](https://github.com/blayhem/styles/tree/main/components/footer) uses [SCSS modules](https://nextjs.org/docs/basic-features/built-in-css-support#sass-support), a twist to the original CSS modules. SASS is a meta-language on top of CSS, and SCSS is an extension of the syntax of CSS, so it's a SCSS file with a `.module.scss` extension.
+[`components/footer`](https://github.com/dfrico/styles/tree/main/components/footer) uses [SCSS modules](https://nextjs.org/docs/basic-features/built-in-css-support#sass-support), a twist to the original CSS modules. SASS is a meta-language on top of CSS, and SCSS is an extension of the syntax of CSS, so it's a SCSS file with a `.module.scss` extension.
 
 This just requires `sass` to be installed as a project dependency.
 
@@ -43,7 +43,7 @@ This just requires `sass` to be installed as a project dependency.
 
 ## Tailwind CSS.
 
-[`components/grid`](https://github.com/blayhem/styles/tree/main/components/grid) uses [TailwindCSS](https://tailwindcss.com/).
+[`components/grid`](https://github.com/dfrico/styles/tree/main/components/grid) uses [TailwindCSS](https://tailwindcss.com/).
 
 Tailwind CSS is a so-called "utility-first" CSS framework, which means that every CSS class is a low-level CSS composition. This allows simplification and standardization of UI components, but CSS classes can be quite long (e.g. `"w-32 h-32 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"`).
 
@@ -55,7 +55,7 @@ Tailwind CSS is a so-called "utility-first" CSS framework, which means that ever
 
 ## Styled components.
 
-[`components/main`](https://github.com/blayhem/styles/tree/main/components/main) uses [styled-components](https://styled-components.com/).
+[`components/main`](https://github.com/dfrico/styles/tree/main/components/main) uses [styled-components](https://styled-components.com/).
 
 Styled components is a library that uses tagged template literals to style your components, that is, inline CSS in JS. You can see there's only one file for the component, for the presentational component and its style.
 
@@ -68,7 +68,7 @@ This is all my very limited and personal opinion with all the different solution
 
 <div>
   <a
-    href="https://github.com/blayhem/styles"
+    href="https://github.com/dfrico/styles"
     target="_blank"
     rel="noopener noreferrer"
   >
