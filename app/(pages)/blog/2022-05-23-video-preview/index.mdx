@@ -1,0 +1,85 @@
+import BlogPost from '@/components/post';
+import Preview from './preview.jpg'
+
+export const meta = {
+  title: 'How to preview videos in React',
+  description: "Creating a React component to make video previews interactive.",
+  date: 'May 23, 2022',
+  readTime: 1,
+  postImg: Preview,
+};
+
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+Hey there! I was messing with a small project that used video tags, and found something useful to share with you. I'm talking about creating a `VideoPreview` component that previews the video when you hover the mouse over it, like YouTube does.
+
+First of all, the final result and the code (very simplified) is here, for you to try and take a look. If you want a brief explanation, see below.
+
+<iframe
+  src="https://codesandbox.io/embed/video-preview-component-ljwloh?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark"
+  style={{ width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
+  title="Video preview component"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+First of all, we are going to use a `<video>` tag with a few tweaks. Did you know that [Safari supports `<img>` with mp4 source?](https://github.com/whatwg/html/issues/7141).
+
+```jsx
+<video
+  // we don't want the video to play sound on preview (optional)
+  muted={true}
+  // it looks better if we hide the controls for the preview only
+  controls={false}
+  // the magic happens on these two functions:
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+>
+  <source type="video/mp4" src="/video.mp4"></source>
+  <p>Your browser does not support HTML video</p>
+</video>
+```
+
+After adding the video tag, you will need to define the functions to handle the cursor entering and leaving the video (i.e. starting the preview and stopping). The functions are very simple:
+
+Typescript:
+```typescript
+const handleMouseEnter = (e: MouseEvent<HTMLVideoElement>) => {
+  // MouseEvent is imported from 'react', HTMLVideoElement is native
+  const v = e.target as HTMLVideoElement;
+  // sometimes it crashes if you interact quickly,
+  // so we want it to fail silently
+  v.play().catch(() => {});
+};
+
+const handleMouseLeave = (e: MouseEvent<HTMLVideoElement>) => {
+  const v = e.target as HTMLVideoElement;
+  // let's reset the video position to 0
+  v.currentTime = 0;
+  // and pause it to simulate the "stop"
+  v.pause();
+};
+```
+
+Javascript:
+```javascript
+const handleMouseEnter = (e) => {
+  const v = e.target;
+  v.play().catch(() => {});
+};
+
+const handleMouseLeave = (e) => {
+  const v = e.target;
+  v.currentTime = 0;
+  v.pause();
+};
+```
+
+Just 2-3 lines each! And it's the only think that you will need.
+
+As a little extra, I added some text as a sibling of the `video` node, made it `position: absolute` inside the (`relative`) parent container, and you can have some cool title/metadata of the video together with the preview itself.
+
+Try for yourself, and I hope this solution might be useful for you!
+
+[![Edit Video preview component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/video-preview-component-ljwloh?fontsize=14&hidenavigation=1&theme=dark)
+
+Hope you enjoyed the article, let me know your thoughts [on Twitter](https://twitter.com/blayhem), and see you on the next one <span role="img" aria-label=":v:">✌🏻</span>
