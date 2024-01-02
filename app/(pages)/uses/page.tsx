@@ -23,8 +23,10 @@ export default function Uses() {
       <ul className="mb-8">
         <li className="mb-2">
           <span className="text-yellow">
-            2021 MacBook Pro with M1 Pro, 32GB of RAM and 1TB of SSD.
+            2 &times; 16&quot; 2021 MacBook Pro
           </span>
+          , one for work and one for personal use. Both have a 10 core M1 Pro,
+          work laptop has 32GB + 1TB, and personal laptop has 16GB + 512GB.
         </li>
         <li className="mb-2">
           <span className="text-yellow">SFFPC</span> on a Ncase M1. It has an
