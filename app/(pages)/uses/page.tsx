@@ -9,17 +9,16 @@ export default function Uses() {
       <h1 className="font-bold font-rubik text-5xl tracking-tight mb-4 mt-16 text-yellow">
         /uses
       </h1>
-      {/* TODO: update pic */}
-      {/* <Image
+      <Image
         className="rounded-sm"
-        src="/img/setup.jpg"
+        src="/img/setup.webp"
         alt="Setup"
         width={maxWidth}
         height={maxWidth / ratio}
         style={{
           objectFit: 'contain',
         }}
-      /> */}
+      />
       <h2 className="mt-8">Working from home</h2>
       <ul className="mb-8">
         <li className="mb-2">
