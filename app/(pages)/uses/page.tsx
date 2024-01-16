@@ -116,8 +116,8 @@ export default function Uses() {
           the feeling iTerm worked better on my machine.
         </li>
         <li className="mb-2">
-          <span className="text-yellow">Firefox</span> is my main browser for
-          personal and dev use.
+          <span className="text-yellow">Arc from The Browser Company</span> is
+          my main browser for personal and dev use.
         </li>
         <li className="mb-2">
           <span className="text-yellow">Fork</span> is a git GUI app that I like
@@ -125,9 +125,11 @@ export default function Uses() {
           this one is perfect.
         </li>
         <li className="mb-2">
-          <span className="text-yellow">Things</span> is my favorite reminders
-          app, and <span className="text-yellow">Fantastical</span> is my go-to
-          calendar app in macOS.
+          <span className="text-yellow">Things</span> used to be my favorite
+          reminders app, but since then I&apos;ve moved to{' '}
+          <span className="text-yellow">iOS reminders + Fantastical</span> to
+          manage my calendars and to-dos, it&apos;s easier to share lists and
+          calendars.
         </li>
         <li className="mb-2">
           I use <span className="text-yellow">Figma</span> for personal design
@@ -140,8 +142,8 @@ export default function Uses() {
       <h2>On the go</h2>
       <ul className="mb-8">
         <li className="mb-2">
-          <span className="text-yellow">ECD is an iPhone 13 Pro</span>, 6y.o.
-          Nomatic wallet, keys etc.
+          <span className="text-yellow">ECD is an iPhone 13 Pro</span>, Nomatic
+          wallet, keys etc.
         </li>
         <li className="mb-2">
           <span className="text-yellow">Apple Watch Series 7</span> (41mm alu
