@@ -5,9 +5,6 @@ import currentlyAt from '@/components/currently';
 export default function About() {
   const now = new Date();
   const birthDate = new Date('1994-03-13');
-  const age = Math.floor(
-    (now.getTime() - birthDate.getTime()) / (1000 * 60 * 60 * 24 * 365),
-  );
   return (
     <>
       <div className="mt-4 mx-auto">
@@ -22,9 +19,10 @@ export default function About() {
 
       <section className="text-center mt-6">
         <p className="mb-2">
-          Hello there! My name is Daniel and I&apos;m a {age} year old Frontend
-          Engineer based in Spain. I currently work {currentlyAt}
+          Hi! My name is Daniel and I&apos;m a Software
+          Engineer working remotely from Spain.
         </p>
+        <p className="mb-2">I currently work {currentlyAt}</p>
         <p className="mb-2">
           Apart from coding I like hiking, good coffee,{' '}
           <a
@@ -52,7 +50,7 @@ export default function About() {
           <span role="img" aria-label="at">
             👉
           </span>{' '}
-          <a href="mailto:daniel.fdez@pm.me">daniel.fdez@pm.me</a>
+          <a href="mailto:hi@dfrico.com">hi [at] dfrico.com</a>
           <br />
           previous work (& other){' '}
           <span role="img" aria-label="at">
@@ -66,7 +64,7 @@ export default function About() {
             linkedin.com
           </a>
           <br />
-          code and pet projects{' '}
+          code and projects{' '}
           <span role="img" aria-label="at">
             👉
           </span>{' '}
@@ -77,28 +75,16 @@ export default function About() {
           >
             github.com/dfrico
           </a>
-          <br />
-          occasional code streamings{' '}
+          <br />𝕏 {' '}
           <span role="img" aria-label="at">
             👉
           </span>{' '}
           <a
-            href="https://www.twitch.tv/blayhem"
+            href="https://x.com/blayhem"
             target="_blank"
             rel="noopener noreferrer"
           >
-            twitch.tv/blayhem
-          </a>
-          <br />a bit of everything{' '}
-          <span role="img" aria-label="at">
-            👉
-          </span>{' '}
-          <a
-            href="https://twitter.com/blayhem"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            twitter.com/blayhem
+            x.com/blayhem
           </a>
         </p>
       </section>

@@ -3,11 +3,35 @@
  */
 
 const timeline = {
+  2025: [
+    <>Working at Strava mapping team. Dove into C++/WASM on the core map engine, expanding from browser work to deeper, full-stack engineering.</>
+  ],
+  2024: [
+    <>Joined Strava's growth team. Led several rapid A/B tests across the web acquisition funnel,
+    lifting conversion &gt;25% and driving double-digit monthly sign-up growth.
+    </>,
+    <>2024H2: Pulled into a lean, small web team to handle map integration on the site.</>
+  ],
+  2023: [
+    <>FATMAP got acquired by{' '}
+      <a target="_blank" rel="noopener noreferrer" href="https://www.strava.com">
+        Strava
+      </a>.
+    </>,
+    <>Worked on FATMAP discover, now{' '}
+      <a target="_blank" rel="noopener noreferrer" href="https://www.strava.com/routes/hiking/usa">
+        Strava routes
+      </a>.
+    </>,
+    <>
+      Hit pause for a few months of new-parent life after my kid was born.
+    </>
+  ],
   2022: [
     <>
       Joined{' '}
       <a target="_blank" rel="noopener noreferrer" href="https://fatmap.com">
-        Fatmap
+        FATMAP
       </a>{' '}
       in July 🏔.
     </>,
