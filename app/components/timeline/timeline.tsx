@@ -4,28 +4,68 @@
 
 const timeline = {
   2025: [
-    <>Working at Strava mapping team. Dove into C++/WASM on the core map engine, expanding from browser work to deeper, full-stack engineering.</>
-  ],
-  2024: [
-    <>Joined Strava's growth team. Led several rapid A/B tests across the web acquisition funnel,
-    lifting conversion &gt;25% and driving double-digit monthly sign-up growth.
-    </>,
-    <>2024H2: Pulled into a lean, small web team to handle map integration on the site.</>
-  ],
-  2023: [
-    <>FATMAP got acquired by{' '}
-      <a target="_blank" rel="noopener noreferrer" href="https://www.strava.com">
-        Strava
-      </a>.
-    </>,
-    <>Worked on FATMAP discover, now{' '}
-      <a target="_blank" rel="noopener noreferrer" href="https://www.strava.com/routes/hiking/usa">
-        Strava routes
-      </a>.
+    <>
+      Working at Strava mapping team. Dive into C++/WASM on the core map engine,
+      expanding from browser work to deeper, full-stack engineering.
     </>,
     <>
-      Hit pause for a few months of new-parent life after my kid was born.
-    </>
+      Had my first experience teaching Intro to Computer Science at
+      Stanford&apos;s CS106A (also known as{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://codeinplace.stanford.edu"
+      >
+        Code in Place
+      </a>
+      ) as a volunteer Section Leader.
+    </>,
+    <>
+      Starting an MSc degree in{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.urv.cat/en/studies/master/courses/computational-engineering-mathematics/"
+      >
+        Computational Engineering and Mathematics
+      </a>{' '}
+      this fall.
+    </>,
+  ],
+  2024: [
+    <>
+      Joined Strava&apos;s growth team. Led several rapid A/B tests across the
+      web acquisition funnel, lifting conversion &gt;25% and driving
+      double-digit monthly sign-up growth.
+    </>,
+    <>
+      2024H2: Pulled into a lean, small web team to handle map+web integration.
+    </>,
+  ],
+  2023: [
+    <>
+      FATMAP got acquired by{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.strava.com"
+      >
+        Strava
+      </a>
+      .
+    </>,
+    <>
+      Worked on FATMAP discover, now{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.strava.com/routes/hiking/usa"
+      >
+        Strava routes
+      </a>
+      . Strong focus on CI/CD pipelines and testing.
+    </>,
+    <>Hit pause for a few months of new-parent life after my kid was born.</>,
   ],
   2022: [
     <>

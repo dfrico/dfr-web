@@ -55,7 +55,7 @@ export default function Home() {
                 👋
               </span>
             </h1>
-            <h2 className="mb-4">Frontend Engineer</h2>
+            <h2 className="mb-4">Software Engineer</h2>
             <p className="mb-2">
               I&apos;m a frontend engineer based in Spain, currently working{' '}
               {currentlyAt}

@@ -4,7 +4,7 @@ const currentlyAt = (
     <a target="_blank" rel="noopener noreferrer" href="https://www.strava.com">
       Strava
     </a>{' '}
-    helping people plan and enjoy their outdoor adventures.
+    helping athletes track, plan, and enjoy their activities.
   </>
 );
 
