@@ -3,6 +3,24 @@
  */
 
 const timeline = {
+  2026: [
+    <>
+      Finished the integration of the in-house C++/WASM map engine into
+      Strava&apos;s web platform, enabling new features and interactions across
+      the web map surfaces.
+    </>,
+    <>
+      Finished my MSc degree in{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.urv.cat/en/studies/master/courses/computational-engineering-mathematics/"
+      >
+        Computational Engineering and Mathematics
+      </a>
+      .
+    </>,
+  ],
   2025: [
     <>
       Working at Strava mapping team. Dive into C++/WASM on the core map engine,

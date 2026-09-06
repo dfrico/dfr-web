@@ -1,1 +1,9 @@
-npx lint-staged
+#!/bin/sh
+
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+  nvm use >/dev/null 2>&1
+fi
+
+exec node_modules/.bin/lint-staged
