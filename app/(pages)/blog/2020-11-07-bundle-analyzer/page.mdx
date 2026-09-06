@@ -1,14 +1,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import BlogPost from '@/components/post';
-import BundleImg from './bundle.jpg';
 
 export const meta = {
   title: 'How to visualize the size of your app bundle.',
   description: 'Check the size of your Next app using bundle-analyzer.',
   date: 'Nov 07, 2020',
   readTime: 3,
-  postImg: BundleImg,
+  postImg: '/img/blog/2020-11-07-bundle-analyzer/bundle.jpg',
+};
+
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+  },
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
@@ -31,7 +49,7 @@ Now, you can use [Next Bundle Analyzer](https://github.com/vercel/next.js/tree/c
 
 <figure>
   <Image
-    src={BundleImg}
+    src="/img/blog/2020-11-07-bundle-analyzer/bundle.jpg"
     alt="application bundle treemap"
     width={700}
     height={400}

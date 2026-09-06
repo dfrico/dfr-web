@@ -1,14 +1,31 @@
 import Image from 'next/image';
 import BlogPost from '@/components/post';
-import Butter from './you-pass-butter.gif';
-import Devices from './devices.jpg';
 
 export const meta = {
   title: 'Why I like simple technology.',
   description: "A short reflection on why single-purpose electronics are just better.",
   date: 'May 22, 2022',
   readTime: 1,
-  postImg: Devices,
+  postImg: '/img/blog/2022-05-22-single-purpose/devices.jpg',
+};
+
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+  },
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
@@ -25,7 +42,7 @@ On the other hand, nowadays a 7 year old smartphone ages quite poorly with a mod
 
 <div className="flex justify-center">
   <Image
-    src={Butter}
+    src="/img/blog/2022-05-22-single-purpose/you-pass-butter.gif"
     alt="What is my purpose? You pass butter. (from Rick and Morty)"
     width={500}
     height={320}

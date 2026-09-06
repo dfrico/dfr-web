@@ -1,13 +1,31 @@
 import Link from 'next/link';
 import BlogPost from '@/components/post';
-import MDXimage from './nextMDX.jpg';
 
 export const meta = {
   title: 'Introduction to MDX',
   description: 'Generating a site with MDX and Nextjs!',
   date: 'Nov 05, 2020',
   readTime: '7',
-  postImg: MDXimage,
+  postImg: '/img/blog/2020-11-05-mdx-intro/nextMDX.jpg',
+};
+
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+  },
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

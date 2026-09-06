@@ -1,15 +1,31 @@
 import Image from 'next/image';
 import BlogPost from '@/components/post';
-import FinalPreview from './terminal-preview.jpg';
-import DevAsLifePreview from './devaslife.jpeg';
-import OBS from './obs.jpeg';
 
 export const meta = {
   title: 'Capture a beautiful video background for your terminal.',
   description: "How to overlay a transparent terminal on top of the camera feed.",
   date: 'Apr 14, 2022',
   readTime: 2,
-  postImg: FinalPreview,
+  postImg: '/img/blog/2022-04-14-streaming-terminal/terminal-preview.jpg',
+};
+
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+  },
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
@@ -20,7 +36,7 @@ On a lot of his videos ([like this one](https://www.youtube.com/watch?v=KKxhf50F
 
 <figure>
   <Image
-    src={DevAsLifePreview}
+    src="/img/blog/2022-04-14-streaming-terminal/devaslife.jpeg"
     alt="Screenshot from devaslife video: My Fish shell workflow for coding. You can see him typing on the keyboard, and the table itself is the background of the terminal"
     width={700}
     height={400}
@@ -37,7 +53,7 @@ If you try to replicate this using [OBS](https://obsproject.com/), it's pretty e
 
 <figure>
   <Image
-    src={OBS}
+    src="/img/blog/2022-04-14-streaming-terminal/obs.jpeg"
     alt="opaque terminal on top of the webcam feed"
     width={700}
     height={400}
@@ -65,7 +81,7 @@ This is the result ([video preview](https://twitter.com/blayhem/status/151426813
 
 <figure>
   <Image
-    src={FinalPreview}
+    src="/img/blog/2022-04-14-streaming-terminal/terminal-preview.jpg"
     alt="translucent terminal on top of the webcam feed"
     width={700}
     height={400}

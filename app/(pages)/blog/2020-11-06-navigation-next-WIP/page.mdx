@@ -7,6 +7,23 @@ export const meta = {
   readTime: 0,
 };
 
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+  },
+};
+
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
 ## (WIP)

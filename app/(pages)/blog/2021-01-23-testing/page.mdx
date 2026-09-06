@@ -1,12 +1,30 @@
 import BlogPost from '@/components/post';
-import Testing from './testing-2.jpg';
 
 export const meta = {
   title: 'How to write and test a custom React hook.',
   description: "What's a custom hook? How can we use them, and test them?",
   date: 'Jan 23, 2021',
   readTime: 2,
-  postImg: Testing,
+  postImg: '/img/blog/2021-01-23-testing/testing-2.jpg',
+};
+
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+  },
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import BlogPost from '@/components/post';
-import CSS from './css.jpg';
 
 export const meta = {
   title: 'How to style a modern web application',
@@ -8,7 +7,26 @@ export const meta = {
     'Pros and cons of different styling solutions in a React/Next application.',
   date: 'Jan 20, 2021',
   readTime: 4,
-  postImg: CSS,
+  postImg: '/img/blog/2021-01-20-styles/css.jpg',
+};
+
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+  },
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

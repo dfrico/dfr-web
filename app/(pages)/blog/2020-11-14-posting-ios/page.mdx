@@ -1,15 +1,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import BlogPost from '@/components/post';
-import IpadEdit from './photo.jpeg';
-import Sshing from './sshing.jpeg';
 
 export const meta = {
   title: 'Writing your blog from iOS',
   description: 'Update and publish blog posts directly from your phone',
   date: 'Nov 14, 2020',
   readTime: 5,
-  postImg: IpadEdit,
+  postImg: '/img/blog/2020-11-14-posting-ios/photo.jpeg',
+};
+
+export const metadata = {
+  title: `${meta.title} - Daniel Fernandez`,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@blayhem',
+    creator: '@blayhem',
+    title: meta.title,
+    description: meta.description,
+    ...(meta.postImg ? { images: meta.postImg } : {}),
+  },
 };
 
 export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
@@ -18,7 +35,7 @@ I love to write from my iPad. It feels more personal, more inmersive. This may s
 
 <figure>
   <Image
-    src={IpadEdit}
+    src="/img/blog/2020-11-14-posting-ios/photo.jpeg"
     alt="writing a post on the iPad"
     width={700}
     height={400}
@@ -36,7 +53,7 @@ The only way I made this work (sometimes) was to login via ssh to my Raspberry P
 
 <figure>
   <Image
-    src={Sshing}
+    src="/img/blog/2020-11-14-posting-ios/sshing.jpeg"
     alt="sshing to the pi"
     width={700}
     height={400}

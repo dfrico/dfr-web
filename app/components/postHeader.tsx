@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Meta } from './post';
 
 type Props = {
@@ -34,10 +33,5 @@ function HeadPost({ meta, isBlogPost }: Props) {
     </>
   );
 }
-
-HeadPost.propTypes = {
-  meta: PropTypes.object,
-  isBlogPost: PropTypes.bool,
-};
 
 export default HeadPost;
