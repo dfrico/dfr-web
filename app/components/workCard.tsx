@@ -1,7 +1,4 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import PostHeader from '@/components/postHeader';
-import { Meta } from './post';
 
 type Props = {
   title: string;
@@ -10,7 +7,7 @@ type Props = {
   url: string;
 };
 
-function WorkCard({ title, description, date, url }: Props) {
+function WorkCard({ title, description, url }: Props) {
   return (
     <div className="group border-b border-gray-800">
       <Link
