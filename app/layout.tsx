@@ -8,10 +8,10 @@ import '@/styles/base.css';
 import '@/styles/fonts.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dfr.codes'),
+  metadataBase: new URL('https://dfrico.com'),
   title: 'Daniel Fernandez',
   description:
-    'Frontend developer based in Madrid, Spain. Check out my site to learn more about me!',
+    'Senior Software Engineer based in Spain. Products I build, things I write, and work I have done.',
   icons: {
     icon: [
       { url: '/favicon/favicon.svg', type: 'image/svg+xml' },

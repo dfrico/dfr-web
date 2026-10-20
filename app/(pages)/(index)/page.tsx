@@ -8,11 +8,11 @@ import Experience from '@/components/experience';
 
 export const metadata: Metadata = {
   openGraph: {
-    url: 'https://dfr.codes',
+    url: 'https://dfrico.com',
     siteName: 'Daniel Fernandez',
     title: 'Daniel Fernandez',
     description:
-      'Frontend developer based in Spain. Check out my site to learn more about me!',
+      'Senior Software Engineer based in Spain. Products I build, things I write, and work I have done.',
     images: '/img/logo.png',
     type: 'website',
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     creator: '@blayhem',
     title: 'Daniel Fernandez',
     description:
-      'Frontend developer based in Madrid, Spain. Check out my site to learn more about me!',
+      'Senior Software Engineer based in Spain. Products I build, things I write, and work I have done.',
     images: '/img/logo.png',
   },
 };
