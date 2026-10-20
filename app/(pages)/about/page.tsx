@@ -19,8 +19,8 @@ export default function About() {
 
       <section className="text-center mt-6">
         <p className="mb-2">
-          Hi! My name is Daniel and I&apos;m a Software
-          Engineer working remotely from Spain.
+          Hi! My name is Daniel and I&apos;m a Software Engineer working
+          remotely from Spain.
         </p>
         <p className="mb-2">I currently work {currentlyAt}</p>
         <p className="mb-2">
@@ -36,7 +36,7 @@ export default function About() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://photos.dfr.codes/"
+            href="https://photos.dfrico.com/"
           >
             taking pictures
           </a>
@@ -75,7 +75,8 @@ export default function About() {
           >
             github.com/dfrico
           </a>
-          <br />𝕏 {' '}
+          <br />
+          𝕏{' '}
           <span role="img" aria-label="at">
             👉
           </span>{' '}
