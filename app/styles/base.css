@@ -52,10 +52,92 @@
     @apply mb-8;
   }
 
+  h3 {
+    @apply text-xl;
+    @apply font-bold;
+  }
+
   article th,
   article td {
     @apply px-2 py-1;
     @apply border-white border-2 border-solid;
+  }
+
+  /* Footnotes (remark-gfm) */
+  sup > a[data-footnote-ref] {
+    @apply px-0.5;
+    @apply font-normal;
+  }
+
+  section[data-footnotes] {
+    @apply mt-16 pt-8;
+    @apply border-t border-gray-700;
+    @apply text-sm leading-6;
+    @apply text-gray-300;
+  }
+
+  section[data-footnotes] > h2 {
+    @apply sr-only;
+  }
+
+  section[data-footnotes] ol {
+    counter-reset: footnote;
+  }
+
+  section[data-footnotes] li {
+    counter-increment: footnote;
+    @apply my-3;
+    @apply scroll-mt-24;
+  }
+
+  section[data-footnotes] li::before {
+    content: counter(footnote);
+    @apply mr-1.5;
+    @apply text-yellow;
+    @apply font-normal;
+    font-size: 0.75em;
+    vertical-align: super;
+    line-height: 0;
+  }
+
+  section[data-footnotes] li > p {
+    @apply inline;
+  }
+
+  section[data-footnotes] li:target {
+    @apply text-white;
+  }
+
+  a[data-footnote-backref] {
+    @apply ml-1;
+    font-variant-emoji: text;
+  }
+
+  /* TikZ diagrams (lib/rehype-tikz.mjs): TeX draws black on white, so map
+     black to the text colour and white (e.g. label backgrounds) to the page. */
+  figure.tikz {
+    @apply flex justify-center;
+    @apply text-white;
+  }
+
+  /* SVG's default fill is black; elements without a fill (e.g. node labels)
+     inherit this instead. */
+  figure.tikz > svg {
+    /* Natural size, like Obsidian; shrink only if the column is narrower. */
+    @apply max-w-full h-auto;
+    fill: currentColor;
+  }
+
+  figure.tikz [stroke='#000'] {
+    stroke: currentColor;
+  }
+
+  figure.tikz [fill='#000'] {
+    fill: currentColor;
+  }
+
+  figure.tikz [fill='#fff'] {
+    fill: var(--color-black);
   }
 
   /* Code formatting */
@@ -63,6 +145,16 @@
     @apply block;
     @apply overflow-x-auto;
     @apply p-4;
+  }
+
+  /* Monospace looks bigger than Inter at the same size, and the prose
+     leading/tracking from `article > *` is too loose/tight for code. */
+  article pre {
+    @apply text-sm leading-6 tracking-normal;
+  }
+
+  article :not(pre) > code {
+    font-size: 0.875em;
   }
 
   /* Hover underline */

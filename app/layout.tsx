@@ -6,6 +6,7 @@ import Header from '@/components/header';
 import Highlight from '@/components/highlight';
 import '@/styles/base.css';
 import '@/styles/fonts.css';
+import 'katex/dist/katex.min.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dfrico.com'),
