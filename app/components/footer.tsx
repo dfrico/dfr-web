@@ -15,7 +15,7 @@ export default function Footer() {
         <a
           href="https://mastodon.social/@dfr"
           target="_blank"
-           
+
           rel="me noopener noreferrer"
         >
           <Image src="/icons/mast.svg" alt="mastodon" width={24} height={24} />
@@ -35,10 +35,6 @@ export default function Footer() {
           <Image src="/icons/ig.svg" alt="Instagram" width={24} height={24} />
         </a>
       </div>
-
-      <p className="text-center text-sm text-gray-500 mt-4">
-        Code 👨🏻+🤖. Judgement and writing, 100% human.
-      </p>
     </footer>
   );
 }

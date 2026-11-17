@@ -38,7 +38,7 @@ function Experience() {
               performance requirements.
             </p>
             <p className="text-gray-300 mb-4">
-              Contribute to frontend engineering infrastructure, including
+              Contribute to frontend engineering infrastructure, including{' '}
               <Highlight>automated testing, CI workflows</Highlight> and shared
               components used across Strava&apos;s web products.
             </p>
