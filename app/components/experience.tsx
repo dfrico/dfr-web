@@ -26,10 +26,10 @@ function Experience() {
             </h4>
 
             <p className="text-gray-300 mb-4">
-              Own <Highlight>end-to-end development</Highlight> for
-              Strava&apos;s web map surfaces (50M MAU), from implementation and
-              testing to deployment and rollout. Work across React, Next.js and
-              TypeScript.
+              Owned <Highlight>features end-to-end</Highlight> on the web maps
+              of Strava (50M MAU), including the live-tracking and flyover
+              pages, from implementation and testing to rollout. Worked across
+              React, Next.js and TypeScript.
             </p>
             <p className="text-gray-300 mb-4">
               Helped integrate Strava&apos;s C++/WebAssembly map engine into the
@@ -38,7 +38,7 @@ function Experience() {
               performance requirements.
             </p>
             <p className="text-gray-300 mb-4">
-              Contribute to frontend engineering infrastructure, including{' '}
+              Contributed to frontend engineering infrastructure, including{' '}
               <Highlight>automated testing, CI workflows</Highlight> and shared
               components used across Strava&apos;s web products.
             </p>

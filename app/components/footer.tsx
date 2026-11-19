@@ -6,19 +6,24 @@ export default function Footer() {
     <footer className="block relative mt-12 mb-6">
       <div className="flex justify-evenly w-72 lg:w-2/5 mx-auto">
         <a
-          href="https://twitter.com/blayhem"
+          href="https://x.com/blayhem"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src="/icons/tw.svg" alt="twitter" width={24} height={24} />
+          <Image
+            src="/icons/x white.svg"
+            alt="X (previously twitter)"
+            width={22}
+            height={22}
+          />
         </a>
         <a
-          href="https://mastodon.social/@dfr"
+          href="https://www.linkedin.com/in/daniel-fernandez-rico/"
           target="_blank"
 
           rel="me noopener noreferrer"
         >
-          <Image src="/icons/mast.svg" alt="mastodon" width={24} height={24} />
+          <Image src="/icons/li.png" alt="linkedin" width={24} height={24} />
         </a>
         <a
           href="https://github.com/dfrico"
@@ -28,7 +33,7 @@ export default function Footer() {
           <Image src="/icons/gh.svg" alt="GitHub" width={24} height={24} />
         </a>
         <a
-          href="https://www.instagram.com/daniel.frico/"
+          href="https://www.instagram.com/dfric0"
           target="_blank"
           rel="noopener noreferrer"
         >

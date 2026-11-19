@@ -49,10 +49,9 @@ export default function Home() {
                 👋
               </span>
             </h1>
-            <h2 className="mb-4">Software Engineer</h2>
+            <h2 className="mb-4">Senior Software Engineer</h2>
             <p className="mb-2">
-              I&apos;m a Senior SWE based in Spain, currently working{' '}
-              {currentlyAt}
+              I&apos;m a Senior SWE based in Spain. {currentlyAt}
             </p>
             <p className="mb-2">
               Check out more <Link href="/about">about me</Link>.
@@ -74,7 +73,7 @@ export default function Home() {
             title="Wildfire simulation using THRML"
             description="A spatio-temporal wildfire model using Potts-model dynamics and block Gibbs sampling."
             date="2025"
-            url="#"
+            url="https://0xdf4.com/thrml.html"
           />
           <WorkCard
             title="Monte Carlo Simulations of a Plummer Distribution"

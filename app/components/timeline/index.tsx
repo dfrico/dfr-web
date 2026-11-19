@@ -30,8 +30,6 @@ export default function Timeline() {
               </h3>
               <ul className="pl-2 sm:pl-8">
                 {exp.map((item, i) => (
-                  // year + index is unique enough
-                  // eslint-disable-next-line react/no-array-index-key
                   <li className="my-2" key={`${year}-${i}`}>
                     {item}
                   </li>
@@ -41,7 +39,7 @@ export default function Timeline() {
           ))}
 
         <div className="flex items-center my-4">
-          <div className="h-px flex-grow bg-white" />
+          <div className="h-px grow bg-white" />
           <button
             type="button"
             onClick={() => setOpen(!isOpen)}
@@ -49,7 +47,7 @@ export default function Timeline() {
           >
             {isOpen ? `Show less` : `Show more`}
           </button>
-          <div className="h-px flex-grow bg-white" />
+          <div className="h-px grow bg-white" />
         </div>
       </div>
     </section>

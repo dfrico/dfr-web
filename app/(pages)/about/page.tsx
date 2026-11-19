@@ -3,8 +3,6 @@ import Timeline from '@/components/timeline';
 import currentlyAt from '@/components/currently';
 
 export default function About() {
-  const now = new Date();
-  const birthDate = new Date('1994-03-13');
   return (
     <>
       <div className="mt-4 mx-auto">
@@ -22,8 +20,8 @@ export default function About() {
           Hi! My name is Daniel and I&apos;m a Software Engineer working
           remotely from Spain.
         </p>
-        <p className="mb-2">I currently work {currentlyAt}</p>
-        <p className="mb-2">
+        <p className="mb-2">{currentlyAt}</p>
+        {/* <p className="mb-2">
           Apart from coding I like hiking, good coffee,{' '}
           <a
             target="_blank"
@@ -41,7 +39,7 @@ export default function About() {
             taking pictures
           </a>
           .
-        </p>
+        </p> */}
       </section>
       <Timeline />
       <section className="block text-center mt-6 mb-16">

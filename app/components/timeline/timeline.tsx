@@ -18,13 +18,41 @@ const timeline = {
       >
         Computational Engineering and Mathematics
       </a>
-      .
+      , with a{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/dfrico/serverless-vector-search-benchmark"
+      >
+        thesis
+      </a>{' '}
+      comparing serverless vector databases for RAG workloads (latency, cost,
+      scale).
+    </>,
+    <>
+      Section Leader again for Stanford&apos;s{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://pai.stanford.edu/"
+      >
+        Probability for Artificial Intelligence
+      </a>{' '}
+      (similar to{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://web.stanford.edu/class/cs109/"
+      >
+        CS109
+      </a>
+      ).
     </>,
   ],
   2025: [
     <>
-      Working at Strava mapping team. Dive into C++/WASM on the core map engine,
-      expanding from browser work to deeper, full-stack engineering.
+      Working on the Map Platform team at Strava. Dove into C++/WASM on the core
+      map engine, expanding from browser work to deeper, full-stack engineering.
     </>,
     <>
       Had my first experience teaching Intro to Computer Science at
@@ -52,9 +80,9 @@ const timeline = {
   ],
   2024: [
     <>
-      Joined Strava&apos;s growth team. Led several rapid A/B tests across the
-      web acquisition funnel, lifting conversion &gt;25% and driving
-      double-digit monthly sign-up growth.
+      Joined Strava&apos;s Growth and Acquisition team. Led rapid A/B tests
+      across the web sign-up funnel and rebuilt the logged-out activity page,
+      which together drove a double-digit lift in sign-ups.
     </>,
     <>
       2024H2: Pulled into a lean, small web team to handle map+web integration.
@@ -91,7 +119,7 @@ const timeline = {
       <a target="_blank" rel="noopener noreferrer" href="https://fatmap.com">
         FATMAP
       </a>{' '}
-      in July 🏔.
+      in July 🏔. Founding member of the web team.
     </>,
   ],
   2021: [

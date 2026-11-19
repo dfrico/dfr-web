@@ -13,6 +13,8 @@ function WorkCard({ title, description, url }: Props) {
       <Link
         href={url}
         className="flex gap-8 px-6 py-6 transition-colors hover:bg-gray-800"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {/* <span className="w-12 shrink-0 text-gray-500">{date}</span> */}
 
