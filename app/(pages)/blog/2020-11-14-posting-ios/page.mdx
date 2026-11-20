@@ -29,7 +29,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 I love to write from my iPad. It feels more personal, more inmersive. This may sound stupid but I like it.
 

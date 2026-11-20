@@ -29,7 +29,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 If you use Next for developing web applications, you probably are using a [custom `next.config.js` file](https://nextjs.org/docs/api-reference/next.config.js/introduction). This file allows custom advanced configurations on dev server and build phases.
 

@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 
 import Cursor from '@/components/cursor';
@@ -6,20 +5,11 @@ import Header from '@/components/header';
 import Highlight from '@/components/highlight';
 import '@/styles/base.css';
 import '@/styles/fonts.css';
+import 'highlight.js/styles/tokyo-night-dark.css';
 import 'katex/dist/katex.min.css';
+import { siteMetadata } from '@/content/site';
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://dfrico.com'),
-  title: 'Daniel Fernandez',
-  description:
-    'Senior Software Engineer based in Spain. Products I build, things I write, and work I have done.',
-  icons: {
-    icon: [
-      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon/favicon.png', type: 'image/png' },
-    ],
-  },
-};
+export const metadata = siteMetadata;
 
 export const viewport = {
   width: 'device-width',

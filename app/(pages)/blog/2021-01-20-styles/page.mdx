@@ -29,7 +29,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 I did a [Twitch stream](https://www.twitch.tv/blayhem) not so long ago, showcasing the main different ways (that I know of) to style a modern Next/React application. The result of that stream is a repository I created on my GitHub account, [styles](https://github.com/dfrico/styles). If you want to check its code, the components I'm talking about are there, as an example of the different styling methods.
 

@@ -28,7 +28,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 This article will be shorter than the usual, it's just an excuse to post again and reflect on something I've been thinking about.
 

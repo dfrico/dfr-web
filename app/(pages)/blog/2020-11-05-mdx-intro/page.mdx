@@ -28,7 +28,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 Hello world! For the first post of my blog I wanted to go a little meta and explain how I created this site.
 

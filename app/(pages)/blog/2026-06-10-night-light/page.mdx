@@ -28,7 +28,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 Some weeks ago I worked on a fun experiment, trying to see populated areas at night
 using satellite imagery. I found [this dataset](https://eogdata.mines.edu/products/vnl/#annual_v2)

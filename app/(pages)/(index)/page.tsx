@@ -1,31 +1,13 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import currentlyAt from '@/components/currently';
 import Footer from '@/components/footer';
 import WorkCard from '@/components/workCard';
 import Experience from '@/components/experience';
+import { plummer, thesis, thrml } from '@/content/projects';
+import { homeMetadata } from '@/content/site';
 
-export const metadata: Metadata = {
-  openGraph: {
-    url: 'https://dfrico.com',
-    siteName: 'Daniel Fernandez',
-    title: 'Daniel Fernandez',
-    description:
-      'Senior Software Engineer based in Spain. Products I build, things I write, and work I have done.',
-    images: '/img/logo.png',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    site: '@blayhem',
-    creator: '@blayhem',
-    title: 'Daniel Fernandez',
-    description:
-      'Senior Software Engineer based in Spain. Products I build, things I write, and work I have done.',
-    images: '/img/logo.png',
-  },
-};
+export const metadata = homeMetadata;
 
 export default function Home() {
   return (
@@ -63,24 +45,9 @@ export default function Home() {
 
         <div className="my-8">
           <h2>Selected work (academic):</h2>
-          <WorkCard
-            title="A Comparative Evaluation of Serverless Vector Databases for RAG workloads"
-            description="Master thesis comparing serverless vector databases for latency, cost and scalability."
-            date="2026"
-            url="https://github.com/dfrico/serverless-vector-search-benchmark"
-          />
-          <WorkCard
-            title="Wildfire simulation using THRML"
-            description="A spatio-temporal wildfire model using Potts-model dynamics and block Gibbs sampling."
-            date="2025"
-            url="https://0xdf4.com/thrml.html"
-          />
-          <WorkCard
-            title="Monte Carlo Simulations of a Plummer Distribution"
-            description="Academic. The probability density distribution of stars within a globular cluster. Sampling and visualizing data."
-            date="2025"
-            url="#"
-          />
+          {[thesis, thrml, plummer].map((project) => (
+            <WorkCard key={project.title} {...project} />
+          ))}
         </div>
 
         <Footer />

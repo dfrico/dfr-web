@@ -1,159 +1,57 @@
-function Highlight({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="bg-yellow/20 text-yellow rounded px-1 py-0.5">
-      {children}
-    </span>
-  );
-}
+import { previously, work } from '@/content/work';
 
 function Experience() {
   return (
     <section className="mt-24">
       <h2>Experience:</h2>
       <div className="space-y-10">
-        {/* Strava */}
-        <article className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-10">
-          <div>
-            <h3 className="font-rubik text-2xl font-bold text-yellow">
-              Strava
-            </h3>
-            <p className="text-gray-400 mt-1">2024-2026</p>
-          </div>
+        {work.map((entry) => (
+          <article
+            key={entry.company}
+            className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-10"
+          >
+            <div>
+              <h3 className="font-rubik text-2xl font-bold text-yellow">
+                {entry.company}
+              </h3>
+              <p className="text-gray-400 mt-1">{entry.years}</p>
+            </div>
 
-          <div>
-            <h4 className="font-rubik text-xl font-bold mb-3">
-              Senior Software Engineer (Map Platform)
-            </h4>
+            <div>
+              <h4 className="font-rubik text-xl font-bold mb-3">
+                {entry.role}
+              </h4>
 
-            <p className="text-gray-300 mb-4">
-              Owned <Highlight>features end-to-end</Highlight> on the web maps
-              of Strava (50M MAU), including the live-tracking and flyover
-              pages, from implementation and testing to rollout. Worked across
-              React, Next.js and TypeScript.
-            </p>
-            <p className="text-gray-300 mb-4">
-              Helped integrate Strava&apos;s C++/WebAssembly map engine into the
-              web platform, <Highlight>extending C++ APIs</Highlight> and their
-              JavaScript bindings to support new web interactions and
-              performance requirements.
-            </p>
-            <p className="text-gray-300 mb-4">
-              Contributed to frontend engineering infrastructure, including{' '}
-              <Highlight>automated testing, CI workflows</Highlight> and shared
-              components used across Strava&apos;s web products.
-            </p>
+              {entry.paragraphs.map((paragraph, i) => (
+                <p key={i} className="text-gray-300 mb-4">
+                  {paragraph}
+                </p>
+              ))}
 
-            <div className="flex flex-wrap gap-2">
-              {['TypeScript', 'React', 'Next.js', 'C++', 'WebAssembly'].map(
-                (tech) => (
+              {entry.bullets.length > 0 && (
+                <ul className="space-y-2 text-gray-300 mb-5">
+                  {entry.bullets.map((bullet, i) => (
+                    <li key={i}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+
+              <div className="flex flex-wrap gap-2">
+                {entry.tech.map((tech) => (
                   <span
                     key={tech}
                     className="text-sm text-gray-400 border border-gray-700 rounded px-2 py-1"
                   >
                     {tech}
                   </span>
-                ),
-              )}
+                ))}
+              </div>
             </div>
-          </div>
-        </article>
-
-        {/* FATMAP */}
-        <article className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-10">
-          <div>
-            <h3 className="font-rubik text-2xl font-bold text-yellow">
-              FATMAP (Acquired by Strava)
-            </h3>
-            <p className="text-gray-400 mt-1">2022-2023</p>
-          </div>
-
-          <div>
-            <h4 className="font-rubik text-xl font-bold mb-3">
-              Senior Software Engineer
-            </h4>
-
-            <p className="text-gray-300 mb-4">
-              Built and helped design the platform behind FATMAP&apos;s web
-              products, covering deployment, CI/CD, testing and observability.
-              Pre-AI work.
-            </p>
-
-            <ul className="space-y-2 text-gray-300 mb-5">
-              <li>
-                Owned CI/CD and release infrastructure across the web stack,
-                including GitHub Actions, staging/production releases, and
-                canaries.
-              </li>
-              <li>
-                Built the{' '}
-                <Highlight>full deployment path (paved road)</Highlight> for a
-                greenfield{' '}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://fatmap.com"
-                >
-                  fatmap.com
-                </a>{' '}
-                application, from Docker and Skaffold to Kubernetes, and
-                development/production environments, with support from SRE.
-              </li>
-              <li>
-                Designed the{' '}
-                <Highlight>testing strategy and infrastructure</Highlight> using
-                Jest, React Testing Library and Playwright, with automated
-                validation on pull requests and before releases.
-              </li>
-            </ul>
-
-            <div className="flex flex-wrap gap-2">
-              {[
-                'Kubernetes',
-                'Docker',
-                'GHA',
-                'Prometheus',
-                'Playwright',
-                'Jest',
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className="text-sm text-gray-400 border border-gray-700 rounded px-2 py-1"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </article>
+          </article>
+        ))}
       </div>
 
-      <p className="text-gray-300 mt-8">
-        Previously{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://localistico.com"
-        >
-          Localistico
-        </a>
-        ,
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://vizzuality.com"
-        >
-          Vizzuality
-        </a>
-        , and{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://graphext.com"
-        >
-          Graphext
-        </a>
-        . <a href="/about">See more</a>.
-      </p>
+      <p className="text-gray-300 mt-8">{previously}</p>
     </section>
   );
 }

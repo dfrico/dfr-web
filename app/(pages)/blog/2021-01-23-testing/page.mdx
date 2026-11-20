@@ -27,7 +27,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 You might be familiar with [React hooks](https://reactjs.org/docs/hooks-intro.html), but maybe you don't know that you can [implement your own hooks](https://reactjs.org/docs/hooks-custom.html) to build reusable logic on top of hooks.
 
