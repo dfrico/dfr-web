@@ -6,7 +6,11 @@ export const meta = {
   description: "I implemented the algorithm that beat Dijkstra. Dijkstra still wins.",
   date: 'September 08, 2025',
   readTime: 10,
-  postImg: '/img/blog/2025-09-08-bmssp/preview.jpg'
+  postImg: '/img/blog/2025-09-08-bmssp/preview.jpg',
+  updated: 'November 2026',
+  result: 'about 3× slower than Dijkstra',
+  stack: 'Python',
+  code: 'https://github.com/dfrico/bmssp',
 };
 
 export const metadata = {
@@ -28,7 +32,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 
 *Written in September 2025 as the start of a [short series](https://0xdf4.bearblog.dev/blog/). Corrected and finished in November 2026: see the update at the end.*
@@ -271,7 +275,7 @@ The theory kept moving, though. In February 2026, Duan, Mao, Shu and Yin publish
 - Valko, Paranjpe and Marx Gómez: [Outperforming Dijkstra on Sparse Graphs: The Lightning Network Use Case](https://arxiv.org/abs/2509.13448) (Rust, Lightning Network)
 - Makowski, Guter, Russell, Castro and Saragih: [BMSSPy: A Python Package and Empirical Comparison of Bounded Multi-Source Shortest Path Algorithm](https://ssrn.com/abstract=5777186) (Python, November 2025; [package](https://pypi.org/project/bmsspy/))
 - Duan, Mao, Shu and Yin: [A Faster Directed Single-Source Shortest Path Algorithm](https://arxiv.org/abs/2602.07868) (the 2026 follow-up)
-- My code: [https://github.com/dfrico/bmssp] (implementation, tests and benchmark)
+- My code: [https://github.com/dfrico/bmssp](implementation, tests and benchmark)
 
 [^1]: Negative edges break Dijkstra's core assumption: once a node is finished, its distance can't improve.
 [^2]: With the lazy approach, the heap can hold up to $m$ entries, but $\log m \le \log n^2 = 2 \log n$, so it's still $O(m \log n)$. A plain array instead of a heap gives $O(n^2)$, which is actually better for dense graphs, where $m \approx n^2$.

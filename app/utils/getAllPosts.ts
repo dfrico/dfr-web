@@ -1,15 +1,9 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-
-export type Meta = {
-  title: string;
-  description: string;
-  date: string;
-  readTime: number | string; // minutes
-  postImg?: string;
-};
+import type { Meta } from '@/components/post';
 
 export type Post = {
+  slug: string;
   link: string;
   module: { meta: Meta };
 };
@@ -48,6 +42,10 @@ function extractMeta(source: string, slug: string): Meta | null {
   }
 }
 
+export function postSource(slug: string): string {
+  return readFileSync(path.join(BLOG_DIR, slug, 'page.mdx'), 'utf-8');
+}
+
 const posts: Post[] = readdirSync(BLOG_DIR)
   .filter(
     (slug) =>
@@ -55,10 +53,9 @@ const posts: Post[] = readdirSync(BLOG_DIR)
       existsSync(path.join(BLOG_DIR, slug, 'page.mdx')),
   )
   .flatMap((slug) => {
-    const source = readFileSync(path.join(BLOG_DIR, slug, 'page.mdx'), 'utf-8');
-    const meta = extractMeta(source, slug);
+    const meta = extractMeta(postSource(slug), slug);
     if (!meta) return [];
-    return [{ link: `/${slug}`, module: { meta } }];
+    return [{ slug, link: `/${slug}`, module: { meta } }];
   })
   .sort((a, b) => b.link.localeCompare(a.link));
 

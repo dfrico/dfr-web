@@ -27,7 +27,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 Hey there! I was messing with a small project that used video tags, and found something useful to share with you. I'm talking about creating a `VideoPreview` component that previews the video when you hover the mouse over it, like YouTube does.
 

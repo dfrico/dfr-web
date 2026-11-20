@@ -28,7 +28,7 @@ export const metadata = {
   },
 };
 
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+export default (props) => <BlogPost meta={meta} {...props} />;
 
 If you follow programming YouTubers, chances are that you might have seen a video from [Takuya Matsuyama](https://www.craftz.dog) ([devaslife](https://www.youtube.com/devaslife) on YouTube).
 
