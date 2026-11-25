@@ -44,13 +44,17 @@ export default function Home() {
             {/* The attribution is the image's tooltip rather than a caption
                 under it, so the picture carries the section on its own. */}
             <div className="figure frame">
+              {/* Dithered art: every pixel is a hard black or white dot, so
+                  resampling it to a srcset step and re-encoding it as lossy
+                  WebP smears the dither. The source is 461 kB; serve it whole
+                  and let the browser do the one downscale to the column. */}
               <Image
                 src="/img/office-in-a-small-city.png"
                 width={1328}
                 height={936}
-                sizes="(max-width: 720px) 100vw, 608px"
                 alt="ASCII-art version of Edward Hopper's Office in a Small City: a man sits at a desk by the large corner windows of an office, seen from outside, between a pale stone wall and a blue sky."
                 title="After Edward Hopper, Office in a Small City (1953). ASCII rendering."
+                unoptimized
                 priority
               />
             </div>
