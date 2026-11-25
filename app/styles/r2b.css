@@ -23,6 +23,7 @@
   --rail-w: 212px;
   --col-w: 960px;
   --col-pad: 56px;
+  --gutter-max: 120px;
   --measure: 62ch;
 
   /* The whole page uses these four steps and nothing else. Display is the
@@ -334,11 +335,11 @@ a:hover {
   min-width: 0;
 }
 
-/* Up to 120px of gutter once the viewport can spare it, then the column stays
-   put rather than drifting away from the rail. */
+/* Up to --gutter-max of gutter once the viewport can spare it, then the column
+   stays put rather than drifting away from the rail. */
 .content {
   max-width: var(--col-w);
-  margin-left: clamp(0px, calc((100% - var(--col-w)) / 2), 120px);
+  margin-left: clamp(0px, calc((100% - var(--col-w)) / 2), var(--gutter-max));
   padding: 64px var(--col-pad) 96px;
 }
 
@@ -818,6 +819,34 @@ a:hover {
   .rail-nav a,
   .rail-footer a {
     transition-duration: 0ms;
+  }
+}
+
+/* External monitor: the same layout, scaled up. Type grows a step, the column
+   and its gutter grow with it, and the measure buys back a few words a line so
+   a paragraph is not a tall narrow stack in the middle of a wide screen. */
+
+@media (min-width: 2000px) {
+  :root {
+    --rail-w: 260px;
+    --col-w: 1100px;
+    --col-pad: 80px;
+    --gutter-max: 200px;
+    --measure: 68ch;
+
+    --text-display: clamp(42px, 5.6vw, 68px);
+    --text-h2: 36px;
+    --text-h3: 23px;
+    --text-body: 18px;
+    --text-sm: 15px;
+  }
+
+  .monogram {
+    height: 76px;
+  }
+
+  .content {
+    padding-top: 80px;
   }
 }
 
