@@ -1,6 +1,10 @@
 /* Redesign preview (R2b). Loaded only by app/(redesign)/layout.tsx. */
 
 :root {
+  color-scheme: light dark;
+
+  /* Light is the default; the dark values are named once here and applied by
+     the two blocks below, so neither scheme can drift from the other. */
   --bg: #f3f1ec;
   --rail: #edeae3;
   --fg: #191917;
@@ -12,6 +16,18 @@
   --code-keyword: #8a4b2c;
   --code-string: #4f6b3a;
   --code-number: #2f5d84;
+
+  --dark-bg: #141413;
+  --dark-rail: #111110;
+  --dark-fg: #eceae4;
+  --dark-soft: #cbc8c0;
+  --dark-muted: #a19e96;
+  --dark-line: #2e2d2a;
+  --dark-frame: #1c1b19;
+  --dark-code: #1c1b19;
+  --dark-code-keyword: #e0a07a;
+  --dark-code-string: #a9c08f;
+  --dark-code-number: #8fb3d9;
 
   --serif: var(--font-serif), Georgia, serif;
   --sans: var(--font-sans), system-ui, sans-serif;
@@ -40,24 +56,46 @@
   --track-sm: 0.01em;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-
-  color-scheme: light;
 }
 
-:root[data-theme='dark'] {
-  --bg: #141413;
-  --rail: #111110;
-  --fg: #eceae4;
-  --soft: #cbc8c0;
-  --muted: #a19e96;
-  --line: #2e2d2a;
-  --frame: #1c1b19;
-  --code: #1c1b19;
-  --code-keyword: #e0a07a;
-  --code-string: #a9c08f;
-  --code-number: #8fb3d9;
+/* Dark by default when the system asks for it, unless the toggle pinned light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
 
+    --bg: var(--dark-bg);
+    --rail: var(--dark-rail);
+    --fg: var(--dark-fg);
+    --soft: var(--dark-soft);
+    --muted: var(--dark-muted);
+    --line: var(--dark-line);
+    --frame: var(--dark-frame);
+    --code: var(--dark-code);
+    --code-keyword: var(--dark-code-keyword);
+    --code-string: var(--dark-code-string);
+    --code-number: var(--dark-code-number);
+  }
+}
+
+/* Dark because the reader asked for it, whatever the system says. */
+:root[data-theme='dark'] {
   color-scheme: dark;
+
+  --bg: var(--dark-bg);
+  --rail: var(--dark-rail);
+  --fg: var(--dark-fg);
+  --soft: var(--dark-soft);
+  --muted: var(--dark-muted);
+  --line: var(--dark-line);
+  --frame: var(--dark-frame);
+  --code: var(--dark-code);
+  --code-keyword: var(--dark-code-keyword);
+  --code-string: var(--dark-code-string);
+  --code-number: var(--dark-code-number);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 /* Reset */
@@ -236,10 +274,29 @@ a:hover {
   height: 16px;
 }
 
-/* Moon in light mode (switches to dark), sun in dark mode. */
-:root[data-theme='dark'] .theme-toggle .moon,
-:root:not([data-theme='dark']) .theme-toggle .sun {
+/* The button shows the scheme it switches to: moon while light, sun while
+   dark. Both icons are in the markup and CSS picks one, so the server and the
+   client agree even though only the browser knows the system preference. */
+.theme-toggle .sun {
   display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .theme-toggle .moon {
+    display: none;
+  }
+
+  :root:not([data-theme='light']) .theme-toggle .sun {
+    display: block;
+  }
+}
+
+:root[data-theme='dark'] .theme-toggle .moon {
+  display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle .sun {
+  display: block;
 }
 
 .to-top {

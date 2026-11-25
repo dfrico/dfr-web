@@ -2,34 +2,49 @@
 
 import { useSyncExternalStore } from 'react';
 
-// The theme lives on <html data-theme>; watch it so aria-pressed follows.
+const SYSTEM_DARK = '(prefers-color-scheme: dark)';
+
+/**
+ * The theme is the system's until the reader picks one, so watch both the
+ * data-theme attribute the button writes and the system preference itself.
+ */
 function subscribe(onChange: () => void) {
   const observer = new MutationObserver(onChange);
   observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['data-theme'],
   });
-  return () => observer.disconnect();
+  const query = matchMedia(SYSTEM_DARK);
+  query.addEventListener('change', onChange);
+  return () => {
+    observer.disconnect();
+    query.removeEventListener('change', onChange);
+  };
+}
+
+function isDark() {
+  const pinned = document.documentElement.dataset.theme;
+  if (pinned === 'dark' || pinned === 'light') return pinned === 'dark';
+  return matchMedia(SYSTEM_DARK).matches;
 }
 
 /**
- * Light by default. The choice is saved in localStorage and applied before
- * first paint by the inline script in app/(redesign)/layout.tsx. Both icons
- * are rendered and CSS shows the right one, so server and client HTML match.
+ * Follows the system scheme out of the box. The button pins the other one,
+ * saved in localStorage and re-applied before first paint by the inline script
+ * in app/(redesign)/layout.tsx. Both icons are rendered and CSS shows the
+ * right one, so server and client HTML match.
  */
 export default function ThemeToggle() {
   const dark = useSyncExternalStore(
     subscribe,
-    () => document.documentElement.dataset.theme === 'dark',
-    // Unknown on the server: it can't see the saved theme.
+    isDark,
+    // Unknown on the server: it can see neither the saved choice nor the system.
     () => undefined,
   );
 
   function toggle() {
-    const root = document.documentElement;
-    const next = root.dataset.theme !== 'dark';
-    if (next) root.dataset.theme = 'dark';
-    else delete root.dataset.theme;
+    const next = !isDark();
+    document.documentElement.dataset.theme = next ? 'dark' : 'light';
     try {
       localStorage.setItem('theme', next ? 'dark' : 'light');
     } catch {

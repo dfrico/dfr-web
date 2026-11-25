@@ -38,8 +38,9 @@ export const viewport = {
   initialScale: 1,
 };
 
-// Applies the saved theme before first paint (see components/r2b/themeToggle).
-const themeScript = `try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}`;
+// The page follows the system scheme (see --bg and friends in r2b.css); this
+// re-applies an explicit choice from the toggle before first paint.
+const themeScript = `try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
