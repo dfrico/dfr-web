@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "private": true,
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=26"
   },
   "scripts": {
     "dev": "next dev",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/mdx": "^2.0.14",
-    "@types/node": "^24.13.3",
+    "@types/node": "^26.6.10",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "eslint": "^9.39.5",
