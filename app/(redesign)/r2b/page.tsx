@@ -38,9 +38,9 @@ export default function Home() {
             <h1 id="name" className="name">
               Daniel Fernández
             </h1>
-            <p className="identity mono">Senior Software Engineer · Spain</p>
+            <p className="identity meta">Senior Software Engineer · Spain</p>
             <hr className="rule" />
-            <p className="intro">{currentlyAt}</p>
+            <p>{currentlyAt}</p>
             <figure className="figure">
               <div className="frame">
                 <Image
@@ -52,76 +52,50 @@ export default function Home() {
                   priority
                 />
               </div>
-              {/* <figcaption>
+              <figcaption className="meta">
                 After Edward Hopper, <i>Office in a Small City</i> (1953). ASCII
                 rendering.
-              </figcaption> */}
+              </figcaption>
             </figure>
           </section>
 
           <section id="work" aria-labelledby="work-heading">
-            <SectionHeader
-              num="02"
-              title="Work"
-              label="Experience"
-              id="work-heading"
-            />
+            <SectionHeader title="Work" id="work-heading" />
             {work.map((entry) => (
               <article key={entry.company} className="entry">
                 <div className="entry-head">
                   <h3>{entry.company}</h3>
-                  <span className="mono">{entry.years}</span>
+                  <span className="meta">{entry.years}</span>
                 </div>
                 <p className="role">{entry.role}</p>
                 {[...entry.paragraphs, ...entry.bullets].map((text, i) => (
                   <p key={i}>{text}</p>
                 ))}
-                <p className="tags mono">{entry.tech.join(' · ')}</p>
+                <p className="tags meta">{entry.tech.join(' · ')}</p>
               </article>
             ))}
             <p className="previously">{previously}</p>
           </section>
 
           <section id="lab" aria-labelledby="lab-heading">
-            <SectionHeader
-              num="03"
-              title="Lab"
-              label="Projects"
-              id="lab-heading"
-            />
+            <SectionHeader title="Lab" id="lab-heading" />
             <article className="feature">
               <div className="feature-head">
                 <h3>
                   <Link href={`/blog/${BMSSP}`}>{bmssp.title}</Link>
                 </h3>
-                <span className="mono">
+                <span className="meta">
                   {/* "November 2026" → "Nov 2026" */}
                   write-up · updated{' '}
                   {bmssp.updated?.replace(/^(\w{3})\w+/, '$1')}
                 </span>
               </div>
               <p>{bmssp.description}</p>
-              {/* <table className="results">
-                <tbody>
-                  <tr>
-                    <th scope="row">Dijkstra, 1M nodes</th>
-                    <td>5.5 s</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">BMSSP, 1M nodes</th>
-                    <td>16 s</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Edge relaxations, BMSSP vs Dijkstra</th>
-                    <td>2–3× more</td>
-                  </tr>
-                </tbody>
-              </table> */}
-              <p className="footnote mono">
+              <p className="footnote meta">
                 {bmssp.stack} implementation, random sparse graphs (average
                 degree 4), on an M1 Pro.
               </p>
-              <p className="links mono">
+              <p className="links meta">
                 <Link href={`/blog/${BMSSP}`}>write-up</Link>
                 <a href={bmssp.code}>code</a>
               </p>
@@ -138,7 +112,7 @@ export default function Home() {
                         <Link href={row.url}>{row.title}</Link>
                       )}
                     </h3>
-                    <span className="mono">{row.status}</span>
+                    <span className="meta">{row.status}</span>
                   </div>
                   <p>{row.description}</p>
                 </article>
@@ -147,12 +121,7 @@ export default function Home() {
           </section>
 
           <section id="writing" aria-labelledby="writing-heading">
-            <SectionHeader
-              num="04"
-              title="Writing"
-              label="Notes and write-ups"
-              id="writing-heading"
-            />
+            <SectionHeader title="Writing" id="writing-heading" />
             <WritingList />
           </section>
         </div>

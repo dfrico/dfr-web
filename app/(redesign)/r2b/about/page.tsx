@@ -30,7 +30,7 @@ export default function About() {
       <Rail active="about" />
       <main id="content" className="main">
         <div className="content">
-          <SectionHeader num="01" title="About" label="Background" as="h1" />
+          <SectionHeader title="About" as="h1" />
           <figure className="portrait frame">
             <Image
               src="/img/sofa.jpeg"
@@ -40,7 +40,7 @@ export default function About() {
             />
           </figure>
           <div className="about-copy">
-            <p className="intro">
+            <p>
               Hi! My name is Daniel and I&apos;m a Software Engineer working
               remotely from Spain.
             </p>

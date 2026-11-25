@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react';
 
 export type Section = 'about' | 'work' | 'lab' | 'writing';
 
-const ITEMS: { id: Section; num: string; label: string }[] = [
-  { id: 'about', num: '01', label: 'About' },
-  { id: 'work', num: '02', label: 'Work' },
-  { id: 'lab', num: '03', label: 'Lab' },
-  { id: 'writing', num: '04', label: 'Writing' },
+const ITEMS: { id: Section; label: string }[] = [
+  { id: 'about', label: 'About' },
+  { id: 'work', label: 'Work' },
+  { id: 'lab', label: 'Lab' },
+  { id: 'writing', label: 'Writing' },
 ];
 
 type Props = {
@@ -58,14 +58,13 @@ export default function RailNav({ active, spy }: Props) {
   return (
     <nav className="rail-nav" aria-label="Sections">
       <ol>
-        {ITEMS.map(({ id, num, label }) => (
+        {ITEMS.map(({ id, label }) => (
           <li key={id}>
             <Link
               href={`/#${id}`}
               aria-current={current === id ? 'true' : undefined}
             >
-              <span className="num">{num}</span>
-              <span className="label">{label}</span>
+              {label}
             </Link>
           </li>
         ))}

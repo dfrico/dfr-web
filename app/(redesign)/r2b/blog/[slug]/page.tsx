@@ -42,19 +42,17 @@ export default async function PostPage({ params }: Props) {
   const section = postSection(slug);
   const headings = postHeadings(postSource(slug));
 
-  const facts = [
-    meta.result && { label: 'Result', value: meta.result },
-    meta.stack && { label: 'Stack', value: meta.stack },
-    { label: 'Reading time', value: `${meta.readTime} min` },
-    meta.code && {
-      label: 'Code',
-      value: <a href={meta.code}>{meta.code.replace(/^https:\/\//, '')}</a>,
-    },
-    {
-      label: 'Markdown',
-      value: <a href={`/blog/${slug}.md`}>{slug}.md</a>,
-    },
-  ].filter(Boolean) as { label: string; value: React.ReactNode }[];
+  // One line under the dek instead of a spec strip: dates, length, sources.
+  const sources = [
+    meta.code && (
+      <a key="code" href={meta.code}>
+        Code
+      </a>
+    ),
+    <a key="md" href={`/blog/${slug}.md`}>
+      Markdown
+    </a>,
+  ].filter(Boolean);
 
   return (
     <div className="shell">
@@ -80,20 +78,19 @@ export default async function PostPage({ params }: Props) {
       <main id="content" className="main">
         <article className="content">
           <header>
-            <p className="kicker mono">
-              {section === 'lab' ? 'Lab' : 'Writing'} · {meta.date}
-              {meta.updated && ` · Updated ${meta.updated}`}
-            </p>
             <h1 className="post-title">{meta.title}</h1>
             <p className="dek">{meta.description}</p>
-            <dl className="meta-strip">
-              {facts.map(({ label, value }) => (
-                <div key={label}>
-                  <dt>{label}</dt>
-                  <dd>{value}</dd>
-                </div>
+            <p className="post-meta meta">
+              {meta.date}
+              {meta.updated && `, updated ${meta.updated}`} · {meta.readTime}{' '}
+              min read ·{' '}
+              {sources.map((source, i) => (
+                <span key={i}>
+                  {i > 0 && ' · '}
+                  {source}
+                </span>
               ))}
-            </dl>
+            </p>
           </header>
           <div className="prose">
             <Content bare components={{ h2: H2 }} />

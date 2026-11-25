@@ -8,12 +8,7 @@ export default function Blog() {
       <Rail active="writing" />
       <main id="content" className="main">
         <div className="content">
-          <SectionHeader
-            num="04"
-            title="Writing"
-            label="Notes and write-ups"
-            as="h1"
-          />
+          <SectionHeader title="Writing" as="h1" />
           <WritingList />
         </div>
       </main>

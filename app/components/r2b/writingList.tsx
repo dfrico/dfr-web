@@ -7,7 +7,7 @@ export default function WritingList() {
     <ul className="writing">
       {posts.map(({ slug, module: { meta } }) => (
         <li key={slug}>
-          <time className="mono" dateTime={slug.slice(0, 7)}>
+          <time className="meta" dateTime={slug.slice(0, 7)}>
             {monthYear(slug)}
           </time>
           <Link href={`/blog/${slug}`}>{meta.title}</Link>
