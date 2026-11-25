@@ -4,9 +4,40 @@ import { useSyncExternalStore } from 'react';
 
 const SYSTEM_DARK = '(prefers-color-scheme: dark)';
 
+function systemTheme() {
+  return matchMedia(SYSTEM_DARK).matches ? 'dark' : 'light';
+}
+
+function pinnedTheme() {
+  const theme = document.documentElement.dataset.theme;
+  return theme === 'dark' || theme === 'light' ? theme : null;
+}
+
+function isDark() {
+  return (pinnedTheme() ?? systemTheme()) === 'dark';
+}
+
 /**
- * The theme is the system's until the reader picks one, so watch both the
- * data-theme attribute the button writes and the system preference itself.
+ * A pin only means "not what the system says". Once the two agree, drop it, so
+ * a reader who turned the system dark to match their choice goes back to
+ * following it rather than being stuck on that choice for good.
+ */
+function pin(theme: 'dark' | 'light') {
+  const root = document.documentElement;
+  const following = theme === systemTheme();
+  if (following) delete root.dataset.theme;
+  else root.dataset.theme = theme;
+  try {
+    if (following) localStorage.removeItem('theme');
+    else localStorage.setItem('theme', theme);
+  } catch {
+    // Storage unavailable (private mode, blocked): the choice holds for this page.
+  }
+}
+
+/**
+ * The theme is the system's until the reader pins the other one, so watch both
+ * the data-theme attribute the button writes and the system preference.
  */
 function subscribe(onChange: () => void) {
   const observer = new MutationObserver(onChange);
@@ -15,17 +46,16 @@ function subscribe(onChange: () => void) {
     attributeFilter: ['data-theme'],
   });
   const query = matchMedia(SYSTEM_DARK);
-  query.addEventListener('change', onChange);
+  const onSystemChange = () => {
+    const theme = pinnedTheme();
+    if (theme) pin(theme);
+    onChange();
+  };
+  query.addEventListener('change', onSystemChange);
   return () => {
     observer.disconnect();
-    query.removeEventListener('change', onChange);
+    query.removeEventListener('change', onSystemChange);
   };
-}
-
-function isDark() {
-  const pinned = document.documentElement.dataset.theme;
-  if (pinned === 'dark' || pinned === 'light') return pinned === 'dark';
-  return matchMedia(SYSTEM_DARK).matches;
 }
 
 /**
@@ -43,13 +73,7 @@ export default function ThemeToggle() {
   );
 
   function toggle() {
-    const next = !isDark();
-    document.documentElement.dataset.theme = next ? 'dark' : 'light';
-    try {
-      localStorage.setItem('theme', next ? 'dark' : 'light');
-    } catch {
-      // Storage unavailable (private mode, blocked): the toggle still works for this page.
-    }
+    pin(isDark() ? 'light' : 'dark');
   }
 
   return (

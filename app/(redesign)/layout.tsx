@@ -38,9 +38,10 @@ export const viewport = {
   initialScale: 1,
 };
 
-// The page follows the system scheme (see --bg and friends in r2b.css); this
-// re-applies an explicit choice from the toggle before first paint.
-const themeScript = `try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}`;
+// The page follows the system scheme (see --bg and friends in r2b.css). This
+// re-applies a choice from the toggle before first paint, and forgets it once
+// the system agrees with it, so the page never stops following the system.
+const themeScript = `try{var t=localStorage.getItem('theme'),s=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if(t===s){localStorage.removeItem('theme');t=null}if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
