@@ -17,14 +17,12 @@
   --sans: var(--font-sans), system-ui, sans-serif;
   --mono: var(--font-mono), ui-monospace, monospace;
 
-  /* The rail stays on the left edge. The column beside it is wide enough for
-     the dates and tags to sit at its right edge, while running text stops at
-     --measure so no line gets long enough to lose. */
+  /* The rail stays on the left edge. Everything in the column runs the full
+     width of it: text, rules, dates and pictures all share one right edge. */
   --rail-w: 212px;
   --col-w: 960px;
   --col-pad: 56px;
   --gutter-max: 120px;
-  --measure: 62ch;
 
   /* The whole page uses these four steps and nothing else. Display is the
      page's own <h1> (name, post title); everything below it is h2/body/small,
@@ -341,25 +339,6 @@ a:hover {
   max-width: var(--col-w);
   margin-left: clamp(0px, calc((100% - var(--col-w)) / 2), var(--gutter-max));
   padding: 64px var(--col-pad) 96px;
-}
-
-#about > p,
-.entry p,
-.feature > p,
-.lab-row p,
-.previously,
-.about-copy p,
-.year li,
-.dek,
-.post-meta,
-.prose > p,
-.prose > ul,
-.prose > ol,
-.prose > blockquote,
-.prose h2,
-.prose h3,
-.prose section[data-footnotes] {
-  max-width: var(--measure);
 }
 
 /* Anchor jumps (#work, "On this page") land with the same space above the
@@ -692,8 +671,6 @@ a:hover {
   font-size: 0.9em;
 }
 
-/* Code and tables are not prose: they keep the full width of the column while
-   the text around them stops at --measure. */
 
 .prose pre {
   overflow-x: auto;
@@ -822,9 +799,9 @@ a:hover {
   }
 }
 
-/* External monitor: the same layout, scaled up. Type grows a step, the column
-   and its gutter grow with it, and the measure buys back a few words a line so
-   a paragraph is not a tall narrow stack in the middle of a wide screen. */
+/* External monitor: the same layout, scaled up. Type grows a step and the
+   column grows with it, so a paragraph is not a tall narrow stack in the
+   middle of a wide screen. */
 
 @media (min-width: 2000px) {
   :root {
@@ -832,7 +809,6 @@ a:hover {
     --col-w: 1100px;
     --col-pad: 80px;
     --gutter-max: 200px;
-    --measure: 68ch;
 
     --text-display: clamp(42px, 5.6vw, 68px);
     --text-h2: 36px;
