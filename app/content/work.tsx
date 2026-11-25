@@ -1,19 +1,6 @@
-/**
- * Work history copy, shared by the current home page (components/experience)
- * and the redesign preview (app/(redesign)).
- */
+/** Work history copy, shared by the home page and the CV-style sections. */
 
 import Link from 'next/link';
-
-// Tailwind classes: styled on the current site. The redesign doesn't load
-// Tailwind, so there it renders as plain text.
-function Highlight({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="bg-yellow/20 text-yellow rounded px-1 py-0.5">
-      {children}
-    </span>
-  );
-}
 
 export type WorkEntry = {
   company: string;
@@ -31,20 +18,19 @@ export const work: WorkEntry[] = [
     role: 'Senior Software Engineer (Map Platform)',
     paragraphs: [
       <>
-        Owned <Highlight>features end-to-end</Highlight> on the web maps of
-        Strava (50M MAU), including the live-tracking and flyover pages, from
-        implementation and testing to rollout. Worked across React, Next.js and
-        TypeScript.
+        Owned features end-to-end on the web maps of Strava (50M MAU), including
+        the live-tracking and flyover pages, from implementation and testing to
+        rollout. Worked across React, Next.js and TypeScript.
       </>,
       <>
         Helped integrate Strava&apos;s C++/WebAssembly map engine into the web
-        platform, <Highlight>extending C++ APIs</Highlight> and their JavaScript
-        bindings to support new web interactions and performance requirements.
+        platform, extending C++ APIs and their JavaScript bindings to support
+        new web interactions and performance requirements.
       </>,
       <>
-        Contributed to frontend engineering infrastructure, including{' '}
-        <Highlight>automated testing, CI workflows</Highlight> and shared
-        components used across Strava&apos;s web products.
+        Contributed to frontend engineering infrastructure, including automated
+        testing, CI workflows and shared components used across Strava&apos;s
+        web products.
       </>,
     ],
     bullets: [],
@@ -66,8 +52,7 @@ export const work: WorkEntry[] = [
         GitHub Actions, staging/production releases, and canaries.
       </>,
       <>
-        Built the <Highlight>full deployment path (paved road)</Highlight> for a
-        greenfield{' '}
+        Built the full deployment path (paved road) for a greenfield{' '}
         <a target="_blank" rel="noopener noreferrer" href="https://fatmap.com">
           fatmap.com
         </a>{' '}
@@ -75,9 +60,9 @@ export const work: WorkEntry[] = [
         development/production environments, with support from SRE.
       </>,
       <>
-        Designed the <Highlight>testing strategy and infrastructure</Highlight>{' '}
-        using Jest, React Testing Library and Playwright, with automated
-        validation on pull requests and before releases.
+        Designed the testing strategy and infrastructure using Jest, React
+        Testing Library and Playwright, with automated validation on pull
+        requests and before releases.
       </>,
     ],
     tech: ['Kubernetes', 'Docker', 'GHA', 'Prometheus', 'Playwright', 'Jest'],

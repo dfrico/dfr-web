@@ -1,7 +1,4 @@
-/**
- * Project copy, shared by the current home page ("Selected work") and the
- * redesign preview's Lab section.
- */
+/** Project copy for the home page's Lab section. */
 
 export type Project = {
   title: string;

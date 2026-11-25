@@ -16,9 +16,6 @@ const withMDX = createMDX({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['mdx', 'ts', 'tsx'],
-  sassOptions: {
-    includePaths: [path.join(process.cwd(), 'app/styles')],
-  },
   // Markdown copy of each post (app/md/blog/[slug]/route.ts).
   async rewrites() {
     return [{ source: '/blog/:slug.md', destination: '/md/blog/:slug' }];

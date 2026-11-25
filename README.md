@@ -6,9 +6,9 @@ Install dependencies with `yarn` and start the development server with `yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Redesign preview (R2b)
+## Layout
 
-The redesign lives in `app/(redesign)` (routes under `/r2b`, styles in `app/styles/r2b.css`). Open any page with `?redesign=true` (e.g. [http://localhost:3000/?redesign=true](http://localhost:3000/?redesign=true)) to see it: `proxy.ts` rewrites `/`, `/about`, `/blog` and `/blog/<slug>` to it and sets a session cookie so it stays on while browsing. `?redesign=false` turns it off. Copy shared by both designs is in `app/content`.
+Pages are in `app` (`/`, `/about`, `/blog`, `/blog/<slug>`), styles in `app/styles/site.css`, and copy shared between them in `app/content`. Post sources are MDX in `app/_posts/<slug>/page.mdx`: Next ignores folders starting with an underscore, so they are content rather than routes, read by `app/utils/getAllPosts.ts` and rendered by `app/blog/[slug]/page.tsx`. Each post is also served as Markdown at `/blog/<slug>.md`.
 
 ## Deploy on Vercel
 

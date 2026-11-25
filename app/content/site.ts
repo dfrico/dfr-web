@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-/** Metadata shared by both root layouts ((pages) and the redesign preview). */
+/** Metadata shared by the pages and the route handlers. */
 
 export const description =
   'Senior Software Engineer based in Spain. Products I build, things I write, and work I have done.';
