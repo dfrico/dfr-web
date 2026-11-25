@@ -385,6 +385,11 @@ a:hover {
   color: var(--fg);
 }
 
+/* Only where the rail cannot show the links: see the phone block at the end. */
+.site-footer {
+  display: none;
+}
+
 .main {
   flex: 1;
   min-width: 0;
@@ -944,8 +949,32 @@ a:hover {
     scroll-margin-top: 93px;
   }
 
+  /* The top bar has no room for them, so they wait at the end of the page. */
   .rail-footer {
     display: none;
+  }
+
+  .site-footer {
+    display: block;
+    padding: 28px 20px 36px;
+    background: var(--rail);
+    border-top: 1px solid var(--line);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    letter-spacing: var(--track-sm);
+  }
+
+  .site-footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+
+  .site-footer a {
+    color: var(--muted);
+    text-decoration: none;
   }
 
   .content {

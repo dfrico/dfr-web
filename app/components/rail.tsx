@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Monogram from './monogram';
 import RailNav, { type Section } from './railNav';
+import SiteLinks from './siteLinks';
 import ThemeToggle from './themeToggle';
 
 type Props = {
@@ -20,33 +21,7 @@ export default function Rail({ active, spy, footer }: Props) {
         <RailNav active={active} spy={spy} />
         {/* Foot of the rail on desktop; right end of the top bar on phones. */}
         <ThemeToggle />
-        <div className="rail-footer">
-          {footer ?? (
-            <ul>
-              <li>
-                <a href="https://github.com/dfrico" rel="me">
-                  github
-                </a>
-              </li>
-              <li>
-                <a href="https://x.com/blayhem" rel="me">
-                  x
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/daniel-fernandez-rico/"
-                  rel="me"
-                >
-                  linkedin
-                </a>
-              </li>
-              <li>
-                <a href="mailto:hi@dfrico.com">hi [at] dfrico.com</a>
-              </li>
-            </ul>
-          )}
-        </div>
+        <div className="rail-footer">{footer ?? <SiteLinks />}</div>
       </div>
     </header>
   );

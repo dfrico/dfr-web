@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { IBM_Plex_Mono, Inter, Newsreader } from 'next/font/google';
 
 import Highlight from '@/components/highlight';
+import SiteFooter from '@/components/siteFooter';
 import { siteMetadata } from '@/content/site';
 import 'katex/dist/katex.min.css';
 import '@/styles/site.css';
@@ -53,6 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           Skip to content
         </a>
         {children}
+        <SiteFooter />
         <Highlight />
         <Analytics />
       </body>
