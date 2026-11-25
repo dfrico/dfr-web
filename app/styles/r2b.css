@@ -17,11 +17,13 @@
   --sans: var(--font-sans), system-ui, sans-serif;
   --mono: var(--font-mono), ui-monospace, monospace;
 
-  /* Rail plus column. Past this the page stops growing and centres, so a wide
-     monitor gets even margins instead of a column pinned to one edge. */
+  /* The rail stays on the left edge. The column beside it is wide enough for
+     the dates and tags to sit at its right edge, while running text stops at
+     --measure so no line gets long enough to lose. */
   --rail-w: 212px;
-  --col-w: 720px;
+  --col-w: 960px;
   --col-pad: 56px;
+  --measure: 62ch;
 
   /* The whole page uses these four steps and nothing else. Display is the
      page's own <h1> (name, post title); everything below it is h2/body/small,
@@ -177,8 +179,6 @@ a:hover {
 .shell {
   display: flex;
   min-height: 100vh;
-  max-width: calc(var(--rail-w) + var(--col-w));
-  margin-inline: auto;
 }
 
 .rail {
@@ -334,11 +334,31 @@ a:hover {
   min-width: 0;
 }
 
-/* The column fills the main area exactly, so prose sits at about 70
-   characters a line with no slack beside it. */
+/* Up to 120px of gutter once the viewport can spare it, then the column stays
+   put rather than drifting away from the rail. */
 .content {
   max-width: var(--col-w);
+  margin-left: clamp(0px, calc((100% - var(--col-w)) / 2), 120px);
   padding: 64px var(--col-pad) 96px;
+}
+
+#about > p,
+.entry p,
+.feature > p,
+.lab-row p,
+.previously,
+.about-copy p,
+.year li,
+.dek,
+.post-meta,
+.prose > p,
+.prose > ul,
+.prose > ol,
+.prose > blockquote,
+.prose h2,
+.prose h3,
+.prose section[data-footnotes] {
+  max-width: var(--measure);
 }
 
 /* Anchor jumps (#work, "On this page") land with the same space above the
@@ -671,13 +691,8 @@ a:hover {
   font-size: 0.9em;
 }
 
-/* Code and tables are not prose: rather than scroll at 70 characters, they
-   keep the text's left edge and run out to the far edge of the column. */
-.prose pre,
-.prose table {
-  width: calc(100% + var(--col-pad));
-  margin-right: calc(-1 * var(--col-pad));
-}
+/* Code and tables are not prose: they keep the full width of the column while
+   the text around them stops at --measure. */
 
 .prose pre {
   overflow-x: auto;
@@ -874,13 +889,6 @@ a:hover {
 
   .content {
     padding: 36px 20px 72px;
-  }
-
-  /* The column is already the screen: nothing to bleed into. */
-  .prose pre,
-  .prose table {
-    width: 100%;
-    margin-right: 0;
   }
 
   .content > section + section {
