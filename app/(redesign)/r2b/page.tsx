@@ -41,22 +41,19 @@ export default function Home() {
             <p className="identity meta">Senior Software Engineer · Spain</p>
             <hr className="rule" />
             <p>{currentlyAt}</p>
-            <figure className="figure">
-              <div className="frame">
-                <Image
-                  src="/img/office-in-a-small-city.png"
-                  width={1328}
-                  height={936}
-                  sizes="(max-width: 720px) 100vw, 660px"
-                  alt="ASCII-art version of Edward Hopper's Office in a Small City: a man sits at a desk by the large corner windows of an office, seen from outside, between a pale stone wall and a blue sky."
-                  priority
-                />
-              </div>
-              <figcaption className="meta">
-                After Edward Hopper, <i>Office in a Small City</i> (1953). ASCII
-                rendering.
-              </figcaption>
-            </figure>
+            {/* The attribution is the image's tooltip rather than a caption
+                under it, so the picture carries the section on its own. */}
+            <div className="figure frame">
+              <Image
+                src="/img/office-in-a-small-city.png"
+                width={1328}
+                height={936}
+                sizes="(max-width: 720px) 100vw, 608px"
+                alt="ASCII-art version of Edward Hopper's Office in a Small City: a man sits at a desk by the large corner windows of an office, seen from outside, between a pale stone wall and a blue sky."
+                title="After Edward Hopper, Office in a Small City (1953). ASCII rendering."
+                priority
+              />
+            </div>
           </section>
 
           <section id="work" aria-labelledby="work-heading">

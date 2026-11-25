@@ -17,7 +17,11 @@
   --sans: var(--font-sans), system-ui, sans-serif;
   --mono: var(--font-mono), ui-monospace, monospace;
 
+  /* Rail plus column. Past this the page stops growing and centres, so a wide
+     monitor gets even margins instead of a column pinned to one edge. */
   --rail-w: 212px;
+  --col-w: 720px;
+  --col-pad: 56px;
 
   /* The whole page uses these four steps and nothing else. Display is the
      page's own <h1> (name, post title); everything below it is h2/body/small,
@@ -173,6 +177,8 @@ a:hover {
 .shell {
   display: flex;
   min-height: 100vh;
+  max-width: calc(var(--rail-w) + var(--col-w));
+  margin-inline: auto;
 }
 
 .rail {
@@ -328,11 +334,11 @@ a:hover {
   min-width: 0;
 }
 
-/* Left-pinned: the rail is the page's left margin. The width holds body prose
-   to about 70 characters a line. */
+/* The column fills the main area exactly, so prose sits at about 70
+   characters a line with no slack beside it. */
 .content {
-  max-width: 720px;
-  padding: 64px 56px 96px;
+  max-width: var(--col-w);
+  padding: 64px var(--col-pad) 96px;
 }
 
 /* Anchor jumps (#work, "On this page") land with the same space above the
@@ -393,11 +399,6 @@ a:hover {
 .frame img {
   width: 100%;
   height: auto;
-}
-
-.figure figcaption {
-  margin-top: 10px;
-  color: var(--muted);
 }
 
 /* 02 Work */
@@ -670,11 +671,12 @@ a:hover {
   font-size: 0.9em;
 }
 
-/* Code and tables are not prose: let them use the space to the right of the
-   column rather than scroll at 70 characters, but never go narrower than it. */
+/* Code and tables are not prose: rather than scroll at 70 characters, they
+   keep the text's left edge and run out to the far edge of the column. */
 .prose pre,
 .prose table {
-  width: max(100%, min(880px, 100vw - var(--rail-w) - 136px));
+  width: calc(100% + var(--col-pad));
+  margin-right: calc(-1 * var(--col-pad));
 }
 
 .prose pre {
@@ -874,10 +876,11 @@ a:hover {
     padding: 36px 20px 72px;
   }
 
-  /* No column to break out of: the rail is a top bar. */
+  /* The column is already the screen: nothing to bleed into. */
   .prose pre,
   .prose table {
     width: 100%;
+    margin-right: 0;
   }
 
   .content > section + section {
