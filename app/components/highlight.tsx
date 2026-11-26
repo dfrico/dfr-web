@@ -3,12 +3,11 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-// highlight.js
+// highlight.js. Each root layout imports its own token theme.
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import typescript from 'highlight.js/lib/languages/typescript';
 import python from 'highlight.js/lib/languages/python';
-import 'highlight.js/styles/tokyo-night-dark.css';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('typescript', typescript);

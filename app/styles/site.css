@@ -1,0 +1,1003 @@
+/* Redesign preview (R2b). Loaded only by app/(redesign)/layout.tsx. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Light is the default; the dark values are named once here and applied by
+     the two blocks below, so neither scheme can drift from the other. */
+  --bg: #f3f1ec;
+  --rail: #edeae3;
+  --fg: #191917;
+  --soft: #3b3a36;
+  --muted: #5c5a55;
+  --line: #d9d5cc;
+  --frame: #e8e5de;
+  --code: #eae7e0;
+  --code-keyword: #8a4b2c;
+  --code-string: #4f6b3a;
+  --code-number: #2f5d84;
+
+  --dark-bg: #141413;
+  --dark-rail: #111110;
+  --dark-fg: #eceae4;
+  --dark-soft: #cbc8c0;
+  --dark-muted: #a19e96;
+  --dark-line: #2e2d2a;
+  --dark-frame: #1c1b19;
+  --dark-code: #1c1b19;
+  --dark-code-keyword: #e0a07a;
+  --dark-code-string: #a9c08f;
+  --dark-code-number: #8fb3d9;
+
+  --serif: var(--font-serif), Georgia, serif;
+  --sans: var(--font-sans), system-ui, sans-serif;
+  --mono: var(--font-mono), ui-monospace, monospace;
+
+  /* The rail stays on the left edge. Everything in the column runs the full
+     width of it: text, rules, dates and pictures all share one right edge. */
+  --rail-w: 212px;
+  --col-w: 960px;
+  --col-pad: 56px;
+  --gutter-max: 120px;
+
+  /* The whole page uses these four steps and nothing else. Display is the
+     page's own <h1> (name, post title); everything below it is h2/body/small,
+     with h3 set apart by the serif and weight 500 as much as by its size. */
+  --text-display: clamp(42px, 5.6vw, 58px);
+  --text-h2: 32px;
+  --text-h3: 21px;
+  --text-body: 17px;
+  --text-sm: 14px;
+
+  /* The larger the type, the tighter it is tracked. */
+  --track-display: -0.03em;
+  --track-h2: -0.02em;
+  --track-h3: -0.01em;
+  --track-sm: 0.01em;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Dark by default when the system asks for it, unless the toggle pinned light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --bg: var(--dark-bg);
+    --rail: var(--dark-rail);
+    --fg: var(--dark-fg);
+    --soft: var(--dark-soft);
+    --muted: var(--dark-muted);
+    --line: var(--dark-line);
+    --frame: var(--dark-frame);
+    --code: var(--dark-code);
+    --code-keyword: var(--dark-code-keyword);
+    --code-string: var(--dark-code-string);
+    --code-number: var(--dark-code-number);
+  }
+}
+
+/* Dark because the reader asked for it, whatever the system says. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: var(--dark-bg);
+  --rail: var(--dark-rail);
+  --fg: var(--dark-fg);
+  --soft: var(--dark-soft);
+  --muted: var(--dark-muted);
+  --line: var(--dark-line);
+  --frame: var(--dark-frame);
+  --code: var(--dark-code);
+  --code-keyword: var(--dark-code-keyword);
+  --code-string: var(--dark-code-string);
+  --code-number: var(--dark-code-number);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 var(--text-body) / 1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings stay upright and in one family; weight and colour carry the rest. */
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color 160ms var(--ease),
+    text-decoration-color 160ms var(--ease);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Dates, counts, tech lists, captions: the small step, lining figures. */
+.meta {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  letter-spacing: var(--track-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -48px;
+  z-index: 1;
+  padding: 8px 12px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: var(--text-sm);
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Shell: rail + main */
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.rail {
+  flex: none;
+  width: var(--rail-w);
+  background: var(--rail);
+  border-right: 1px solid var(--line);
+}
+
+/* Sticky: the rail's contents stay in view; a long "On this page" list scrolls. */
+.rail-inner {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 32px 24px 28px;
+}
+
+.monogram-link {
+  align-self: flex-start;
+  color: var(--fg);
+}
+
+.monogram {
+  height: 64px;
+  width: auto;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    color 160ms var(--ease),
+    border-color 160ms var(--ease);
+}
+
+.icon-button:hover {
+  color: var(--fg);
+  border-color: var(--muted);
+}
+
+.icon-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* The button shows the scheme it switches to: moon while light, sun while
+   dark. Both icons are in the markup and CSS picks one, so the server and the
+   client agree even though only the browser knows the system preference. */
+.theme-toggle .sun {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .theme-toggle .moon {
+    display: none;
+  }
+
+  :root:not([data-theme='light']) .theme-toggle .sun {
+    display: block;
+  }
+}
+
+:root[data-theme='dark'] .theme-toggle .moon {
+  display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle .sun {
+  display: block;
+}
+
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+}
+
+.to-top[hidden] {
+  display: none;
+}
+
+.rail-nav {
+  margin: 48px 0 40px;
+}
+
+.rail-nav ol {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rail-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 2px 0 2px 12px;
+  border-left: 2px solid transparent;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  letter-spacing: var(--track-sm);
+  text-decoration: none;
+  transition:
+    color 160ms var(--ease),
+    border-color 160ms var(--ease);
+}
+
+.rail-nav a:hover {
+  color: var(--fg);
+}
+
+.rail-nav a[aria-current] {
+  border-left-color: var(--fg);
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* Desktop: the theme button sits at the foot of the rail, above the links. */
+.rail .theme-toggle {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.rail-footer {
+  margin-top: 16px;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  letter-spacing: var(--track-sm);
+  color: var(--muted);
+}
+
+.rail-footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rail-footer a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 160ms var(--ease);
+}
+
+.rail-footer a:hover {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+.rail-footer .toc-label {
+  margin-bottom: 10px;
+  color: var(--fg);
+}
+
+/* Only where the rail cannot show the links: see the phone block at the end. */
+.site-footer {
+  display: none;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Up to --gutter-max of gutter once the viewport can spare it, then the column
+   stays put rather than drifting away from the rail. */
+.content {
+  max-width: var(--col-w);
+  margin-left: clamp(0px, calc((100% - var(--col-w)) / 2), var(--gutter-max));
+  padding: 64px var(--col-pad) 96px;
+}
+
+/* Anchor jumps (#work, "On this page") land with the same space above the
+   heading as the top of the page. */
+[id],
+.prose h2 {
+  scroll-margin-top: 64px;
+}
+
+.content > section + section {
+  margin-top: 112px;
+}
+
+/* Section header */
+
+.section-header {
+  margin-bottom: 40px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-header h1,
+.section-header h2 {
+  font-size: var(--text-h2);
+  line-height: 1.15;
+  letter-spacing: var(--track-h2);
+}
+
+/* 01 About */
+
+.name {
+  font-size: var(--text-display);
+  line-height: 1;
+  letter-spacing: var(--track-display);
+}
+
+.identity {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.rule {
+  margin: 24px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.figure {
+  margin-top: 40px;
+}
+
+.frame {
+  padding: 10px;
+  background: var(--frame);
+  border: 1px solid var(--line);
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+}
+
+/* 02 Work */
+
+.entry + .entry {
+  margin-top: 48px;
+}
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.entry-head h3,
+.feature-head h3,
+.lab-row h3,
+.year h2 {
+  font-size: var(--text-h3);
+  line-height: 1.25;
+  letter-spacing: var(--track-h3);
+}
+
+.entry-head .meta,
+.feature-head .meta,
+.lab-row .meta {
+  flex: none;
+  color: var(--muted);
+}
+
+/* Body weight: the serif company name stays the top of the hierarchy, and the
+   role is told apart from the paragraphs under it by colour alone. */
+.role {
+  margin: 4px 0 12px;
+}
+
+.entry p:not(.role, .tags),
+.feature > p,
+.lab-row p {
+  color: var(--soft);
+}
+
+.entry p + p {
+  margin-top: 12px;
+}
+
+.entry .tags {
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.previously {
+  margin-top: 48px;
+  color: var(--soft);
+}
+
+/* 03 Lab */
+
+.feature-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.feature-head h3 a,
+.lab-row h3 a,
+.writing a {
+  text-decoration: none;
+}
+
+.feature-head h3 a:hover,
+.lab-row h3 a:hover,
+.writing a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+}
+
+.footnote {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.lab-list {
+  margin-top: 48px;
+}
+
+.lab-row {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.lab-row-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+/* 04 Writing */
+
+.writing {
+  list-style: none;
+  padding: 0;
+}
+
+.writing li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.writing time {
+  flex: none;
+  width: 96px;
+  color: var(--muted);
+}
+
+.writing a {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--text-h3);
+  line-height: 1.25;
+  letter-spacing: var(--track-h3);
+}
+
+/* About page */
+
+.portrait {
+  width: 180px;
+  margin-bottom: 32px;
+}
+
+.portrait img {
+  width: 100%;
+  height: auto;
+}
+
+.about-copy p + p {
+  margin-top: 16px;
+}
+
+.timeline {
+  margin-top: 56px;
+}
+
+.year {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.year ul {
+  margin-top: 12px;
+  padding-left: 1.2em;
+  color: var(--soft);
+}
+
+.year li + li {
+  margin-top: 8px;
+}
+
+.contact {
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.contact div {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact dt {
+  width: 200px;
+  color: var(--muted);
+}
+
+/* Post page */
+
+.post-title {
+  font-size: var(--text-display);
+  line-height: 1;
+  letter-spacing: var(--track-display);
+}
+
+.dek {
+  margin-top: 16px;
+  font-family: var(--serif);
+  font-size: var(--text-h3);
+  line-height: 1.4;
+  letter-spacing: var(--track-h3);
+  color: var(--soft);
+}
+
+/* One plain line: when it was written, how long it takes, where the source is. */
+.post-meta {
+  margin: 24px 0 48px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+/* Post body (MDX) */
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose h2 {
+  margin-top: 56px;
+  font-size: var(--text-h2);
+  line-height: 1.15;
+  letter-spacing: var(--track-h2);
+}
+
+.prose h3 {
+  margin-top: 40px;
+  font-size: var(--text-h3);
+  line-height: 1.25;
+  letter-spacing: var(--track-h3);
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-top: 12px;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+
+.prose li + li {
+  margin-top: 0.35em;
+}
+
+.prose blockquote {
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+  color: var(--soft);
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.prose img {
+  height: auto;
+}
+
+.prose :not(pre) > code {
+  padding: 0.1em 0.3em;
+  background: var(--code);
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+.prose pre {
+  overflow-x: auto;
+  padding: 16px;
+  background: var(--code);
+  border: 1px solid var(--line);
+  font: var(--text-sm) / 1.6 var(--mono);
+}
+
+.prose pre code {
+  font: inherit;
+}
+
+.prose table {
+  border-collapse: collapse;
+}
+
+.prose th,
+.prose td {
+  padding: 10px 16px 10px 0;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose tr:last-child td {
+  border-bottom: 1px solid var(--line);
+}
+
+.prose th {
+  font-weight: 500;
+}
+
+.prose .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Footnotes (remark-gfm) */
+
+.prose section[data-footnotes] {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--soft);
+}
+
+.prose #footnote-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.prose section[data-footnotes] li > p {
+  display: inline;
+}
+
+.prose a[data-footnote-backref] {
+  font-variant-emoji: text;
+  text-decoration: none;
+}
+
+/* TikZ diagrams (lib/rehype-tikz.mjs): TeX draws black on white, so map black
+   to the text colour and white (label backgrounds) to the page. */
+.prose figure.tikz {
+  display: flex;
+  justify-content: center;
+  color: var(--fg);
+}
+
+.prose figure.tikz > svg {
+  height: auto;
+  fill: currentColor;
+}
+
+.prose figure.tikz [stroke='#000'] {
+  stroke: currentColor;
+}
+
+.prose figure.tikz [fill='#000'] {
+  fill: currentColor;
+}
+
+.prose figure.tikz [fill='#fff'] {
+  fill: var(--bg);
+}
+
+/* highlight.js tokens */
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-meta {
+  color: var(--code-keyword);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-template-tag,
+.hljs-attr {
+  color: var(--code-string);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-type {
+  color: var(--code-number);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a,
+  .icon-button,
+  .rail-nav a,
+  .rail-footer a {
+    transition-duration: 0ms;
+  }
+}
+
+/* External monitor: the same layout, scaled up. Type grows a step and the
+   column grows with it, so a paragraph is not a tall narrow stack in the
+   middle of a wide screen. */
+
+@media (min-width: 2000px) {
+  :root {
+    --rail-w: 260px;
+    --col-w: 1100px;
+    --col-pad: 80px;
+    --gutter-max: 200px;
+
+    --text-display: clamp(42px, 5.6vw, 68px);
+    --text-h2: 36px;
+    --text-h3: 23px;
+    --text-body: 18px;
+    --text-sm: 15px;
+  }
+
+  .monogram {
+    height: 76px;
+  }
+
+  .content {
+    padding-top: 80px;
+  }
+}
+
+/* Phone: the rail becomes a top bar */
+
+@media (max-width: 720px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  /* The rail becomes one sticky row: monogram, sections, theme button. */
+  .rail {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .rail-inner {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    height: auto;
+    overflow: visible;
+    padding: 6px 16px;
+  }
+
+  .monogram-link {
+    align-self: auto;
+  }
+
+  .monogram {
+    height: 26px;
+  }
+
+  .rail-nav {
+    flex: 1;
+    margin: 0;
+  }
+
+  .rail .theme-toggle {
+    align-self: auto;
+    margin-top: 0;
+  }
+
+  .rail-nav ol {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 10px;
+    justify-content: center;
+  }
+
+  .rail-nav a {
+    padding-left: 8px;
+  }
+
+  /* Anchor targets clear the sticky bar (57px) plus the phone top padding. */
+  [id],
+  .prose h2 {
+    scroll-margin-top: 93px;
+  }
+
+  /* The top bar has no room for them, so they wait at the end of the page. */
+  .rail-footer {
+    display: none;
+  }
+
+  .site-footer {
+    display: block;
+    padding: 28px 20px 36px;
+    background: var(--rail);
+    border-top: 1px solid var(--line);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    letter-spacing: var(--track-sm);
+  }
+
+  .site-footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+
+  .site-footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .content {
+    padding: 36px 20px 72px;
+  }
+
+  .content > section + section {
+    margin-top: 72px;
+  }
+
+  .entry-head,
+  .feature-head,
+  .lab-row-head {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .writing li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact dt {
+    width: auto;
+  }
+}

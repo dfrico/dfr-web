@@ -1,20 +1,26 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
+/** The `meta` block every post in app/_posts declares. */
 export type Meta = {
   title: string;
   description: string;
   date: string;
   readTime: number | string; // minutes
   postImg?: string;
+  updated?: string;
+  result?: string;
+  stack?: string;
+  code?: string;
 };
 
 export type Post = {
+  slug: string;
   link: string;
   module: { meta: Meta };
 };
 
-const BLOG_DIR = path.join(process.cwd(), 'app/(pages)/blog');
+const BLOG_DIR = path.join(process.cwd(), 'app/_posts');
 const IMAGE_EXT = /\.(jpe?g|png|gif|webp)$/i;
 
 function extractMeta(source: string, slug: string): Meta | null {
@@ -48,6 +54,10 @@ function extractMeta(source: string, slug: string): Meta | null {
   }
 }
 
+export function postSource(slug: string): string {
+  return readFileSync(path.join(BLOG_DIR, slug, 'page.mdx'), 'utf-8');
+}
+
 const posts: Post[] = readdirSync(BLOG_DIR)
   .filter(
     (slug) =>
@@ -55,10 +65,9 @@ const posts: Post[] = readdirSync(BLOG_DIR)
       existsSync(path.join(BLOG_DIR, slug, 'page.mdx')),
   )
   .flatMap((slug) => {
-    const source = readFileSync(path.join(BLOG_DIR, slug, 'page.mdx'), 'utf-8');
-    const meta = extractMeta(source, slug);
+    const meta = extractMeta(postSource(slug), slug);
     if (!meta) return [];
-    return [{ link: `/${slug}`, module: { meta } }];
+    return [{ slug, link: `/${slug}`, module: { meta } }];
   })
   .sort((a, b) => b.link.localeCompare(a.link));
 

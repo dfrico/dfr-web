@@ -36,7 +36,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-app/(pages)/blog/*-WIP
+app/_posts/*-WIP
 
 # copied from node-tikzjax on install (yarn tikz:fonts)
 public/tikzjax
